@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace EasySave_G3_V1
 {
-    public class Langue
+    public class Langage
     {
         private string Title;
         private string Source;
 
-        public Langue(string title, string source)
+        public Langage(string title, string source)
         {
             Title = title;
             Source = source;
