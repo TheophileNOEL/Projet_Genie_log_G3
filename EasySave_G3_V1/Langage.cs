@@ -11,6 +11,12 @@ namespace EasySave_G3_V1
         private string Title;
         private string Source;
 
+        public Langage()
+        {
+            Title = string.Empty;
+            Source = string.Empty;
+        }
+
         public Langage(string title, string source)
         {
             Title = title;
