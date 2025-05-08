@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace EasySave_G3_V1
 {
@@ -24,7 +26,7 @@ namespace EasySave_G3_V1
         }
         public void AddLangage(Langage langage)
         {
-            ListLangage.Add(langage);
+            this.ListLangage.Add(langage);
         }
         public void RemoveLangage(Langage langage)
         {
@@ -49,6 +51,19 @@ namespace EasySave_G3_V1
         public void ClearListLangage()
         {
             ListLangage.Clear();
+        }
+        public void SearchLangages()
+        {
+            string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string TargetFolder = Path.Combine(exePath, @"..\..\..\Langages");
+            string[] fichiers = Directory.GetFiles(TargetFolder);
+            foreach (string fichier in fichiers)
+            {
+                const string Separator = @"\";
+                int last_element = fichier.Split(Separator).Length;
+                string Title = fichier.Split(Separator)[last_element-1];
+                this.AddLangage(new Langage(Title, fichier));
+            }
         }
     }
 }

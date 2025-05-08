@@ -22,9 +22,9 @@ namespace EasySave_G3_V1
             State = false;
             Description = string.Empty;
         }
-        public Script(int id, string source, string target, bool state, string description)
+        public Script(string source, string target, bool state, string description)
         {
-            Id = id;
+            this.Id = -1;
             Source = source;
             Target = target;
             State = state;
