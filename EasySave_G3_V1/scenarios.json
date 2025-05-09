@@ -1,0 +1,19 @@
+[
+  {
+    "Id": 1,
+    "Name": "Test1",
+    "Source": "C:\\Test\\Source",
+    "Target": "C:\\Test\\Dest",
+    "Type": "Full",
+    "Description": "Backup complet 1"
+  },
+  {
+    "Id": 2,
+    "Name": "Test2",
+    "Source": "C:\\Test\\Source",
+    "Target": "C:\\Test\\Dest",
+    "Type": "Differential",
+    "State": "Cancelled",
+    "Description": "Backup différentiel 2"
+  }
+]
