@@ -1,94 +1,90 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
+using System.IO;
 
 namespace EasySave_G3_V1
 {
     public class Folder
     {
-        private string Source;
-        private DateTime Date;
-        private string Name;
-        private bool isDrived;
-        private int Size;
+        private string path;
+        private DateTime date;
+        private string name;
+        private bool isMounted;
+        private long sizeBytes;
         private bool isFile;
 
         public Folder()
         {
-            Source = string.Empty;
-            Date = DateTime.Now;
-            Name = string.Empty;
-            isDrived = false;
-            Size = 0;
+            path = string.Empty;
+            date = DateTime.Now;
+            name = string.Empty;
+            isMounted = false;
+            sizeBytes = 0;
             isFile = false;
         }
 
-        public Folder(string source, DateTime date, string name, bool isDrived, int size, bool isFile)
+        public Folder(string path,
+                      DateTime date,
+                      string name,
+                      bool isMounted,
+                      long sizeBytes)
         {
-            Source = source;
-            Date = date;
-            Name = name;
-            this.isDrived = isDrived;
-            Size = size;
-            this.isFile = isFile;
+            this.path = path;
+            this.date = date;
+            this.name = name;
+            this.isMounted = isMounted;
+            this.sizeBytes = sizeBytes;
+            this.isFile = DetectIsFile(path);
         }
-        public string GetSource()
+
+        public string GetPath() { return path; }
+        public DateTime GetDate() { return date; }
+        public string GetName() { return name; }
+        public bool GetIsMounted() { return isMounted; }
+        public long GetSize() { return sizeBytes; }
+        public bool GetIsFile() { return isFile; }
+
+        public void SetPath(string v)
         {
-            return Source;
+            path = v;
+            isFile = DetectIsFile(v);
         }
-        public DateTime GetDate()
+        public void SetDate(DateTime v) { date = v; }
+        public void SetName(string v) { name = v; }
+        public void SetIsMounted(bool v) { isMounted = v; }
+        public void SetSize(long v) { sizeBytes = v; }
+
+        public bool IsSame(Folder other)
         {
-            return Date;
+            return other != null
+                && string.Equals(path, other.GetPath(), StringComparison.InvariantCultureIgnoreCase);
         }
-        public string GetName()
+
+        public bool Move(Folder dest)
         {
-            return Name;
+            if (dest == null) return false;
+            try
+            {
+                if (isFile)
+                    System.IO.File.Move(path, dest.GetPath());
+                else
+                    System.IO.Directory.Move(path, dest.GetPath());
+
+                path = dest.GetPath();
+                date = DateTime.Now;
+                sizeBytes = isFile ? new FileInfo(path).Length : 0;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
-        public bool GetIsDrived()
+
+        private bool DetectIsFile(string p)
         {
-            return isDrived;
-        }
-        public int GetSize()
-        {
-            return Size;
-        }
-        public bool GetIsFile()
-        {
-            return isFile;
-        }
-        public void SetSource(string source)
-        {
-            Source = source;
-        }
-        public void SetDate(DateTime date)
-        {
-            Date = date;
-        }
-        public void SetName(string name)
-        {
-            Name = name;
-        }
-        public void SetIsDrived(bool isDrived)
-        {
-            this.isDrived = isDrived;
-        }
-        public void SetSize(int size)
-        {
-            Size = size;
-        }
-        public void SetIsFile(bool isFile)
-        {
-            this.isFile = isFile;
-        }
-        public bool IsSame(Folder Folder)
-        {
-            return true;
-        }
-        public bool Move(Folder Folder)
-        {
-            return true;
+            if (System.IO.File.Exists(p)) return true;
+            if (System.IO.Directory.Exists(p)) return false;
+            return System.IO.Path.HasExtension(p);
         }
     }
 }
