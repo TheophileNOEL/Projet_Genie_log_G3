@@ -13,3 +13,11 @@ C:\Users\theop\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logic
 C:\Users\theop\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\EasySave_G3_V1\obj\Debug\net8.0\EasySave_G3_V1.pdb
 C:\Users\theop\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\EasySave_G3_V1\obj\Debug\net8.0\EasySave_G3_V1.genruntimeconfig.cache
 C:\Users\theop\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\EasySave_G3_V1\obj\Debug\net8.0\ref\EasySave_G3_V1.dll
+C:\Users\dell\source\repos\Projet_Genie_log_G3\EasySave_G3_V1\obj\Debug\net8.0\EasySave_G3_V1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\source\repos\Projet_Genie_log_G3\EasySave_G3_V1\obj\Debug\net8.0\EasySave_G3_V1.AssemblyInfoInputs.cache
+C:\Users\dell\source\repos\Projet_Genie_log_G3\EasySave_G3_V1\obj\Debug\net8.0\EasySave_G3_V1.AssemblyInfo.cs
+C:\Users\dell\source\repos\Projet_Genie_log_G3\EasySave_G3_V1\obj\Debug\net8.0\EasySave_G3_V1.csproj.CoreCompileInputs.cache
+C:\Users\dell\source\repos\Projet_Genie_log_G3\EasySave_G3_V1\obj\Debug\net8.0\EasySave_G3_V1.sourcelink.json
+C:\Users\dell\source\repos\Projet_Genie_log_G3\EasySave_G3_V1\obj\Debug\net8.0\EasySave_G3_V1.dll
+C:\Users\dell\source\repos\Projet_Genie_log_G3\EasySave_G3_V1\obj\Debug\net8.0\refint\EasySave_G3_V1.dll
+C:\Users\dell\source\repos\Projet_Genie_log_G3\EasySave_G3_V1\obj\Debug\net8.0\EasySave_G3_V1.pdb
