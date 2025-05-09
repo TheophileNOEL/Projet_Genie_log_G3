@@ -63,9 +63,9 @@ public class ScenarioList
         }
     }
 
-    public void Modify(int index)
+    public void Modify(int index, Langage L)
     {
-        if (index < 0 || index >= items.Count || items[index] == null)
+        if (index <= 0 || index >= items.Count || items[index] == null)
             throw new IndexOutOfRangeException("Index invalide ou scénario vide.");
 
         var current = items[index];

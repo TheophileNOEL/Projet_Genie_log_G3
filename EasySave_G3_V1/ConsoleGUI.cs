@@ -89,11 +89,26 @@ class Programm
             }
             
         }
+        Begin(L);
     }
 
     void UpdateScript(Langage L)
     {
+        ScenarioList scenarioList = new ScenarioList();
         Console.WriteLine(L.GetElements()["Separator"]);
+        Console.WriteLine(L.GetElements()["SelectScript"]);
+        foreach (Scenario scenario in scenarioList.Load("C:\\Users\\theop\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\EasySave_G3_V1\\scenarios.json"))
+        {
+            Console.WriteLine(scenario.Id + "     " + scenario.Name + "     " + scenario.Type + "     " + scenario.Source + " --> " + scenario.Target);
+        }
+        int result = int.Parse(Console.ReadLine());
+        scenarioList.Modify(result-1, L);
+        Console.WriteLine(L.GetElements()["Separator"]);
+        foreach (Scenario scenario in scenarioList.Load("C:\\Users\\theop\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\EasySave_G3_V1\\scenarios.json"))
+        {
+            Console.WriteLine(scenario.Id + "     " + scenario.Name + "     " + scenario.Type + "     " + scenario.Source + " --> " + scenario.Target);
+        }
+        Begin(L);
     }
     void SelectLangage(Langage L, List<Langage> listLangages) 
     {
