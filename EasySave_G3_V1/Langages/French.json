@@ -1,7 +1,7 @@
 {
-  "Welcome": "Bonjour veuillez choisir des scénarios à exécuter :",
+  "Welcome": "Bonjour veuillez sélectionner une des actions suivantes.",
   "Separator": "**********************************************************************************",
-  "SelectAction": "Vous pouvez :\nSélectionner des scénarios  --> Tapper 1\nModifier un scenario        --> Tapper 2\nChanger de Langue           --> Tapper 3",
+  "SelectAction": "Vous pouvez :\nSélectionner des scénarios  --> Tapper 1\nModifier un scenario        --> Tapper 2\nChanger de Langue           --> Tapper 3\nQuitter                     --> Tapper 4",
   "ExempleScript": "Voici un exemple de sélection de scenarios : \n1 - 3 (de 1 à 3),\n 1;3 (1 et 3)",
   "SelectScript": "Veulliez sélectionner un script ou une liste de script parmis la liste suivante :",
   "ChangeLangages": "Veuilliez sélectionner une langue parmis la liste ci-dessous :"
