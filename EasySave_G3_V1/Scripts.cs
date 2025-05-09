@@ -54,7 +54,7 @@ namespace EasySave_G3_V1
                 const string Separator = @"\";
                 int last_element = fichier.Split(Separator).Length;
                 string Title = fichier.Split(Separator)[last_element - 1];
-                this.AddScript(new Script())
+                this.AddScript(new Script());
             }
         }
     }

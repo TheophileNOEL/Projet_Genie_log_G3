@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 
 public class ScenarioList
 {
-    private Scenario[] items = new Scenario[5];
+    private List<Scenario> items = new List<Scenario>();
     private int scriptStart;
     private int scriptEnd;
 
@@ -31,14 +31,15 @@ public class ScenarioList
         };
 
         var scenarios = JsonSerializer.Deserialize<List<Scenario>>(json, options);
-        this.items = scenarios.ToArray();
+        this.items = scenarios;
         return scenarios;
     }
 
     // Execute scenarios from (1,3)
     public void RunRange(int start, int end)
     {
-        if (start < 0 || end >= items.Length || start > end)
+        Console.WriteLine("Execution de la plage de scénario : " + start + " à " + end);
+        if (start < 0 || end >= items.Count+1 || start > end)
             throw new ArgumentOutOfRangeException("Plage invalide.");
 
         for (int i = start; i <= end; i++)
@@ -55,16 +56,16 @@ public class ScenarioList
     {
         foreach (int i in ids)
         {
-            if (i >= 0 && i < items.Length && items[i] != null)
+            if (i-1 >= 0 && i-1 < items.Count+1 && items[i-1] != null)
             {
-                items[i].Execute();
+                items[i-1].Execute();
             }
         }
     }
 
     public void Modify(int index)
     {
-        if (index < 0 || index >= items.Length || items[index] == null)
+        if (index < 0 || index >= items.Count || items[index] == null)
             throw new IndexOutOfRangeException("Index invalide ou scénario vide.");
 
         var current = items[index];
@@ -134,7 +135,7 @@ public class ScenarioList
     }
 
 
-    public Scenario[] Get()
+    public List<Scenario> Get()
     {
         return items;
     }
