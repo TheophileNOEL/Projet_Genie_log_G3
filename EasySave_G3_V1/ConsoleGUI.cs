@@ -56,15 +56,18 @@ class Programm
         Console.WriteLine(L.GetElements()["SelectScript"]);
         Console.WriteLine(L.GetElements()["ExempleScript"]);
         Console.WriteLine(L.GetElements()["Separator"].Substring(0, 20));
-
+        var c = 1;
         foreach (Scenario scenario in scenarioList.Get())
         {
             Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
+            c++;
         }
-
+        Console.WriteLine(c + "     " + L.GetElements()["Back"]);
         Console.WriteLine((scenarioList.Get()[scenarioList.Get().Count-1].GetId()+1) + L.GetElements()["Separator"]);
         string result = Console.ReadLine();
-        if (IsRange(result))
+        if (int.Parse(result) == c) 
+             Begin(L);
+        else if (IsRange(result))
         {
             // Extract Begin and end range from the input  
             string[] rangeParts = result.Split('-');
@@ -107,12 +110,18 @@ class Programm
         ScenarioList scenarioList = new ScenarioList();
         Console.WriteLine(L.GetElements()["Separator"]);
         Console.WriteLine(L.GetElements()["SelectScript"]);
+        int c = 1;
         foreach (Scenario scenario in scenarioList.Load("C:\\Users\\theop\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\EasySave_G3_V1\\scenarios.json"))
         {
             Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
+            c++;
         }
+        Console.WriteLine(c + "     " + L.GetElements()["Back"]);
         int result = int.Parse(Console.ReadLine());
-        scenarioList.Modify(result, L);
+        if (result == c)
+            Begin(L);
+        else 
+            scenarioList.Modify(result, L);
         Console.WriteLine(L.GetElements()["Separator"]);
         foreach (Scenario scenario in scenarioList.Load("C:\\Users\\theop\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\EasySave_G3_V1\\scenarios.json"))
         {
@@ -130,8 +139,12 @@ class Programm
             Console.WriteLine(i+"    "+l.GetTitle().Split(".")[0]);
             i++;
         }
+        Console.WriteLine(i + "    " + L.GetElements()["Back"]);
         int result = int.Parse(Console.ReadLine());
-        Begin(listLangages[result-1]);
+        if (result == i)
+            Begin(L);
+        else
+            Begin(listLangages[result - 1]);
     }
     static bool IsRange(string texte)
     {

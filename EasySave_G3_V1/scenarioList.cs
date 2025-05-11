@@ -31,10 +31,6 @@ public class ScenarioList
         };
 
         List<Scenario> scenarios = JsonSerializer.Deserialize<List<Scenario>>(json, options);
-        foreach (Scenario scenario in scenarios)
-        {
-            Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
-        }
         this.items = scenarios;
         return scenarios;
     }

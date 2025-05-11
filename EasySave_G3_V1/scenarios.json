@@ -5,6 +5,7 @@
     "Source": "C:\\Test\\Source",
     "Target": "C:\\Test\\Dest",
     "Type": "Full",
+    "State": "Pending",
     "Description": "Backup complet 1"
   },
   {
@@ -13,7 +14,7 @@
     "Source": "C:\\Test\\Source",
     "Target": "C:\\Test\\Dest",
     "Type": "Differential",
-    "State": "Cancelled",
+    "State": "Pending",
     "Description": "Backup différentiel 2"
   }
 ]
