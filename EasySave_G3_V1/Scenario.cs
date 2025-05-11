@@ -28,9 +28,34 @@ namespace EasySave_G3_V1
         public string Source { get; set; }      // Source directory or file to backup
         public string Target { get; set; }      // Target directory or location to store the backup
         public BackupType Type { get; set; }    // Type of backup (Full or Differential)
-        public BackupState State { get; private set; }  // Current state of the backup (Pending, Running, etc.)
+        public BackupState State { get; set; }  // Current state of the backup (Pending, Running, etc.)
         public string Description { get; set; } // Additional description about the backup scenario
-        
+        public LogEntry Log { get; set; }       // Log entry associated with the backup scenario
+
+        public int GetId() => Id;
+        public void SetId(int value) => Id = value;
+
+        public string GetName() => Name;
+        public void SetName(string value) => Name = value;
+
+        public string GetSource() => Source;
+        public void SetSource(string value) => Source = value;
+
+        public string GetTarget() => Target;
+        public void SetTarget(string value) => Target = value;
+
+        public BackupType GetType() => Type;
+        public void SetType(BackupType value) => Type = value;
+
+        public BackupState GetState() => State;
+        public void SetState(BackupState value) => State = value;
+
+        public string GetDescription() => Description;
+        public void SetDescription(string value) => Description = value;
+
+        public LogEntry GetLog() => Log;
+        public void SetLog(LogEntry value) => Log = value;
+
         // Default constructor that initializes properties with default values
         public Scenario()
         {
@@ -41,18 +66,20 @@ namespace EasySave_G3_V1
             Type = BackupType.Full; // Default type is Full backup
             State = BackupState.Pending; // Default state is Pending
             Description = string.Empty; 
+            Log = new LogEntry(); // Initialize LogEntry
         }
 
         // Constructor with parameters to initialize the scenario with specific values
-        public Scenario(string name, string source, string target, BackupType type, string description)
+        public Scenario(int id, string name, string source, string target, BackupType type, string description)
         {
-            Id = -1;                
+            Id = id;                
             Name = name;            
             Source = source;        
             Target = target;        
             Type = type;            
             State = BackupState.Pending;          
-            Description = description; 
+            Description = description;
+            Log = new LogEntry(); // Initialize LogEntry
         }
 
         // Method to execute the backup scenario
@@ -81,22 +108,28 @@ namespace EasySave_G3_V1
 
         private void runSave()
         {
+            var JosStart = DateTime.Now.Millisecond;
             if (!Directory.Exists(Source))
                 throw new DirectoryNotFoundException($"Source path '{Source}' not found.");
             if (!Directory.Exists(Target))
                 throw new DirectoryNotFoundException($"Target path '{Target}' not found.");
 
+            this.Log = new LogEntry(DateTime.Now, this.Name, Type, Source, Target, 0, 0, true, Description, new List<Folder>());
             foreach (string filePath in Directory.GetFiles(Source, "*", SearchOption.AllDirectories))
             {
                 string relativePath = Path.GetRelativePath(Source, filePath);
                 string targetPath = Path.Combine(Target, relativePath);
+
+                FileInfo fileInfo = new FileInfo(filePath);
+
+                Log.AddFolder(new Folder(filePath, File.GetLastWriteTime(filePath),Path.GetFileName(filePath),true,fileInfo.Length));
 
                 bool shouldCopy = false;
 
                 switch (Type)
                 {
                     case BackupType.Full:
-                        shouldCopy = true; // On copie tout
+                        shouldCopy = true; 
                         break;
 
                     case BackupType.Differential:
@@ -120,6 +153,9 @@ namespace EasySave_G3_V1
                     }
                 }
             }
+            
+            Log.SetFileSizeBytes(Log.CalculateTotalSize(Log.GetListFolder()));
+            Log.SetDurationMs(DateTime.Now.Millisecond - JosStart);
         }
 
 

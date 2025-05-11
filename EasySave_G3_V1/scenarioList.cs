@@ -30,7 +30,11 @@ public class ScenarioList
             Converters = { new JsonStringEnumConverter() }
         };
 
-        var scenarios = JsonSerializer.Deserialize<List<Scenario>>(json, options);
+        List<Scenario> scenarios = JsonSerializer.Deserialize<List<Scenario>>(json, options);
+        foreach (Scenario scenario in scenarios)
+        {
+            Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
+        }
         this.items = scenarios;
         return scenarios;
     }
@@ -44,9 +48,9 @@ public class ScenarioList
 
         for (int i = start; i <= end; i++)
         {
-            if (items[i] != null)
+            if (items[i-1] != null)
             {
-                items[i].Execute();
+                items[i-1].Execute();
             }
         }
     }
@@ -65,26 +69,26 @@ public class ScenarioList
 
     public void Modify(int index, Langage L)
     {
-        if (index <= 0 || index >= items.Count || items[index] == null)
+        if (index <= 0 || index >= items.Count || items[index-1] == null)
             throw new IndexOutOfRangeException("Index invalide ou scénario vide.");
 
-        var current = items[index];
+        var current = items[index-1];
 
-        Console.WriteLine($"Modification du scénario à l'index {index} (actuel : {current.Name})");
+        Console.WriteLine($"Modification du scénario à l'index {index} (actuel : {current.GetName()})");
 
         // ID
         Console.Write("Nouvel ID (laisser vide pour garder) : ");
         var newIdStr = Console.ReadLine();
-        int newId = current.Id;
+        int newId = current.GetId();
         if (!string.IsNullOrWhiteSpace(newIdStr) && int.TryParse(newIdStr, out int parsedId))
         {
-            var existing = items.FirstOrDefault(s => s != null && s.Id == parsedId && s != current);
+            var existing = items.FirstOrDefault(s => s != null && s.GetId() == parsedId && s != current);
             if (existing != null)
             {
                 Console.WriteLine($"ID {parsedId} already used. Inverting ID.");
-                int temp = current.Id;
-                current.Id = existing.Id;
-                existing.Id = temp;
+                int temp = current.GetId();
+                current.SetId(existing.GetId());
+                existing.SetId(temp);
             }
             else
             {
@@ -106,7 +110,7 @@ public class ScenarioList
 
         Console.Write("Nouveau type (Full ou Differential) (laisser vide pour garder) : ");
         var newTypeStr = Console.ReadLine();
-        BackupType newType = current.Type;
+        BackupType newType = current.GetType();
         if (!string.IsNullOrWhiteSpace(newTypeStr))
         {
             if (Enum.TryParse<BackupType>(newTypeStr, true, out var parsedType))
@@ -124,12 +128,12 @@ public class ScenarioList
         var newDesc = Console.ReadLine();
 
 
-        current.Id = newId;
-        if (!string.IsNullOrWhiteSpace(newName)) current.Name = newName;
-        if (!string.IsNullOrWhiteSpace(newSource)) current.Source = newSource;
-        if (!string.IsNullOrWhiteSpace(newTarget)) current.Target = newTarget;
-        current.Type = newType;
-        if (!string.IsNullOrWhiteSpace(newDesc)) current.Description = newDesc;
+        current.SetId(newId);
+        if (!string.IsNullOrWhiteSpace(newName)) current.SetName(newName);
+        if (!string.IsNullOrWhiteSpace(newSource)) current.SetSource(newSource);
+        if (!string.IsNullOrWhiteSpace(newTarget)) current.SetTarget(newTarget);
+        current.SetType(newType);
+        if (!string.IsNullOrWhiteSpace(newDesc)) current.SetDescription(newDesc);
 
         Console.WriteLine("Modification terminée.");
     }
@@ -144,7 +148,7 @@ public class ScenarioList
     public ScenarioList Search(string keyword)
     {
         var results = items
-            .Where(s => s != null && (s.Name.Contains(keyword, StringComparison.OrdinalIgnoreCase) || s.Description.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
+            .Where(s => s != null && (s.GetName().Contains(keyword, StringComparison.OrdinalIgnoreCase) || s.GetDescription().Contains(keyword, StringComparison.OrdinalIgnoreCase)))
             .ToArray();
 
         var newList = new ScenarioList();

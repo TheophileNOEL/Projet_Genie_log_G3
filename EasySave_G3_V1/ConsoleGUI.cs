@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Reflection;
+using System.Text.Json;
 namespace EasySave_G3_V1;
 
 class Programm
@@ -50,16 +51,18 @@ class Programm
     void SelectScript(Langage L)
     {
         ScenarioList scenarioList = new ScenarioList();
+        scenarioList.Load("C:\\Users\\theop\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\EasySave_G3_V1\\scenarios.json");
         Console.WriteLine(L.GetElements()["Separator"]);
         Console.WriteLine(L.GetElements()["SelectScript"]);
         Console.WriteLine(L.GetElements()["ExempleScript"]);
         Console.WriteLine(L.GetElements()["Separator"].Substring(0, 20));
 
-        foreach (Scenario scenario in scenarioList.Load("C:\\Users\\theop\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\EasySave_G3_V1\\scenarios.json"))
+        foreach (Scenario scenario in scenarioList.Get())
         {
-            Console.WriteLine(scenario.Id + "     " + scenario.Name + "     " + scenario.Type + "     " + scenario.Source + " --> " + scenario.Target);
+            Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
         }
 
+        Console.WriteLine((scenarioList.Get()[scenarioList.Get().Count-1].GetId()+1) + L.GetElements()["Separator"]);
         string result = Console.ReadLine();
         if (IsRange(result))
         {
@@ -70,6 +73,7 @@ class Programm
             // Call RunRange with the extracted parameters  
             scenarioList.RunRange(Begin, end);
         }
+
         else if (IsList(result)) 
         {
             // Extract Begin and end range from the input  
@@ -81,6 +85,7 @@ class Programm
                 scenarioList.RunList(new int[] { Begin });
             }
         }
+
         else
         {
             if (int.TryParse(result, out int id))
@@ -88,6 +93,11 @@ class Programm
                 scenarioList.RunList([int.Parse(result)]);
             }
             
+        }
+
+        foreach (Scenario scenario in scenarioList.Get())
+        {
+            Console.WriteLine(scenario.GetLog().Display());
         }
         Begin(L);
     }
@@ -99,14 +109,14 @@ class Programm
         Console.WriteLine(L.GetElements()["SelectScript"]);
         foreach (Scenario scenario in scenarioList.Load("C:\\Users\\theop\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\EasySave_G3_V1\\scenarios.json"))
         {
-            Console.WriteLine(scenario.Id + "     " + scenario.Name + "     " + scenario.Type + "     " + scenario.Source + " --> " + scenario.Target);
+            Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
         }
         int result = int.Parse(Console.ReadLine());
-        scenarioList.Modify(result-1, L);
+        scenarioList.Modify(result, L);
         Console.WriteLine(L.GetElements()["Separator"]);
         foreach (Scenario scenario in scenarioList.Load("C:\\Users\\theop\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\EasySave_G3_V1\\scenarios.json"))
         {
-            Console.WriteLine(scenario.Id + "     " + scenario.Name + "     " + scenario.Type + "     " + scenario.Source + " --> " + scenario.Target);
+            Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
         }
         Begin(L);
     }

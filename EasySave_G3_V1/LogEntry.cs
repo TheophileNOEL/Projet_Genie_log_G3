@@ -79,11 +79,12 @@ namespace EasySave_G3_V1
 		public void SetState(bool v) { state = v; }
 		public void SetDescription(string v) { description = v; }
 		public void SetListFolder(List<Folder> v) { listFolder = v; }
+		public void SetFileSizeBytes(long v) { fileSizeBytes = v; }
 
-		public void AddFolder(Folder f) { listFolder.Add(f); }
+        public void AddFolder(Folder f) { listFolder.Add(f); }
 		public void RemoveFolder(Folder f) { listFolder.Remove(f); }
 
-		private long CalculateTotalSize(List<Folder> lf)
+		public long CalculateTotalSize(List<Folder> lf)
 		{
 			long sum = 0;
 			foreach (var f in lf) sum += f.GetSize();

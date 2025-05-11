@@ -57,7 +57,7 @@ namespace EasySave_G3_V1
         {
             try
             {
-                string jsonContent = File.ReadAllText(GetSource());
+                string jsonContent = File.ReadAllText(this.GetSource());
                 Dictionary<string,string> messages = JsonSerializer.Deserialize<Dictionary<string,string>>(jsonContent);
                 this.AddElement(element: messages);
             }
