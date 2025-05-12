@@ -9,13 +9,13 @@ using System.Text.Json.Serialization;
 public class ScenarioList
 {
     private List<Scenario> items = new List<Scenario>();
-    private int scriptStart;
-    private int scriptEnd;
+    private int scenarioStart;
+    private int scenarioEnd;
 
     public ScenarioList()
     {
-        scriptStart = 1;
-        scriptEnd = 5;
+        scenarioStart = 1;
+        scenarioEnd = 5;
     }
 
     // Load scenario 
@@ -120,7 +120,7 @@ public class ScenarioList
         }
 
 
-        Console.Write("Nouvelle description (laisser vide pour garder) : ");
+        Console.Write("Nouvelle descenarioion (laisser vide pour garder) : ");
         var newDesc = Console.ReadLine();
 
 
@@ -129,7 +129,7 @@ public class ScenarioList
         if (!string.IsNullOrWhiteSpace(newSource)) current.SetSource(newSource);
         if (!string.IsNullOrWhiteSpace(newTarget)) current.SetTarget(newTarget);
         current.SetType(newType);
-        if (!string.IsNullOrWhiteSpace(newDesc)) current.SetDescription(newDesc);
+        if (!string.IsNullOrWhiteSpace(newDesc)) current.SetDescenarioion(newDesc);
 
         Console.WriteLine("Modification terminée.");
     }
@@ -144,7 +144,7 @@ public class ScenarioList
     public ScenarioList Search(string keyword)
     {
         var results = items
-            .Where(s => s != null && (s.GetName().Contains(keyword, StringComparison.OrdinalIgnoreCase) || s.GetDescription().Contains(keyword, StringComparison.OrdinalIgnoreCase)))
+            .Where(s => s != null && (s.GetName().Contains(keyword, StringComparison.OrdinalIgnoreCase) || s.GetDescenarioion().Contains(keyword, StringComparison.OrdinalIgnoreCase)))
             .ToArray();
 
         var newList = new ScenarioList();

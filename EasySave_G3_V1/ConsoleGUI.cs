@@ -7,26 +7,27 @@ namespace EasySave_G3_V1;
 
 class Programm
 {
-    static void Main()
+    static void Main(string[] args)
     {
         Programm p = new Programm();
-        Langage langage = new Langage("French.json", "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\EasySave_G3_V1\\Langages\\French.json");
-        p.Begin(langage);
-        
-    }
-    void Begin(Langage Langue)
-    {
-        // Loading the French langage
-        Langages ListLangage = new Langages();
-        ListLangage.SearchLangages();
-        Langage L = new Langage();
-        foreach (Langage l in ListLangage.GetListLangage())
+        string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        ConsoleViewModel consoleViewModel = new ConsoleViewModel();
+        consoleViewModel.GetLangages().SearchLangages();
+        Langage langage = new Langage("French.json", Path.Combine(exePath, @"..\\..\\..\\Langages\\French.json"));
+        langage.LoadLangage();
+        if (args.Length > 0)
         {
-            if (l.GetTitle() == Langue.GetTitle())
-            {
-                l.LoadLangage();
-                L = l;
-            }
+            p.Selectscenario(consoleViewModel, langage, args[0]);
+        }
+        p.Begin(consoleViewModel, langage);
+    }
+    void Begin(ConsoleViewModel consoleViewModel, Langage L)
+    {
+        string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        // Loading the French langage
+        if (L.GetElements().Count == 0)
+        {
+            L.LoadLangage();
         }
         Console.WriteLine(L.GetElements()["Separator"]);
         Console.WriteLine(L.GetElements()["Welcome"]);
@@ -34,27 +35,28 @@ class Programm
         int result = int.Parse(Console.ReadLine());
         switch (result)
         {
-            case 1: SelectScript(L); break;
-            case 2: UpdateScript(L); break;
-            case 3: SelectLangage(L,ListLangage.GetListLangage()); break;
-            case 4:break;
-            default: ErrorEntry(L);break ;
+            case 1: Selectscenario(consoleViewModel, L); break;
+            case 2: Updatescenario(consoleViewModel, L); break;
+            case 3: SelectLangage(consoleViewModel, L,consoleViewModel.GetLangages().GetListLangage()); break;
+            case 4: break;
+            default: ErrorEntry(consoleViewModel, L);break ;
         }
     }
 
-    void ErrorEntry(Langage L)
+    void ErrorEntry(ConsoleViewModel consoleViewModel, Langage L)
     {
         Console.WriteLine(L.GetElements()["Separator"]);
         Console.WriteLine("Error bad entry. Please try again.");
-        Begin(L);
+        Begin(consoleViewModel, L);
     }
-    void SelectScript(Langage L)
+    void Selectscenario(ConsoleViewModel consoleViewModel, Langage L, string result = "")
     {
-        ScenarioList scenarioList = new ScenarioList();
-        scenarioList.Load("C:\\Users\\theop\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\EasySave_G3_V1\\scenarios.json");
+        ScenarioList scenarioList = consoleViewModel.GetScenarioList();
+        string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        scenarioList.Load(Path.Combine(exePath,@"..\\..\\..\\scenarios.json"));
         Console.WriteLine(L.GetElements()["Separator"]);
-        Console.WriteLine(L.GetElements()["SelectScript"]);
-        Console.WriteLine(L.GetElements()["ExempleScript"]);
+        Console.WriteLine(L.GetElements()["Selectscenario"]);
+        Console.WriteLine(L.GetElements()["Exemplescenario"]);
         Console.WriteLine(L.GetElements()["Separator"].Substring(0, 20));
         var c = 1;
         foreach (Scenario scenario in scenarioList.Get())
@@ -63,30 +65,32 @@ class Programm
             c++;
         }
         Console.WriteLine(c + "     " + L.GetElements()["Back"]);
-        Console.WriteLine((scenarioList.Get()[scenarioList.Get().Count-1].GetId()+1) + L.GetElements()["Separator"]);
-        string result = Console.ReadLine();
+        result = Console.ReadLine();
+        Console.WriteLine(L.GetElements()["Separator"]);
         if (int.Parse(result) == c) 
-             Begin(L);
+             Begin(consoleViewModel, L);
         else if (IsRange(result))
         {
-            // Extract Begin and end range from the input  
+            // Extract start and end range from the input  
             string[] rangeParts = result.Split('-');
-            int Begin = int.Parse(rangeParts[0].Trim());
+            int Start = int.Parse(rangeParts[0].Trim());
             int end = int.Parse(rangeParts[1].Trim());
             // Call RunRange with the extracted parameters  
-            scenarioList.RunRange(Begin, end);
+            scenarioList.RunRange(Start, end);
+            Begin(consoleViewModel, L);
         }
 
         else if (IsList(result)) 
         {
-            // Extract Begin and end range from the input  
+            // Extract start and end range from the input  
             string[] rangeParts = result.Split(',');
             foreach (string i in rangeParts)
             {
-                int Begin = int.Parse(i.Trim());
+                int Start = int.Parse(i.Trim());
                 // Call RunRange with the extracted parameters  
-                scenarioList.RunList(new int[] { Begin });
+                scenarioList.RunList(new int[] { Start });
             }
+            Begin(consoleViewModel, L);
         }
 
         else
@@ -95,23 +99,24 @@ class Programm
             { 
                 scenarioList.RunList([int.Parse(result)]);
             }
-            
+            Begin(consoleViewModel, L);
         }
 
         foreach (Scenario scenario in scenarioList.Get())
         {
             Console.WriteLine(scenario.GetLog().Display());
         }
-        Begin(L);
     }
 
-    void UpdateScript(Langage L)
+    void Updatescenario(ConsoleViewModel consoleViewModel, Langage L)
     {
-        ScenarioList scenarioList = new ScenarioList();
+        ScenarioList scenarioList = consoleViewModel.GetScenarioList();
         Console.WriteLine(L.GetElements()["Separator"]);
-        Console.WriteLine(L.GetElements()["SelectScript"]);
+        Console.WriteLine(L.GetElements()["Selectscenario"]);
         int c = 1;
-        foreach (Scenario scenario in scenarioList.Load("C:\\Users\\theop\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\EasySave_G3_V1\\scenarios.json"))
+        string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        scenarioList.Load(Path.Combine(exePath, @"..\\..\\..\\scenarios.json"));
+        foreach (Scenario scenario in scenarioList.Get())
         {
             Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
             c++;
@@ -119,17 +124,16 @@ class Programm
         Console.WriteLine(c + "     " + L.GetElements()["Back"]);
         int result = int.Parse(Console.ReadLine());
         if (result == c)
-            Begin(L);
+            Begin(consoleViewModel, L);
         else 
             scenarioList.Modify(result, L);
         Console.WriteLine(L.GetElements()["Separator"]);
-        foreach (Scenario scenario in scenarioList.Load("C:\\Users\\theop\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\EasySave_G3_V1\\scenarios.json"))
+        foreach (Scenario scenario in scenarioList.Get())
         {
             Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
         }
-        Begin(L);
     }
-    void SelectLangage(Langage L, List<Langage> listLangages) 
+    void SelectLangage(ConsoleViewModel consoleViewModel, Langage L, List<Langage> listLangages) 
     {
         Console.WriteLine(L.GetElements()["Separator"]);
         Console.WriteLine(L.GetElements()["ChangeLangages"]);
@@ -142,9 +146,9 @@ class Programm
         Console.WriteLine(i + "    " + L.GetElements()["Back"]);
         int result = int.Parse(Console.ReadLine());
         if (result == i)
-            Begin(L);
+            Begin(consoleViewModel, L);
         else
-            Begin(listLangages[result - 1]);
+            Begin(consoleViewModel, listLangages[result - 1]);
     }
     static bool IsRange(string texte)
     {

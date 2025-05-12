@@ -2,7 +2,8 @@
   "Welcome": "Welcome, please select one of the following actions.",
   "Separator": "**********************************************************************************",
   "SelectAction": "You can:\nSelect scenarios         --> Type 1\nEdit a scenario          --> Type 2\nChange language          --> Type 3\nQuit                     --> Type 4",
-  "ExempleScript": "Here is an example of scenario selection:\n1 - 3 (from 1 to 3),\n1;3 (1 and 3)",
-  "SelectScript": "Please select a script or a list of scripts from the list below:",
-  "ChangeLangages": "Please select a language from the list below:"
+  "Exemplescenario": "Here is an example of scenario selection:\n1 - 3 (from 1 to 3),\n1,3 (1 and 3)",
+  "Selectscenario": "Please select a scenario or a list of scenarios from the list below:",
+  "ChangeLangages": "Please select a language from the list below:",
+  "Back": "Back"
 }
