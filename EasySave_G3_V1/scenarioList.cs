@@ -1,10 +1,6 @@
 ﻿using EasySave_G3_V1;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.Json;
 
 public class ScenarioList
 {
@@ -17,8 +13,6 @@ public class ScenarioList
         scenarioStart = 1;
         scenarioEnd = 5;
     }
-
-    // Load scenario 
 
     public List<Scenario> Load(string filePath)
     {
@@ -35,121 +29,120 @@ public class ScenarioList
         return scenarios;
     }
 
-    // Execute scenarios from (1,3)
-    public void RunRange(int start, int end)
+    public List<Scenario> RunRange(int start, int end)
     {
-        Console.WriteLine("Execution de la plage de scénario : " + start + " à " + end);
-        if (start < 0 || end >= items.Count+1 || start > end)
+        if (start < 1 || end > items.Count || start > end)
             throw new ArgumentOutOfRangeException("Plage invalide.");
+
+        var executed = new List<Scenario>();
 
         for (int i = start; i <= end; i++)
         {
-            if (items[i-1] != null)
+            var scenario = items[i - 1];
+            if (scenario != null)
             {
-                items[i-1].Execute();
+                scenario.Execute();
+                executed.Add(scenario);
             }
         }
+
+        return executed;
     }
 
-    // Exectute sceanrios [1,2]
-    public void RunList(int[] ids)
+    public List<Scenario> RunList(int[] ids)
     {
+        var executed = new List<Scenario>();
+
         foreach (int i in ids)
         {
-            if (i-1 >= 0 && i-1 < items.Count+1 && items[i-1] != null)
+            if (i >= 1 && i <= items.Count && items[i - 1] != null)
             {
-                items[i-1].Execute();
+                items[i - 1].Execute();
+                executed.Add(items[i - 1]);
             }
         }
+
+        return executed;
     }
 
-    public void Modify(int index, Langage L)
+    public bool Modify(int index, int? newId = null, string newName = null, string newSource = null,
+                       string newTarget = null, BackupType? newType = null, string newDesc = null)
     {
-        if (index <= 0 || index >= items.Count || items[index-1] == null)
+        if (index <= 0 || index > items.Count || items[index - 1] == null)
             throw new IndexOutOfRangeException("Index invalide ou scénario vide.");
 
-        var current = items[index-1];
+        var current = items[index - 1];
 
-        Console.WriteLine($"Modification du scénario à l'index {index} (actuel : {current.GetName()})");
-
-        // ID
-        Console.Write("Nouvel ID (laisser vide pour garder) : ");
-        var newIdStr = Console.ReadLine();
-        int newId = current.GetId();
-        if (!string.IsNullOrWhiteSpace(newIdStr) && int.TryParse(newIdStr, out int parsedId))
+        // ID handling
+        if (newId.HasValue)
         {
-            var existing = items.FirstOrDefault(s => s != null && s.GetId() == parsedId && s != current);
+            var existing = items.FirstOrDefault(s => s != null && s.GetId() == newId.Value && s != current);
             if (existing != null)
             {
-                Console.WriteLine($"ID {parsedId} already used. Inverting ID.");
                 int temp = current.GetId();
                 current.SetId(existing.GetId());
                 existing.SetId(temp);
             }
             else
             {
-                newId = parsedId;
+                current.SetId(newId.Value);
             }
         }
 
-
-        Console.Write("Nouveau nom (laisser vide pour garder) : ");
-        var newName = Console.ReadLine();
-
-
-        Console.Write("Nouvelle source (laisser vide pour garder) : ");
-        var newSource = Console.ReadLine();
-
-        Console.Write("Nouvelle destination (laisser vide pour garder) : ");
-        var newTarget = Console.ReadLine();
-
-
-        Console.Write("Nouveau type (Full ou Differential) (laisser vide pour garder) : ");
-        var newTypeStr = Console.ReadLine();
-        BackupType newType = current.GetType();
-        if (!string.IsNullOrWhiteSpace(newTypeStr))
-        {
-            if (Enum.TryParse<BackupType>(newTypeStr, true, out var parsedType))
-            {
-                newType = parsedType;
-            }
-            else
-            {
-                Console.WriteLine("Type invalide, type actuel conservé.");
-            }
-        }
-
-
-        Console.Write("Nouvelle Description (laisser vide pour garder) : ");
-        var newDesc = Console.ReadLine();
-
-
-        current.SetId(newId);
         if (!string.IsNullOrWhiteSpace(newName)) current.SetName(newName);
         if (!string.IsNullOrWhiteSpace(newSource)) current.SetSource(newSource);
         if (!string.IsNullOrWhiteSpace(newTarget)) current.SetTarget(newTarget);
-        current.SetType(newType);
+        if (newType.HasValue) current.SetType(newType.Value);
         if (!string.IsNullOrWhiteSpace(newDesc)) current.SetDescription(newDesc);
 
-        Console.WriteLine("Modification terminée.");
+        return true;
     }
 
+    public Scenario CreateScenario(string name, string source, string target, BackupType type, string description)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("Le nom ne peut pas être vide.");
+        if (string.IsNullOrWhiteSpace(source))
+            throw new ArgumentException("La source ne peut pas être vide.");
+        if (string.IsNullOrWhiteSpace(target))
+            throw new ArgumentException("La destination ne peut pas être vide.");
 
-    public List<Scenario> Get()
+        var usedIds = items.Where(s => s != null).Select(s => s.GetId()).ToHashSet();
+
+        int newId = 1;
+        while (usedIds.Contains(newId)) newId++;
+
+        var newScenario = new Scenario(newId, name, source, target, type, description);
+        items.Add(newScenario);
+
+        return newScenario;
+    }
+
+    public bool RemoveScenario(int id)
+    {
+        var scenario = items.FirstOrDefault(s => s != null && s.GetId() == id);
+        if (scenario == null)
+            return false;
+
+        items.Remove(scenario);
+        return true;
+    }
+
+    public List<Scenario> Get() 
     {
         return items;
     }
 
-
     public ScenarioList Search(string keyword)
     {
         var results = items
-            .Where(s => s != null && (s.GetName().Contains(keyword, StringComparison.OrdinalIgnoreCase) || s.GetDescription().Contains(keyword, StringComparison.OrdinalIgnoreCase)))
-            .ToArray();
+            .Where(s => s != null &&
+                        (s.GetName()?.Contains(keyword, StringComparison.OrdinalIgnoreCase) == true ||
+                         s.GetDescription()?.Contains(keyword, StringComparison.OrdinalIgnoreCase) == true))
+            .ToList();
 
         var newList = new ScenarioList();
-        for (int i = 0; i < results.Length && i < 5; i++)
-            newList.items[i] = results[i];
+        newList.items = results;
 
         return newList;
     }
