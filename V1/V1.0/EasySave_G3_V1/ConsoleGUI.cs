@@ -44,14 +44,14 @@ class Programm
     void ErrorEntry(ConsoleViewModel consoleViewModel, Langage L)
     {
         Console.WriteLine(L.GetElements()["Separator"]);
-        Console.WriteLine("Error bad entry.");
+        Console.WriteLine(L.GetElements()["ErrorEntry"]);
         Begin(consoleViewModel, L);
     }
     void Scenario(ConsoleViewModel consoleViewModel, Langage L)
     {
         Console.WriteLine(L.GetElements()["Separator"]);
-        Console.WriteLine("Sélectionnez une action à réaliser");
-        Console.WriteLine("Sélectionner un scénario à exécuter  --> Tapper 1\nAjouter un scenario à la liste       --> Tapper 2\n Modifier un scenario existant       --> Tapper 3\nSupprimer un scenario existant       --> Tapper 4\nQuitter                              --> Tapper 5");
+        Console.WriteLine(L.GetElements()["ScenarioMenu"]);
+        Console.WriteLine(L.GetElements()["ScenarioMenuOptions"]);
         string result = Console.ReadLine();
         switch (int.Parse(result))
         {
@@ -136,14 +136,14 @@ class Programm
     void AddScenario(ConsoleViewModel consoleViewModel, Langage L)
     {
         Console.WriteLine(L.GetElements()["Separator"]);
-        Console.WriteLine("Veuillez renseigner les informations suivantes :");
-        Console.WriteLine("Nom du scénario :");
+        Console.WriteLine(L.GetElements()["AddScenarioPrompt"]);
+        Console.WriteLine(L.GetElements()["ScenarioName"]);
         string name = Console.ReadLine();
-        Console.WriteLine("Source :");
+        Console.WriteLine(L.GetElements()["Source"]);
         string source = Console.ReadLine();
-        Console.WriteLine("Cible :");
+        Console.WriteLine(L.GetElements()["Target"]);
         string target = Console.ReadLine();
-        Console.WriteLine("Type de sauvegarde (Full/Differential) :");
+        Console.WriteLine(L.GetElements()["BackupType"]);
         string type = Console.ReadLine();
         BackupType backupType;
         switch (type)
@@ -159,7 +159,7 @@ class Programm
                 Begin(consoleViewModel, L);
                 return;
         }
-        Console.WriteLine("Description :");
+        Console.WriteLine(L.GetElements()["Description"]);
         string description = Console.ReadLine();
         Scenario scenario = consoleViewModel.GetScenarioList().CreateScenario(name, source, target, backupType, description);
         Begin(consoleViewModel, L);
@@ -175,11 +175,11 @@ class Programm
             Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetSceanrioType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
             IDS.Add(scenario.GetId());
         }
-        Console.WriteLine("Veuillez renseigner l'ID du scénario à supprimer :");
+        Console.WriteLine(L.GetElements()["DeleteScenarioPrompt"]);
         string id = Console.ReadLine();
         if (IDS.Contains(int.Parse(id)))
         {
-            Console.WriteLine($"Etes-vous sûr de vouloir supprimer le scenario d'identifiant {id} pour toujours ? (y/n)");
+            Console.WriteLine(string.Format(L.GetElements()["DeleteScenarioConfirm"], id));
             switch (Console.ReadLine())
             {
                 case "y":
@@ -207,7 +207,7 @@ class Programm
         ScenarioList scenarioList = consoleViewModel.GetScenarioList();
         Console.WriteLine(L.GetElements()["Separator"]);
         List<int> IDS = new List<int>();
-        int j =1;
+        int j = 1;
         foreach (Scenario scenario in scenarioList.Get())
         {
             Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetSceanrioType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
@@ -215,7 +215,7 @@ class Programm
             j++;
         }
         Console.WriteLine(j + "     " + L.GetElements()["Back"]);
-        Console.WriteLine("Veuillez sélectionner un scénario à modifier :");
+        Console.WriteLine(L.GetElements()["UpdateScenarioPrompt"]);
         int id = int.Parse(Console.ReadLine());
         if (id == j)
         {
@@ -223,14 +223,14 @@ class Programm
         }
         else if (IDS.Contains(id))
         {
-            Console.WriteLine("Veuillez renseigner les informations suivantes :");
-            Console.WriteLine("Nom du scénario :");
+            Console.WriteLine(L.GetElements()["AddScenarioPrompt"]);
+            Console.WriteLine(L.GetElements()["ScenarioName"]);
             string name = Console.ReadLine();
-            Console.WriteLine("Source :");
+            Console.WriteLine(L.GetElements()["Source"]);
             string source = Console.ReadLine();
-            Console.WriteLine("Cible :");
+            Console.WriteLine(L.GetElements()["Target"]);
             string target = Console.ReadLine();
-            Console.WriteLine("Type de sauvegarde (Full/Differential) :");
+            Console.WriteLine(L.GetElements()["BackupType"]);
             string type = Console.ReadLine();
             BackupType backupType;
             switch (type)
@@ -247,7 +247,7 @@ class Programm
                     return;
             }
 
-            Console.WriteLine("Description :");
+            Console.WriteLine(L.GetElements()["Description"]);
             string description = Console.ReadLine();
             consoleViewModel.GetScenarioList().Modify(id, id, name, source, target, backupType, description);
             Begin(consoleViewModel, L);
