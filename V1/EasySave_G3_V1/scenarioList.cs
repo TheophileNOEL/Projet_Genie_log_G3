@@ -41,8 +41,13 @@ public class ScenarioList
             var scenario = items[i - 1];
             if (scenario != null)
             {
+<<<<<<< HEAD:EasySave_G3_V1/scenarioList.cs
                 var messages = scenario.Execute(); 
                 result.Add(scenario, messages); 
+=======
+                Console.WriteLine(scenario.Execute());
+                executed.Add(scenario);
+>>>>>>> 6c709cb960f8cd4ce6d6f15168f9346325bfbd0b:V1/EasySave_G3_V1/scenarioList.cs
             }
         }
 
