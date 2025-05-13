@@ -17,7 +17,7 @@ namespace EasySave_G3_V1
         private long fileSizeBytes;
         private long durationMs;
         private BackupState state;
-        private string descenarioion;
+        private string Description;
 
         private static readonly object fileLock = new object();
 
@@ -32,7 +32,7 @@ namespace EasySave_G3_V1
             fileSizeBytes = 0;
             durationMs = 0;
             state = BackupState.Pending;
-            descenarioion = string.Empty;
+            Description = string.Empty;
         }
 
         public LogEntry(DateTime timestamp,
@@ -43,7 +43,7 @@ namespace EasySave_G3_V1
                         long fileSizeBytes,
                         long durationMs,
                         BackupState state,
-                        string descenarioion,
+                        string Description,
                         List<Folder> listFolder)
         {
             this.timestamp = timestamp;
@@ -53,7 +53,7 @@ namespace EasySave_G3_V1
             this.targetUNC = targetUNC;
             this.durationMs = durationMs;
             this.state = state;
-            this.descenarioion = descenarioion;
+            this.Description = Description;
             this.listFolder = listFolder ?? new List<Folder>();
             this.fileSizeBytes = fileSizeBytes > 0
                                   ? fileSizeBytes
@@ -68,7 +68,7 @@ namespace EasySave_G3_V1
         public long GetFileSizeBytes() => fileSizeBytes;
         public long GetDurationMs() => durationMs;
         public BackupState GetState() => state;
-        public string GetDescenarioion() => descenarioion;
+        public string GetDescription() => Description;
         public List<Folder> GetListFolder() => listFolder;
 
         public void SetTimestamp(DateTime v) { timestamp = v; }
@@ -78,7 +78,7 @@ namespace EasySave_G3_V1
         public void SetTargetUNC(string v) { targetUNC = v; }
         public void SetDurationMs(long v) { durationMs = v; }
         public void SetState(BackupState v) { state = v; }
-        public void SetDescenarioion(string v) { descenarioion = v; }
+        public void SetDescription(string v) { Description = v; }
         public void SetListFolder(List<Folder> v) { listFolder = v; }
 
         public void AddFolder(Folder f) { listFolder.Add(f); }
@@ -101,7 +101,7 @@ namespace EasySave_G3_V1
                    + $"Target UNC         : {targetUNC}\n"
                    + $"Duration (ms)      : {durationMs}\n"
                    + $"State              : {state}\n"
-                   + $"Descenarioion        : {descenarioion}\n"
+                   + $"Description        : {Description}\n"
                    + $"Total Size (Bytes) : {fileSizeBytes}\n"
                    + $"Nb Items           : {listFolder.Count}\n";
             foreach (var f in listFolder)
@@ -124,7 +124,7 @@ namespace EasySave_G3_V1
                 fileSizeBytes,
                 durationMs,
                 state,
-                descenarioion,
+                Description,
                 totalSize = fileSizeBytes,
                 listFolder = listFolder.ConvertAll(f => new
                 {
