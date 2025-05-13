@@ -1,0 +1,20 @@
+{
+  "Liste": [
+    {
+      "Titre": "scenario0",
+      "scenario": {
+        "Source": "",
+        "Destination": "",
+        "Type": "Complet"
+      }
+    },
+    {
+      "Titre": "scenario1",
+      "scenario": {
+        "Source": "",
+        "Destination": "",
+        "Type": "Differentiel"
+      }
+    }
+  ]
+}
