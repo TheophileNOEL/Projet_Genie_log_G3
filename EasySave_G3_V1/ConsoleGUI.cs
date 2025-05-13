@@ -25,7 +25,7 @@ class Programm
     {
         string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         // Loading the French langage
-        if (L.GetElements().Count == 0)
+        if (L.GetElements().Count <= 1)
         {
             L.LoadLangage();
         }
@@ -38,7 +38,7 @@ class Programm
             case 1: Selectscenario(consoleViewModel, L); break;
             case 2: Updatescenario(consoleViewModel, L); break;
             case 3: SelectLangage(consoleViewModel, L,consoleViewModel.GetLangages().GetListLangage()); break;
-            case 4: break;
+            case 4: Environment.Exit(0);break ;
             default: ErrorEntry(consoleViewModel, L);break ;
         }
     }
@@ -113,25 +113,54 @@ class Programm
         ScenarioList scenarioList = consoleViewModel.GetScenarioList();
         Console.WriteLine(L.GetElements()["Separator"]);
         Console.WriteLine(L.GetElements()["Selectscenario"]);
-        int c = 1;
-        string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        string exePath = Path.GetDirectoryName(path: Assembly.GetExecutingAssembly().Location);
         scenarioList.Load(Path.Combine(exePath, @"..\\..\\..\\scenarios.json"));
+        int j = 1;
         foreach (Scenario scenario in scenarioList.Get())
         {
             Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
-            c++;
+            j++;
         }
-        Console.WriteLine(c + "     " + L.GetElements()["Back"]);
+        Console.WriteLine(j + "     " + L.GetElements()["Back"]);
         int result = int.Parse(Console.ReadLine());
-        if (result == c)
+        if (result == j)
             Begin(consoleViewModel, L);
         else 
-            scenarioList.Modify(result, L);
+        {
+            Console.WriteLine(L.GetElements()["Separator"]);
+            Console.WriteLine(L.GetElements()["UpdateScenarioID"]);
+            string id = Console.ReadLine();
+            Console.WriteLine(L.GetElements()["UpdateScenarioName"]);
+            string name = Console.ReadLine();
+            Console.WriteLine(L.GetElements()["UpdateScenarioSource"]);
+            string source = Console.ReadLine();
+            Console.WriteLine(L.GetElements()["UpdateScenarioTarget"]);
+            string target = Console.ReadLine();
+            Console.WriteLine(L.GetElements()["UpdateScenarioType"]);
+            string type = Console.ReadLine();
+            BackupType backupType;
+            switch (type)
+            {
+                case "Full":
+                    backupType = BackupType.Full;
+                    break;
+                case "Differential":
+                    backupType = BackupType.Differential;
+                    break;
+                default:
+                    Console.WriteLine(L.GetElements()["ErrorType"]);
+                    return;
+            }
+            Console.WriteLine(L.GetElements()["UpdateScenarioDescription"]);
+            string description = Console.ReadLine();
+            scenarioList.Modify(result,int.Parse(id), name, source, target, backupType ,description); 
+        }
         Console.WriteLine(L.GetElements()["Separator"]);
         foreach (Scenario scenario in scenarioList.Get())
         {
             Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
         }
+        Begin(consoleViewModel, L);
     }
     void SelectLangage(ConsoleViewModel consoleViewModel, Langage L, List<Langage> listLangages) 
     {

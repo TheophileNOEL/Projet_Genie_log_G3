@@ -53,17 +53,18 @@ namespace EasySave_G3_V1
                 this.Elements[kvp.Key] = kvp.Value;
             }
         }
-        public void LoadLangage()
+        public string LoadLangage()
         {
             try
             {
                 string jsonContent = File.ReadAllText(this.GetSource());
                 Dictionary<string,string> messages = JsonSerializer.Deserialize<Dictionary<string,string>>(jsonContent);
                 this.AddElement(element: messages);
+                return "\n";
             }
             catch(Exception e)
             {
-                Console.WriteLine(e);
+                return e.Message;
             }
         }
     }

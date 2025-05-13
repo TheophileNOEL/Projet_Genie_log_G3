@@ -63,75 +63,34 @@ public class ScenarioList
         }
     }
 
-    public void Modify(int index, Langage L)
+    public void Modify(int index, int? newId = null, string newName = null, string newSource = null,
+                   string newTarget = null, BackupType? newType = null, string newDesc = null)
     {
-        if (index <= 0 || index >= items.Count || items[index-1] == null)
+        if (index <= 0 || index > items.Count || items[index - 1] == null)
             throw new IndexOutOfRangeException("Index invalide ou scénario vide.");
 
-        var current = items[index-1];
+        var current = items[index - 1];
 
-        Console.WriteLine($"Modification du scénario à l'index {index} (actuel : {current.GetName()})");
-
-        // ID
-        Console.Write("Nouvel ID (laisser vide pour garder) : ");
-        var newIdStr = Console.ReadLine();
-        int newId = current.GetId();
-        if (!string.IsNullOrWhiteSpace(newIdStr) && int.TryParse(newIdStr, out int parsedId))
+        if (newId.HasValue)
         {
-            var existing = items.FirstOrDefault(s => s != null && s.GetId() == parsedId && s != current);
+            var existing = items.FirstOrDefault(s => s != null && s.GetId() == newId && s != current);
             if (existing != null)
             {
-                Console.WriteLine($"ID {parsedId} already used. Inverting ID.");
                 int temp = current.GetId();
                 current.SetId(existing.GetId());
                 existing.SetId(temp);
             }
             else
             {
-                newId = parsedId;
+                current.SetId(newId.Value);
             }
         }
 
-
-        Console.Write("Nouveau nom (laisser vide pour garder) : ");
-        var newName = Console.ReadLine();
-
-
-        Console.Write("Nouvelle source (laisser vide pour garder) : ");
-        var newSource = Console.ReadLine();
-
-        Console.Write("Nouvelle destination (laisser vide pour garder) : ");
-        var newTarget = Console.ReadLine();
-
-
-        Console.Write("Nouveau type (Full ou Differential) (laisser vide pour garder) : ");
-        var newTypeStr = Console.ReadLine();
-        BackupType newType = current.GetType();
-        if (!string.IsNullOrWhiteSpace(newTypeStr))
-        {
-            if (Enum.TryParse<BackupType>(newTypeStr, true, out var parsedType))
-            {
-                newType = parsedType;
-            }
-            else
-            {
-                Console.WriteLine("Type invalide, type actuel conservé.");
-            }
-        }
-
-
-        Console.Write("Nouvelle Description (laisser vide pour garder) : ");
-        var newDesc = Console.ReadLine();
-
-
-        current.SetId(newId);
         if (!string.IsNullOrWhiteSpace(newName)) current.SetName(newName);
         if (!string.IsNullOrWhiteSpace(newSource)) current.SetSource(newSource);
         if (!string.IsNullOrWhiteSpace(newTarget)) current.SetTarget(newTarget);
-        current.SetType(newType);
+        if (newType.HasValue) current.SetType(newType.Value);
         if (!string.IsNullOrWhiteSpace(newDesc)) current.SetDescription(newDesc);
-
-        Console.WriteLine("Modification terminée.");
     }
 
 
