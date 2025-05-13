@@ -61,7 +61,7 @@ class Programm
         var c = 1;
         foreach (Scenario scenario in scenarioList.Get())
         {
-            Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
+            Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetSceanrioType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
             c++;
         }
         Console.WriteLine(c + "     " + L.GetElements()["Back"]);
@@ -118,7 +118,7 @@ class Programm
         int j = 1;
         foreach (Scenario scenario in scenarioList.Get())
         {
-            Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
+            Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetSceanrioType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
             j++;
         }
         Console.WriteLine(j + "     " + L.GetElements()["Back"]);
@@ -158,7 +158,7 @@ class Programm
         Console.WriteLine(L.GetElements()["Separator"]);
         foreach (Scenario scenario in scenarioList.Get())
         {
-            Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
+            Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetSceanrioType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
         }
         Begin(consoleViewModel, L);
     }

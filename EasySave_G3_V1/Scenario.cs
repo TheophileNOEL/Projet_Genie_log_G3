@@ -43,7 +43,7 @@ namespace EasySave_G3_V1
         public string GetTarget() => Target;
         public void SetTarget(string value) => Target = value;
 
-        public BackupType GetType() => Type;
+        public BackupType GetSceanrioType() => Type;
         public void SetType(BackupType value) => Type = value;
 
         public BackupState GetState() => State;
