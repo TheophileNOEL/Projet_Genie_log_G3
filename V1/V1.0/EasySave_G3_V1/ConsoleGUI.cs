@@ -1,8 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using System;
-using System.IO;
 using System.Reflection;
-using System.Text.Json;
 namespace EasySave_G3_V1;
 
 class Programm
@@ -14,6 +11,8 @@ class Programm
         ConsoleViewModel consoleViewModel = new ConsoleViewModel();
         consoleViewModel.GetLangages().SearchLangages();
         Langage langage = new Langage("French.json", Path.Combine(exePath, @"..\\..\\..\\Langages\\French.json"));
+        ScenarioList scenarioList = consoleViewModel.GetScenarioList();
+        scenarioList.Load(Path.Combine(exePath, @"..\\..\\..\\scenarios.json"));
         langage.LoadLangage();
         if (args.Length > 0)
         {
@@ -35,25 +34,40 @@ class Programm
         int result = int.Parse(Console.ReadLine());
         switch (result)
         {
-            case 1: Selectscenario(consoleViewModel, L); break;
-            case 2: Updatescenario(consoleViewModel, L); break;
-            case 3: SelectLangage(consoleViewModel, L,consoleViewModel.GetLangages().GetListLangage()); break;
-            case 4: Environment.Exit(0);break ;
-            default: ErrorEntry(consoleViewModel, L);break ;
+            case 1: Scenario(consoleViewModel, L); break;
+            case 2: SelectLangage(consoleViewModel, L, consoleViewModel.GetLangages().GetListLangage()); break;
+            case 3: Environment.Exit(0); break;
+            default: ErrorEntry(consoleViewModel, L); break;
         }
     }
 
     void ErrorEntry(ConsoleViewModel consoleViewModel, Langage L)
     {
         Console.WriteLine(L.GetElements()["Separator"]);
-        Console.WriteLine("Error bad entry. Please try again.");
+        Console.WriteLine("Error bad entry.");
         Begin(consoleViewModel, L);
+    }
+    void Scenario(ConsoleViewModel consoleViewModel, Langage L)
+    {
+        Console.WriteLine(L.GetElements()["Separator"]);
+        Console.WriteLine("Sélectionnez une action à réaliser");
+        Console.WriteLine("Sélectionner un scénario à exécuter  --> Tapper 1\nAjouter un scenario à la liste       --> Tapper 2\n Modifier un scenario existant       --> Tapper 3\nSupprimer un scenario existant       --> Tapper 4\nQuitter                              --> Tapper 5");
+        string result = Console.ReadLine();
+        switch (int.Parse(result))
+        {
+            case 1: Selectscenario(consoleViewModel, L); break;
+            case 2: AddScenario(consoleViewModel, L); break;
+            case 3: Updatescenario(consoleViewModel, L); break;
+            case 4: DeleteScenario(consoleViewModel, L); break;
+            case 5: Begin(consoleViewModel, L); break;
+            default: ErrorEntry(consoleViewModel, L); break;
+        }
     }
     void Selectscenario(ConsoleViewModel consoleViewModel, Langage L, string result = "")
     {
         ScenarioList scenarioList = consoleViewModel.GetScenarioList();
         string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        scenarioList.Load(Path.Combine(exePath,@"..\\..\\..\\scenarios.json"));
+        scenarioList.Load(Path.Combine(exePath, @"..\\..\\..\\scenarios.json"));
         Console.WriteLine(L.GetElements()["Separator"]);
         Console.WriteLine(L.GetElements()["Selectscenario"]);
         Console.WriteLine(L.GetElements()["Exemplescenario"]);
@@ -67,8 +81,8 @@ class Programm
         Console.WriteLine(c + "     " + L.GetElements()["Back"]);
         result = Console.ReadLine();
         Console.WriteLine(L.GetElements()["Separator"]);
-        if (int.Parse(result) == c) 
-             Begin(consoleViewModel, L);
+        if (int.Parse(result) == c)
+            Begin(consoleViewModel, L);
         else if (IsRange(result))
         {
             // Extract start and end range from the input  
@@ -76,11 +90,15 @@ class Programm
             int Start = int.Parse(rangeParts[0].Trim());
             int end = int.Parse(rangeParts[1].Trim());
             // Call RunRange with the extracted parameters  
-            scenarioList.RunRange(Start, end);
+            Dictionary<Scenario, List<string>> message = scenarioList.RunRange(Start, end);
+            foreach (KeyValuePair<Scenario, List<string>> kvp in message)
+            {
+                Console.WriteLine(kvp.Key.GetLog().Display());
+            }
             Begin(consoleViewModel, L);
         }
 
-        else if (IsList(result)) 
+        else if (IsList(result))
         {
             // Extract start and end range from the input  
             string[] rangeParts = result.Split(',');
@@ -88,7 +106,11 @@ class Programm
             {
                 int Start = int.Parse(i.Trim());
                 // Call RunRange with the extracted parameters  
-                scenarioList.RunList(new int[] { Start });
+                Dictionary<Scenario, List<string>> message = scenarioList.RunList(new int[] { Start });
+                foreach (KeyValuePair<Scenario, List<string>> kvp in message)
+                {
+                    Console.WriteLine(kvp.Key.GetLog().Display());
+                }
             }
             Begin(consoleViewModel, L);
         }
@@ -96,8 +118,12 @@ class Programm
         else
         {
             if (int.TryParse(result, out int id))
-            { 
-                scenarioList.RunList([int.Parse(result)]);
+            {
+                Dictionary<Scenario, List<string>> message = scenarioList.RunList([int.Parse(result)]);
+                foreach (KeyValuePair<Scenario, List<string>> kvp in message)
+                {
+                    Console.WriteLine(kvp.Key.GetLog().Display());
+                }
             }
             Begin(consoleViewModel, L);
         }
@@ -107,36 +133,104 @@ class Programm
             Console.WriteLine(scenario.GetLog().Display());
         }
     }
+    void AddScenario(ConsoleViewModel consoleViewModel, Langage L)
+    {
+        Console.WriteLine(L.GetElements()["Separator"]);
+        Console.WriteLine("Veuillez renseigner les informations suivantes :");
+        Console.WriteLine("Nom du scénario :");
+        string name = Console.ReadLine();
+        Console.WriteLine("Source :");
+        string source = Console.ReadLine();
+        Console.WriteLine("Cible :");
+        string target = Console.ReadLine();
+        Console.WriteLine("Type de sauvegarde (Full/Differential) :");
+        string type = Console.ReadLine();
+        BackupType backupType;
+        switch (type)
+        {
+            case "Full":
+                backupType = BackupType.Full;
+                break;
+            case "Differential":
+                backupType = BackupType.Differential;
+                break;
+            default:
+                Console.WriteLine(L.GetElements()["ErrorType"]);
+                Begin(consoleViewModel, L);
+                return;
+        }
+        Console.WriteLine("Description :");
+        string description = Console.ReadLine();
+        Scenario scenario = consoleViewModel.GetScenarioList().CreateScenario(name, source, target, backupType, description);
+        Begin(consoleViewModel, L);
+        return;
+    }
 
+    void DeleteScenario(ConsoleViewModel consoleViewModel, Langage L)
+    {
+        Console.WriteLine(L.GetElements()["Separator"]);
+        List<int> IDS = new List<int>();
+        foreach (Scenario scenario in consoleViewModel.GetScenarioList().Get())
+        {
+            Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetSceanrioType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
+            IDS.Add(scenario.GetId());
+        }
+        Console.WriteLine("Veuillez renseigner l'ID du scénario à supprimer :");
+        string id = Console.ReadLine();
+        if (IDS.Contains(int.Parse(id)))
+        {
+            Console.WriteLine($"Etes-vous sûr de vouloir supprimer le scenario d'identifiant {id} pour toujours ? (y/n)");
+            switch (Console.ReadLine())
+            {
+                case "y":
+                    consoleViewModel.GetScenarioList().RemoveScenario(int.Parse(id));
+                    break;
+                case "n":
+                    break;
+                default:
+                    Console.WriteLine(L.GetElements()["ErrorType"]);
+                    Begin(consoleViewModel, L);
+                    return;
+            }
+        }
+        else
+        {
+            Console.WriteLine(L.GetElements()["ErrorType"]);
+            Begin(consoleViewModel, L);
+            return;
+        }
+        Begin(consoleViewModel, L);
+        return;
+    }
     void Updatescenario(ConsoleViewModel consoleViewModel, Langage L)
     {
         ScenarioList scenarioList = consoleViewModel.GetScenarioList();
         Console.WriteLine(L.GetElements()["Separator"]);
-        Console.WriteLine(L.GetElements()["Selectscenario"]);
-        string exePath = Path.GetDirectoryName(path: Assembly.GetExecutingAssembly().Location);
-        scenarioList.Load(Path.Combine(exePath, @"..\\..\\..\\scenarios.json"));
-        int j = 1;
+        List<int> IDS = new List<int>();
+        int j =1;
         foreach (Scenario scenario in scenarioList.Get())
         {
             Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetSceanrioType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
+            IDS.Add(scenario.GetId());
             j++;
         }
         Console.WriteLine(j + "     " + L.GetElements()["Back"]);
-        int result = int.Parse(Console.ReadLine());
-        if (result == j)
-            Begin(consoleViewModel, L);
-        else 
+        Console.WriteLine("Veuillez sélectionner un scénario à modifier :");
+        int id = int.Parse(Console.ReadLine());
+        if (id == j)
         {
-            Console.WriteLine(L.GetElements()["Separator"]);
-            Console.WriteLine(L.GetElements()["UpdateScenarioID"]);
-            string id = Console.ReadLine();
-            Console.WriteLine(L.GetElements()["UpdateScenarioName"]);
+            Begin(consoleViewModel, L);
+        }
+        else if (IDS.Contains(id))
+        {
+            Console.WriteLine("Veuillez renseigner les informations suivantes :");
+            Console.WriteLine("Nom du scénario :");
             string name = Console.ReadLine();
-            Console.WriteLine(L.GetElements()["UpdateScenarioSource"]);
+            Console.WriteLine("Source :");
             string source = Console.ReadLine();
-            Console.WriteLine(L.GetElements()["UpdateScenarioTarget"]);
+            Console.WriteLine("Cible :");
             string target = Console.ReadLine();
-            Console.WriteLine(L.GetElements()["UpdateScenarioType"]);
+            Console.WriteLine("Type de sauvegarde (Full/Differential) :");
             string type = Console.ReadLine();
             BackupType backupType;
             switch (type)
@@ -149,35 +243,41 @@ class Programm
                     break;
                 default:
                     Console.WriteLine(L.GetElements()["ErrorType"]);
+                    Begin(consoleViewModel, L);
                     return;
             }
-            Console.WriteLine(L.GetElements()["UpdateScenarioDescription"]);
+
+            Console.WriteLine("Description :");
             string description = Console.ReadLine();
-            scenarioList.Modify(result,int.Parse(id), name, source, target, backupType ,description); 
+            consoleViewModel.GetScenarioList().Modify(id, id, name, source, target, backupType, description);
+            Begin(consoleViewModel, L);
+            return;
         }
-        Console.WriteLine(L.GetElements()["Separator"]);
-        foreach (Scenario scenario in scenarioList.Get())
+        else
         {
-            Console.WriteLine(scenario.GetId() + "     " + scenario.GetName() + "     " + scenario.GetSceanrioType() + "     " + scenario.GetSource() + " --> " + scenario.GetTarget());
+            Begin(consoleViewModel, L);
+            Console.WriteLine(L.GetElements()["ErrorType"]);
+            return;
         }
-        Begin(consoleViewModel, L);
     }
-    void SelectLangage(ConsoleViewModel consoleViewModel, Langage L, List<Langage> listLangages) 
+    void SelectLangage(ConsoleViewModel consoleViewModel, Langage L, List<Langage> listLangages)
     {
         Console.WriteLine(L.GetElements()["Separator"]);
         Console.WriteLine(L.GetElements()["ChangeLangages"]);
         int i = 1;
         foreach (Langage l in listLangages)
         {
-            Console.WriteLine(i+"    "+l.GetTitle().Split(".")[0]);
+            Console.WriteLine(i + "    " + l.GetTitle().Split(".")[0]);
             i++;
         }
         Console.WriteLine(i + "    " + L.GetElements()["Back"]);
         int result = int.Parse(Console.ReadLine());
         if (result == i)
             Begin(consoleViewModel, L);
-        else
+        else if (result > 0 && result < i)
             Begin(consoleViewModel, listLangages[result - 1]);
+        else
+            ErrorEntry(consoleViewModel, L);
     }
     static bool IsRange(string texte)
     {

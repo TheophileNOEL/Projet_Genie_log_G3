@@ -163,6 +163,7 @@ namespace EasySave_G3_V1
                 );
 
                 Log.SetDurationMs((int)stopwatch.ElapsedMilliseconds);
+                Log.AppendToFile("");
                 return null;
             }
             catch (Exception ex)
