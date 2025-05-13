@@ -43,7 +43,7 @@ namespace EasySave_G3_V1
         public string GetTarget() => Target;
         public void SetTarget(string value) => Target = value;
 
-        public BackupType GetType() => Type;
+        public BackupType GetSceanrioType() => Type;
         public void SetType(BackupType value) => Type = value;
 
         public BackupState GetState() => State;
@@ -82,7 +82,7 @@ namespace EasySave_G3_V1
         public List<string> Execute()
         {
             List<string> messages = new List<string>();
-            
+
             try
             {
                 State = BackupState.Running;
@@ -163,7 +163,6 @@ namespace EasySave_G3_V1
                 );
 
                 Log.SetDurationMs((int)stopwatch.ElapsedMilliseconds);
-                Log.ToJson();
                 return null;
             }
             catch (Exception ex)

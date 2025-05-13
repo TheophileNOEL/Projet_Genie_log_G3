@@ -1,16 +1,16 @@
 {
   "Liste": [
     {
-      "Titre": "scenario0",
-      "scenario": {
+      "Titre": "script0",
+      "Script": {
         "Source": "",
         "Destination": "",
         "Type": "Complet"
       }
     },
     {
-      "Titre": "scenario1",
-      "scenario": {
+      "Titre": "script1",
+      "Script": {
         "Source": "",
         "Destination": "",
         "Type": "Differentiel"

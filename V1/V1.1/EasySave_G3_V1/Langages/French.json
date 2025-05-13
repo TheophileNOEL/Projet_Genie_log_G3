@@ -11,8 +11,6 @@
   "UpdateScenarioTarget": "Indiquez le nouveau chemin de destination : ",
   "UpdateScenarioType": "Indiquez le nouveau type de sauvegarde (Full ou Differential) : ",
   "UpdateScenarioDescription": "Indiquez la nouvelle description du scenario :",
-  "SelectModifScenario": "Sélectionnez une action à faire sur les scenarios :",
-  "SelectModifAction": "Vous pouvez :\nAjouter un scenario  --> Tapper 1\nModifier un scenario        --> Tapper 2\nSupprimer un scenario       --> Tapper 3\nQuitter                     --> Tapper 5",
   "ErrorType": "Erreur de type, veuillez entrer un type valide (Full ou Differential)",
   "Back": "Retour"
 }

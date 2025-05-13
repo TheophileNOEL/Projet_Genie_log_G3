@@ -29,41 +29,49 @@ public class ScenarioList
         return scenarios;
     }
 
-    public List<Scenario> RunRange(int start, int end)
+    public Dictionary<Scenario, List<string>> RunRange(int start, int end)
     {
         if (start < 1 || end > items.Count || start > end)
             throw new ArgumentOutOfRangeException("Plage invalide.");
 
-        var executed = new List<Scenario>();
+        var result = new Dictionary<Scenario, List<string>>();
 
         for (int i = start; i <= end; i++)
         {
             var scenario = items[i - 1];
             if (scenario != null)
             {
+<<<<<<< HEAD:EasySave_G3_V1/scenarioList.cs
+                var messages = scenario.Execute(); 
+                result.Add(scenario, messages); 
+=======
                 Console.WriteLine(scenario.Execute());
                 executed.Add(scenario);
+>>>>>>> 6c709cb960f8cd4ce6d6f15168f9346325bfbd0b:V1/EasySave_G3_V1/scenarioList.cs
             }
         }
 
-        return executed;
+        return result;
     }
 
-    public List<Scenario> RunList(int[] ids)
+
+    public Dictionary<Scenario, List<string>> RunList(int[] ids)
     {
-        var executed = new List<Scenario>();
+        var result = new Dictionary<Scenario, List<string>>();
 
         foreach (int i in ids)
         {
             if (i >= 1 && i <= items.Count && items[i - 1] != null)
             {
-                items[i - 1].Execute();
-                executed.Add(items[i - 1]);
+                var scenario = items[i - 1];
+                var messages = scenario.Execute();
+                result.Add(scenario, messages);
             }
         }
 
-        return executed;
+        return result;
     }
+
 
     public bool Modify(int index, int? newId = null, string newName = null, string newSource = null,
                        string newTarget = null, BackupType? newType = null, string newDesc = null)

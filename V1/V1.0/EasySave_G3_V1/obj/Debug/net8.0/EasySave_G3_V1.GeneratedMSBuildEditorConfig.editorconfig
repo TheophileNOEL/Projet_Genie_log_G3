@@ -1,5 +1,7 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v8.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
 build_property.ProjectTypeGuids = 
@@ -8,7 +10,11 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EasySave_G3_V1
+<<<<<<<< HEAD:V1/V1.0/EasySave_G3_V1/obj/Debug/net8.0/EasySave_G3_V1.GeneratedMSBuildEditorConfig.editorconfig
 build_property.ProjectDir = C:\Users\theop\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\V1\V1.0\EasySave_G3_V1\
+========
+build_property.ProjectDir = C:\Users\dell\source\repos\Projet_Genie_log_G3\EasySave_G3_V1\
+>>>>>>>> 30876ae84d4725e9d0f4fd9dc303e9ab01334858:EasySave_G3_V1/obj/Debug/net8.0/EasySave_G3_V1.GeneratedMSBuildEditorConfig.editorconfig
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
