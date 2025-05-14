@@ -70,7 +70,7 @@ public class ScenarioList
 
 
     public bool Modify(int index, int? newId = null, string newName = null, string newSource = null,
-                       string newTarget = null, BackupType? newType = null, string newDesc = null)
+                   string newTarget = null, BackupType? newType = null, string newDesc = null)
     {
         if (index <= 0 || index > items.Count || items[index - 1] == null)
             throw new IndexOutOfRangeException("Index invalide ou scénario vide.");
@@ -99,8 +99,16 @@ public class ScenarioList
         if (newType.HasValue) current.SetType(newType.Value);
         if (!string.IsNullOrWhiteSpace(newDesc)) current.SetDescription(newDesc);
 
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        var json = JsonSerializer.Serialize(items.Where(i => i != null).ToList(), options);
+        string filePath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"..\..\..\scenarios.json"));
+
+        File.WriteAllText(filePath, json);
+
+
         return true;
     }
+
 
     public Scenario CreateScenario(string name, string source, string target, BackupType type, string description)
     {
@@ -119,8 +127,15 @@ public class ScenarioList
         var newScenario = new Scenario(newId, name, source, target, type, description);
         items.Add(newScenario);
 
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        var json = JsonSerializer.Serialize(items.Where(i => i != null).ToList(), options);
+        string filePath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"..\..\..\scenarios.json"));
+
+        File.WriteAllText(filePath, json);
+
         return newScenario;
     }
+
 
     public bool RemoveScenario(int id)
     {
@@ -129,6 +144,12 @@ public class ScenarioList
             return false;
 
         items.Remove(scenario);
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        var json = JsonSerializer.Serialize(items.Where(i => i != null).ToList(), options);
+        string filePath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"..\..\..\scenarios.json"));
+
+        File.WriteAllText(filePath, json);
+
         return true;
     }
 
