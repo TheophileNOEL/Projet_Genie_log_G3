@@ -29,44 +29,48 @@ public class ScenarioList
         return scenarios;
     }
 
-    public List<Scenario> RunRange(int start, int end)
+    public Dictionary<Scenario, List<string>> RunRange(int start, int end)
     {
         if (start < 1 || end > items.Count || start > end)
             throw new ArgumentOutOfRangeException("Plage invalide.");
 
-        var executed = new List<Scenario>();
+        var result = new Dictionary<Scenario, List<string>>();
 
         for (int i = start; i <= end; i++)
         {
             var scenario = items[i - 1];
             if (scenario != null)
             {
-                Console.WriteLine(scenario.Execute());
-                executed.Add(scenario);
+
+                var messages = scenario.Execute(); 
+                result.Add(scenario, messages);
             }
         }
 
-        return executed;
+        return result;
     }
 
-    public List<Scenario> RunList(int[] ids)
+
+    public Dictionary<Scenario, List<string>> RunList(int[] ids)
     {
-        var executed = new List<Scenario>();
+        var result = new Dictionary<Scenario, List<string>>();
 
         foreach (int i in ids)
         {
             if (i >= 1 && i <= items.Count && items[i - 1] != null)
             {
-                items[i - 1].Execute();
-                executed.Add(items[i - 1]);
+                var scenario = items[i - 1];
+                var messages = scenario.Execute();
+                result.Add(scenario, messages);
             }
         }
 
-        return executed;
+        return result;
     }
 
+
     public bool Modify(int index, int? newId = null, string newName = null, string newSource = null,
-                       string newTarget = null, BackupType? newType = null, string newDesc = null)
+                   string newTarget = null, BackupType? newType = null, string newDesc = null)
     {
         if (index <= 0 || index > items.Count || items[index - 1] == null)
             throw new IndexOutOfRangeException("Index invalide ou scénario vide.");
@@ -95,28 +99,13 @@ public class ScenarioList
         if (newType.HasValue) current.SetType(newType.Value);
         if (!string.IsNullOrWhiteSpace(newDesc)) current.SetDescription(newDesc);
 
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        var json = JsonSerializer.Serialize(items, options);
+        File.WriteAllText("scenarios.json", json);
+
         return true;
     }
 
-    public Scenario CreateScenario(string name, string source, string target, BackupType type, string description)
-    {
-        if (string.IsNullOrWhiteSpace(name))
-            throw new ArgumentException("Le nom ne peut pas être vide.");
-        if (string.IsNullOrWhiteSpace(source))
-            throw new ArgumentException("La source ne peut pas être vide.");
-        if (string.IsNullOrWhiteSpace(target))
-            throw new ArgumentException("La destination ne peut pas être vide.");
-
-        var usedIds = items.Where(s => s != null).Select(s => s.GetId()).ToHashSet();
-
-        int newId = 1;
-        while (usedIds.Contains(newId)) newId++;
-
-        var newScenario = new Scenario(newId, name, source, target, type, description);
-        items.Add(newScenario);
-
-        return newScenario;
-    }
 
     public bool RemoveScenario(int id)
     {
