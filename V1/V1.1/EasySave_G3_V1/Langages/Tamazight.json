@@ -1,0 +1,16 @@
+{
+  "Welcome": "Azul, fren yiwet seg tigawin-a.",
+  "Separator": "**********************************************************************************",
+  "SelectAction": "Tzemredh :\nad Yextar isina\u1e5dyuten      --> Tapper 1\nBeddel asinaryu            --> Tapper 2\nBeddel tutlayt             --> Tapper 3\nQuitter                    --> Tapper 4",
+  "Exemplescenario": "Atan umedya n ufran n usna\u1e5dyu : \n1 - 3 (de 1 \u00e0 3),\n1;3 (1 et 3)",
+  "Selectscenario": "fren asekkir ne\u0263 umu\u0263 n usekkil seg umu\u0263 i d-iteddun:",
+  "ChangeLangages": "Ttxil-k fren yiwet n tutlayt seg umu\u0263 ddaw-a :",
+  "UpdateScenarioID": "Sekcem asulay amaynut n usna\u1e5dyu : ",
+  "UpdateScenarioName": "Sekcem isem amaynut n usna\u1e5dyu : ",
+  "UpdateScenarioSource": "Sekcem abrid amaynut n tella : ",
+  "UpdateScenarioTarget": "Sekcem abrid amaynut n wellel : ",
+  "UpdateScenarioType": "Sekcem anaw amaynut n usekles (Full ne\u0263 Differential) : ",
+  "UpdateScenarioDescription": "Sekcem aglam amaynut n usna\u1e5dyu :",
+  "ErrorType": "Tuccna n wannaw, ttxil-k sekcem anaw ameqqran (Full ne\u0263 Differential)",
+  "Back": "U\u0263al"
+}
