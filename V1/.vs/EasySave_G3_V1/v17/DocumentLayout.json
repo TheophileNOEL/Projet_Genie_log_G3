@@ -1,7 +1,28 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\theop\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1A85D9F2-2840-AB94-4C1D-94F708AE6488}|EasySave_G3_V2_0\\EasySave_G3_V2_0.csproj|c:\\users\\user\\onedrive - association cesi viacesi mail\\cesi\\fise a3\\genie logiciel\\projet\\easysave_g3_v1\\v1\\easysave_g3_v2_0\\consolegui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A85D9F2-2840-AB94-4C1D-94F708AE6488}|EasySave_G3_V2_0\\EasySave_G3_V2_0.csproj|solutionrelative:easysave_g3_v2_0\\consolegui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CA2554-E3CE-4C3F-BE9B-681880200F1A}|EasySave_G3_V1\\EasySave_G3_V1.csproj|c:\\users\\user\\onedrive - association cesi viacesi mail\\cesi\\fise a3\\genie logiciel\\projet\\easysave_g3_v1\\v1\\easysave_g3_v1\\scenariolist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76CA2554-E3CE-4C3F-BE9B-681880200F1A}|EasySave_G3_V1\\EasySave_G3_V1.csproj|solutionrelative:easysave_g3_v1\\scenariolist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CA2554-E3CE-4C3F-BE9B-681880200F1A}|EasySave_G3_V1\\EasySave_G3_V1.csproj|c:\\users\\user\\onedrive - association cesi viacesi mail\\cesi\\fise a3\\genie logiciel\\projet\\easysave_g3_v1\\v1\\easysave_g3_v1\\scenario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76CA2554-E3CE-4C3F-BE9B-681880200F1A}|EasySave_G3_V1\\EasySave_G3_V1.csproj|solutionrelative:easysave_g3_v1\\scenario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CA2554-E3CE-4C3F-BE9B-681880200F1A}|EasySave_G3_V1\\EasySave_G3_V1.csproj|c:\\users\\user\\onedrive - association cesi viacesi mail\\cesi\\fise a3\\genie logiciel\\projet\\easysave_g3_v1\\v1\\easysave_g3_v1\\langages\\french.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{76CA2554-E3CE-4C3F-BE9B-681880200F1A}|EasySave_G3_V1\\EasySave_G3_V1.csproj|solutionrelative:easysave_g3_v1\\langages\\french.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{973FA9B1-1663-495C-1FA1-EFBAF243752C}|EasySave_G3_V1_1\\EasySave_G3_V1_1.csproj|c:\\users\\user\\onedrive - association cesi viacesi mail\\cesi\\fise a3\\genie logiciel\\projet\\easysave_g3_v1\\v1\\easysave_g3_v1_1\\consolegui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{973FA9B1-1663-495C-1FA1-EFBAF243752C}|EasySave_G3_V1_1\\EasySave_G3_V1_1.csproj|solutionrelative:easysave_g3_v1_1\\consolegui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +30,51 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 9,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "scenarioList.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave_G3_V1\\scenarioList.cs",
+              "RelativeDocumentMoniker": "EasySave_G3_V1\\scenarioList.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave_G3_V1\\scenarioList.cs",
+              "RelativeToolTip": "EasySave_G3_V1\\scenarioList.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T13:56:35.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Scenario.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave_G3_V1\\Scenario.cs",
+              "RelativeDocumentMoniker": "EasySave_G3_V1\\Scenario.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave_G3_V1\\Scenario.cs",
+              "RelativeToolTip": "EasySave_G3_V1\\Scenario.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwAMAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T13:49:25.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "French.json",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave_G3_V1\\Langages\\French.json",
+              "RelativeDocumentMoniker": "EasySave_G3_V1\\Langages\\French.json",
+              "ToolTip": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave_G3_V1\\Langages\\French.json",
+              "RelativeToolTip": "EasySave_G3_V1\\Langages\\French.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-15T13:31:01.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -30,6 +94,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ConsoleGUI.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave_G3_V2_0\\ConsoleGUI.cs",
+              "RelativeDocumentMoniker": "EasySave_G3_V2_0\\ConsoleGUI.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave_G3_V2_0\\ConsoleGUI.cs",
+              "RelativeToolTip": "EasySave_G3_V2_0\\ConsoleGUI.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAYwAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T13:21:49.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ConsoleGUI.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave_G3_V1_1\\ConsoleGUI.cs",
+              "RelativeDocumentMoniker": "EasySave_G3_V1_1\\ConsoleGUI.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave_G3_V1_1\\ConsoleGUI.cs",
+              "RelativeToolTip": "EasySave_G3_V1_1\\ConsoleGUI.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T13:01:00.141Z",
+              "EditorCaption": ""
             }
           ]
         }
