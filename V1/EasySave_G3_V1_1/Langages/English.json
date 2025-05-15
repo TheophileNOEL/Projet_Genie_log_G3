@@ -18,5 +18,6 @@
   "DeleteScenarioPrompt": "Please enter the ID of the scenario to delete:",
   "DeleteScenarioConfirm": "Are you sure you want to permanently delete scenario with ID {0}? (y/n)",
   "UpdateScenarioPrompt": "Please select a scenario to modify:",
-  "ChangeLangages": "Select a language:"
+  "ChangeLangages": "Select a language:",
+  "SelectLogFormat": "Please select a format to the logs (default Json) :"
 }

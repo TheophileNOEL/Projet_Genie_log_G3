@@ -4,7 +4,7 @@
   "SelectAction": "Vous pouvez :\nScénarios                   --> Tapper 1\nChanger de Langue           --> Tapper 2\nQuitter                     --> Tapper 3",
   "ErrorEntry": "Erreur : mauvaise saisie.",
   "ScenarioMenu": "Sélectionnez une action à réaliser",
-  "ScenarioMenuOptions": "Sélectionner un scénario à exécuter  --> Tapper 1\nAjouter un scenario à la liste       --> Tapper 2\n Modifier un scenario existant       --> Tapper 3\nSupprimer un scenario existant       --> Tapper 4\nQuitter                              --> Tapper 5",
+  "ScenarioMenuOptions": "Sélectionner un scénario à exécuter  --> Tapper 1\nAjouter un scenario à la liste       --> Tapper 2\nModifier un scenario existant        --> Tapper 3\nSupprimer un scenario existant       --> Tapper 4\nQuitter                              --> Tapper 5",
   "Selectscenario": "Sélectionnez un scénario à exécuter :",
   "Exemplescenario": "Exemple : 1, 2-4, 3",
   "Back": "Retour",

@@ -18,5 +18,6 @@
   "DeleteScenarioPrompt": "Sekcem ID n usenfar ara tessekles:",
   "DeleteScenarioConfirm": "Tebɣiḍ ad tekkseḍ asenfar s ID {0} i lebda? (y/n)",
   "UpdateScenarioPrompt": "Fren asenfar ara tbedleḍ:",
-  "ChangeLangages": "Fren tutlayt:"
+  "ChangeLangages": "Fren tutlayt:",
+  "SelectLogFormat": "Fren aɣewwar n uɣmis (Json d amezwer) :"
 }
