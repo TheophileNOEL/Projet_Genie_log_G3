@@ -25,7 +25,7 @@ public class ScenarioList
         };
 
         List<Scenario> scenarios = JsonSerializer.Deserialize<List<Scenario>>(json, options);
-        this.items = scenarios;
+        this.items = scenarios.OrderBy(s => s.Id).ToList(); ;
         return scenarios;
     }
 
@@ -42,7 +42,7 @@ public class ScenarioList
             if (scenario != null)
             {
 
-                var messages = scenario.Execute(); 
+                var messages = scenario.Execute();
                 result.Add(scenario, messages);
             }
         }
@@ -55,11 +55,11 @@ public class ScenarioList
     {
         var result = new Dictionary<Scenario, List<string>>();
 
-        foreach (int i in ids)
+        foreach (int id in ids)
         {
-            if (i >= 1 && i <= items.Count && items[i - 1] != null)
+            var scenario = items.FirstOrDefault(s => s.Id == id);
+            if (scenario != null)
             {
-                var scenario = items[i - 1];
                 var messages = scenario.Execute();
                 result.Add(scenario, messages);
             }
@@ -153,22 +153,8 @@ public class ScenarioList
         return true;
     }
 
-    public List<Scenario> Get() 
+    public List<Scenario> Get()
     {
         return items;
-    }
-
-    public ScenarioList Search(string keyword)
-    {
-        var results = items
-            .Where(s => s != null &&
-                        (s.GetName()?.Contains(keyword, StringComparison.OrdinalIgnoreCase) == true ||
-                         s.GetDescription()?.Contains(keyword, StringComparison.OrdinalIgnoreCase) == true))
-            .ToList();
-
-        var newList = new ScenarioList();
-        newList.items = results;
-
-        return newList;
     }
 }
