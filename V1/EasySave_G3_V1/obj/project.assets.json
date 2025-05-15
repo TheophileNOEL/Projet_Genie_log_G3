@@ -6,27 +6,27 @@
   "libraries": {},
   "projectFileDependencyGroups": {
     "net8.0": [
-      "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave.Core\\EasySave.Core.csproj"
+      "C:\\Users\\Corentin\\Desktop\\GenieLog\\Projet_Genie_log_G3\\V1\\EasySave.Core\\EasySave.Core.csproj"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Users\\Corentin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave_G3_V1\\EasySave_G3_V1.csproj",
+      "projectUniqueName": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Projet_Genie_log_G3\\V1\\EasySave_G3_V1\\EasySave_G3_V1.csproj",
       "projectName": "EasySave_G3_V1",
-      "projectPath": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave_G3_V1\\EasySave_G3_V1.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave_G3_V1\\obj\\",
+      "projectPath": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Projet_Genie_log_G3\\V1\\EasySave_G3_V1\\EasySave_G3_V1.csproj",
+      "packagesPath": "C:\\Users\\Corentin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Projet_Genie_log_G3\\V1\\EasySave_G3_V1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Corentin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -42,8 +42,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave.Core\\EasySave.Core.csproj": {
-              "projectPath": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave.Core\\EasySave.Core.csproj"
+            "C:\\Users\\Corentin\\Desktop\\GenieLog\\Projet_Genie_log_G3\\V1\\EasySave.Core\\EasySave.Core.csproj": {
+              "projectPath": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Projet_Genie_log_G3\\V1\\EasySave.Core\\EasySave.Core.csproj"
             }
           }
         }
@@ -52,13 +52,7 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -79,7 +73,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -87,8 +81,8 @@
     {
       "code": "NU1105",
       "level": "Error",
-      "message": "Les informations relatives au projet sont introuvables pour 'C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave.Core\\EasySave.Core.csproj'. Si vous utilisez Visual Studio, cela peut être dû au fait que le projet est déchargé ou qu'il ne fait pas partie de la solution actuelle. Dans ce cas, exécutez une restauration à partir de la ligne de commande. Sinon, il est possible que le fichier projet soit non valide ou que des cibles nécessaires à la restauration soient manquantes.",
-      "libraryId": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\V1\\EasySave.Core\\EasySave.Core.csproj",
+      "message": "Les informations relatives au projet sont introuvables pour 'C:\\Users\\Corentin\\Desktop\\GenieLog\\Projet_Genie_log_G3\\V1\\EasySave.Core\\EasySave.Core.csproj'. Si vous utilisez Visual Studio, cela peut être dû au fait que le projet est déchargé ou qu'il ne fait pas partie de la solution actuelle. Dans ce cas, exécutez une restauration à partir de la ligne de commande. Sinon, il est possible que le fichier projet soit non valide ou que des cibles nécessaires à la restauration soient manquantes.",
+      "libraryId": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Projet_Genie_log_G3\\V1\\EasySave.Core\\EasySave.Core.csproj",
       "targetGraphs": [
         "net8.0"
       ]

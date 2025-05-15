@@ -1,6 +1,6 @@
 {
   "Separator": "----------------------------------------",
-  "Welcome": "Bienvenue sur EasySave !",
+  "Welcome": "Bienvenue sur EasySave v1!",
   "SelectAction": "Vous pouvez :\nScénarios                   --> Tapper 1\nChanger de Langue           --> Tapper 2\nQuitter                     --> Tapper 3",
   "ErrorEntry": "Erreur : mauvaise saisie.",
   "ScenarioMenu": "Sélectionnez une action à réaliser",

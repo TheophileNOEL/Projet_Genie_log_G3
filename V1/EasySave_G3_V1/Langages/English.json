@@ -1,6 +1,6 @@
 {
   "Separator": "----------------------------------------",
-  "Welcome": "Welcome to EasySave!",
+  "Welcome": "Welcome to EasySave v1!",
   "SelectAction": "You can:\nScenarios         --> Type 1\nChange language          --> Type 2\nQuit                     --> Type 3",
   "ErrorEntry": "Error: bad entry.",
   "ScenarioMenu": "Select an action to perform",

@@ -16,10 +16,7 @@
       },
       "EasySave.Core/1.0.0": {
         "runtime": {
-          "EasySave.Core.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "EasySave.Core.dll": {}
         }
       }
     }
