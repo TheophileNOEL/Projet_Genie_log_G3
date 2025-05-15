@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {
       "EasySave_G3_V1/1.0.0": {
+        "dependencies": {
+          "CryptoSoft": "1.0.0"
+        },
         "runtime": {
           "EasySave_G3_V1.dll": {}
+        }
+      },
+      "CryptoSoft/1.0.0": {
+        "runtime": {
+          "CryptoSoft.dll": {}
         }
       }
     }
   },
   "libraries": {
     "EasySave_G3_V1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CryptoSoft/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
