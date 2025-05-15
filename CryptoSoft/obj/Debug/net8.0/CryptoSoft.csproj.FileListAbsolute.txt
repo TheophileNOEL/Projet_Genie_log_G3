@@ -1,0 +1,12 @@
+C:\Users\Corentin\Desktop\GenieLog\Projet_Genie_log_G3\CryptoSoft\bin\Debug\net8.0\CryptoSoft.deps.json
+C:\Users\Corentin\Desktop\GenieLog\Projet_Genie_log_G3\CryptoSoft\bin\Debug\net8.0\CryptoSoft.dll
+C:\Users\Corentin\Desktop\GenieLog\Projet_Genie_log_G3\CryptoSoft\bin\Debug\net8.0\CryptoSoft.pdb
+C:\Users\Corentin\Desktop\GenieLog\Projet_Genie_log_G3\CryptoSoft\obj\Debug\net8.0\CryptoSoft.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Corentin\Desktop\GenieLog\Projet_Genie_log_G3\CryptoSoft\obj\Debug\net8.0\CryptoSoft.AssemblyInfoInputs.cache
+C:\Users\Corentin\Desktop\GenieLog\Projet_Genie_log_G3\CryptoSoft\obj\Debug\net8.0\CryptoSoft.AssemblyInfo.cs
+C:\Users\Corentin\Desktop\GenieLog\Projet_Genie_log_G3\CryptoSoft\obj\Debug\net8.0\CryptoSoft.csproj.CoreCompileInputs.cache
+C:\Users\Corentin\Desktop\GenieLog\Projet_Genie_log_G3\CryptoSoft\obj\Debug\net8.0\CryptoSoft.sourcelink.json
+C:\Users\Corentin\Desktop\GenieLog\Projet_Genie_log_G3\CryptoSoft\obj\Debug\net8.0\CryptoSoft.dll
+C:\Users\Corentin\Desktop\GenieLog\Projet_Genie_log_G3\CryptoSoft\obj\Debug\net8.0\refint\CryptoSoft.dll
+C:\Users\Corentin\Desktop\GenieLog\Projet_Genie_log_G3\CryptoSoft\obj\Debug\net8.0\CryptoSoft.pdb
+C:\Users\Corentin\Desktop\GenieLog\Projet_Genie_log_G3\CryptoSoft\obj\Debug\net8.0\ref\CryptoSoft.dll

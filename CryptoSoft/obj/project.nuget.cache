@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "0EvUXsTekolo7t421ofn4qpxQI8t+Gc8nr3o/9/rIttFoTk3H4RR9LlYKnA/Jd9Cx4nMCid+BlpMXAif6pBR/A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Projet_Genie_log_G3\\CryptoSoft\\CryptoSoft.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Corentin\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.0\\microsoft.net.illink.tasks.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
