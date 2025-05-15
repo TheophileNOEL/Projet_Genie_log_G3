@@ -2,7 +2,6 @@
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using EasySave.Core;
-
 public class ScenarioList
 {
     private List<Scenario> items = new List<Scenario>();
@@ -71,7 +70,7 @@ public class ScenarioList
 
 
     public bool Modify(int index, int? newId = null, string newName = null, string newSource = null,
-                   string newTarget = null, BackupType? newType = null, string newDesc = null)
+                   string newTarget = null, EasySave.Core.BackupType? newType = null, string newDesc = null)
     {
         if (index <= 0 || index > items.Count || items[index - 1] == null)
             throw new IndexOutOfRangeException("Index invalide ou scénario vide.");
@@ -111,7 +110,7 @@ public class ScenarioList
     }
 
 
-    public Scenario CreateScenario(string name, string source, string target, BackupType type, string description)
+    public Scenario CreateScenario(string name, string source, string target, EasySave.Core.BackupType type, string description)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Le nom ne peut pas être vide.");

@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using EasySave.Core;
-
 namespace EasySave_G3_V1
 {
-
     public class Scenario
     {
         // Properties of the backup scenario

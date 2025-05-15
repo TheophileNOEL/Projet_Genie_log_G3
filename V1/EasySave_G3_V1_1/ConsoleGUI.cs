@@ -1,7 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Reflection;
-namespace EasySave_G3_V1;
 using EasySave.Core;
+
+namespace EasySave_G3_V1;
+
 class Programm
 {
     static void Main(string[] args)

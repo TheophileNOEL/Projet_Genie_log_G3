@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using EasySave.Core;
-
 namespace EasySave_G3_V1
 {
     public class ConsoleViewModel
