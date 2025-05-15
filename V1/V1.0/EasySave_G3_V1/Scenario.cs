@@ -138,7 +138,10 @@ namespace EasySave_G3_V1
                     {
                         try
                         {
+<<<<<<< HEAD
                             
+=======
+>>>>>>> 03e17cd2529ad8d02758a524ce348af3966174f6
                             File.Copy(filePath, targetPath, true);
                         }
                         catch (Exception copyEx)
