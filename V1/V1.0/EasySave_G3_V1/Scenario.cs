@@ -138,8 +138,8 @@ namespace EasySave_G3_V1
                     {
                         try
                         {
-                            //EncryptIfNeeded(targetPath, ".txt", "cle123");
                             File.Copy(filePath, targetPath, true);
+                            EncryptIfNeeded(targetPath, ".txt", "cle123");
                         }
                         catch (Exception copyEx)
                         {
@@ -186,25 +186,29 @@ namespace EasySave_G3_V1
             }
         }
 
-        private void EncryptIfNeeded(string targetDirectory, string extension, string encryptionKey)
+        private void EncryptIfNeeded(string filePath, string extension, string key)
         {
-            if (!Directory.Exists(targetDirectory)) return;
-
-            var filesToEncrypt = Directory.GetFiles(targetDirectory, $"*{extension}", SearchOption.AllDirectories);
-
-            foreach (var file in filesToEncrypt)
+            try
             {
-                try
+                if (Path.GetExtension(filePath).Equals(extension, StringComparison.OrdinalIgnoreCase))
                 {
-                    var encryptor = new CryptoSoft.FileManager(file, encryptionKey);
-                    encryptor.TransformFile();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Erreur lors du chiffrement du fichier {file} : {ex.Message}");
+                    try
+                    {
+                        var crypto = new CryptoSoft.FileManager(filePath, key);
+                        crypto.TransformFile();
+                        Console.WriteLine($"[INFO] Fichier chiffré : {filePath}");
+                    }
+                    catch (Exception cryptoEx)
+                    {
+                        Console.WriteLine($"[ERREUR] Échec du chiffrement pour '{filePath}' : {cryptoEx.Message}");
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[ERREUR] Erreur dans EncryptIfNeeded pour le fichier '{filePath}' : {ex.Message}");
+            }
         }
-
     }
 }
+
