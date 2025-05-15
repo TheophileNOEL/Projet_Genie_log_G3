@@ -66,7 +66,7 @@ namespace EasySave_G3_V1
             Log = new LogEntry();
         }
 
-        public List<string> Execute()
+        public List<string> Execute(LogFormat logFormat)
         {
             List<string> messages = new List<string>();
 
@@ -75,7 +75,7 @@ namespace EasySave_G3_V1
                 State = BackupState.Running;
                 messages.Add($"Backup '{Name}' is running...");
 
-                string result = RunSave();
+                string result = RunSave(logFormat);
                 if (!string.IsNullOrWhiteSpace(result))
                     messages.Add(result);
 
@@ -91,7 +91,7 @@ namespace EasySave_G3_V1
             return messages;
         }
 
-        private string RunSave()
+        private string RunSave(LogFormat logFormat)
         {
             try
             {
@@ -151,7 +151,7 @@ namespace EasySave_G3_V1
                 );
 
                 Log.SetDurationMs((int)stopwatch.ElapsedMilliseconds);
-                Log.AppendToFile();
+                Log.AppendToFile(logFormat);
                 return null;
             }
             catch (Exception ex)

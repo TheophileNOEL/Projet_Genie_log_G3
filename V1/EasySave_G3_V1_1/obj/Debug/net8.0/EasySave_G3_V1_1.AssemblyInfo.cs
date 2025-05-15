@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EasySave_G3_V1_1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a406b288d60447851b1f5351805c8a420104bd67")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fea7f6c5791241038025653a4a35c368ef1ee078")]
 [assembly: System.Reflection.AssemblyProductAttribute("EasySave_G3_V1_1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EasySave_G3_V1_1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

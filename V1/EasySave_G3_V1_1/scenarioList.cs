@@ -30,7 +30,7 @@ public class ScenarioList
         return scenarios;
     }
 
-    public Dictionary<Scenario, List<string>> RunRange(int start, int end)
+    public Dictionary<Scenario, List<string>> RunRange(int start, int end, LogFormat logFormat)
     {
         if (start < 1 || end > items.Count || start > end)
             throw new ArgumentOutOfRangeException("Plage invalide.");
@@ -43,7 +43,7 @@ public class ScenarioList
             if (scenario != null)
             {
 
-                var messages = scenario.Execute(); 
+                var messages = scenario.Execute(logFormat); 
                 result.Add(scenario, messages);
             }
         }
@@ -52,7 +52,7 @@ public class ScenarioList
     }
 
 
-    public Dictionary<Scenario, List<string>> RunList(int[] ids)
+    public Dictionary<Scenario, List<string>> RunList(int[] ids, LogFormat logFormat)
     {
         var result = new Dictionary<Scenario, List<string>>();
 
@@ -61,7 +61,7 @@ public class ScenarioList
             if (i >= 1 && i <= items.Count && items[i - 1] != null)
             {
                 var scenario = items[i - 1];
-                var messages = scenario.Execute();
+                var messages = scenario.Execute(logFormat);
                 result.Add(scenario, messages);
             }
         }

@@ -18,5 +18,6 @@
   "DeleteScenarioPrompt": "Veuillez renseigner l'ID du scénario à supprimer :",
   "DeleteScenarioConfirm": "Etes-vous sûr de vouloir supprimer le scenario d'identifiant {0} pour toujours ? (y/n)",
   "UpdateScenarioPrompt": "Veuillez sélectionner un scénario à modifier :",
-  "ChangeLangages": "Sélectionnez une langue :"
+  "ChangeLangages": "Sélectionnez une langue :",
+  "SelectLogFormat": "Sélectionnez le format de log (Json par défaut) :"
 }

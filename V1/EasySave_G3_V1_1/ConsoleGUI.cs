@@ -85,12 +85,13 @@ class Programm
             Begin(consoleViewModel, L);
         else if (IsRange(result))
         {
+            LogFormat logFormat = SelectLogFormat(consoleViewModel, L);
             // Extract start and end range from the input  
             string[] rangeParts = result.Split('-');
             int Start = int.Parse(rangeParts[0].Trim());
             int end = int.Parse(rangeParts[1].Trim());
             // Call RunRange with the extracted parameters  
-            Dictionary<Scenario, List<string>> message = scenarioList.RunRange(Start, end);
+            Dictionary<Scenario, List<string>> message = scenarioList.RunRange(Start, end, logFormat);
             foreach (KeyValuePair<Scenario, List<string>> kvp in message)
             {
                 Console.WriteLine(kvp.Key.GetLog().Display());
@@ -104,9 +105,10 @@ class Programm
             string[] rangeParts = result.Split(',');
             foreach (string i in rangeParts)
             {
+                LogFormat logFormat = SelectLogFormat(consoleViewModel, L);
                 int Start = int.Parse(i.Trim());
                 // Call RunRange with the extracted parameters  
-                Dictionary<Scenario, List<string>> message = scenarioList.RunList(new int[] { Start });
+                Dictionary<Scenario, List<string>> message = scenarioList.RunList(new int[] { Start }, logFormat);
                 foreach (KeyValuePair<Scenario, List<string>> kvp in message)
                 {
                     Console.WriteLine(kvp.Key.GetLog().Display());
@@ -119,7 +121,8 @@ class Programm
         {
             if (int.TryParse(result, out int id))
             {
-                Dictionary<Scenario, List<string>> message = scenarioList.RunList([int.Parse(result)]);
+                LogFormat logFormat = SelectLogFormat(consoleViewModel, L);
+                Dictionary<Scenario, List<string>> message = scenarioList.RunList([int.Parse(result)], logFormat);
                 foreach (KeyValuePair<Scenario, List<string>> kvp in message)
                 {
                     Console.WriteLine(kvp.Key.GetLog().Display());
@@ -131,6 +134,27 @@ class Programm
         foreach (Scenario scenario in scenarioList.Get())
         {
             Console.WriteLine(scenario.GetLog().Display());
+        }
+    }
+    LogFormat SelectLogFormat(ConsoleViewModel consoleViewModel,Langage L)
+    {
+        Console.WriteLine(L.GetElements()["Separator"]);
+        Console.WriteLine(L.GetElements()["SelectLogFormat"]);
+        int i = 0;
+        foreach (LogFormat logFormat in Enum.GetValues(typeof(LogFormat)))
+        {
+            Console.WriteLine(i + "    " + logFormat);
+            i++;
+        }
+        switch (Console.ReadLine())
+        {
+            case "0":
+                return LogFormat.Xml;
+            case "1":
+                return LogFormat.Json;
+            default:
+                Console.WriteLine(L.GetElements()["ErrorType"]);
+                return LogFormat.Json;
         }
     }
     void AddScenario(ConsoleViewModel consoleViewModel, Langage L)
