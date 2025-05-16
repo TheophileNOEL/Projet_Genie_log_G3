@@ -106,6 +106,7 @@ namespace EasySave_G3_V1
 
                 foreach (string filePath in Directory.GetFiles(Source, "*", SearchOption.AllDirectories))
                 {
+
                     string relativePath = Path.GetRelativePath(Source, filePath);
                     string targetPath = Path.Combine(Target, relativePath);
 
@@ -173,25 +174,26 @@ namespace EasySave_G3_V1
             }
         }
 
-        //private void EncryptIfNeeded(string targetDirectory, string extension, string encryptionKey)
-        //{
-        //    if (!Directory.Exists(targetDirectory)) return;
+        private void EncryptIfNeeded(string targetDirectory, string extension, string encryptionKey)
+        {
+            if (!Directory.Exists(targetDirectory)) return;
 
-        //    var filesToEncrypt = Directory.GetFiles(targetDirectory, $"*{extension}", SearchOption.AllDirectories);
+            var filesToEncrypt = Directory.GetFiles(targetDirectory, $"*{extension}", SearchOption.AllDirectories);
 
-        //    foreach (var file in filesToEncrypt)
-        //    {
-        //        try
-        //        {
-        //            var encryptor = new CryptoSoft.FileManager(file, encryptionKey);
-        //            encryptor.TransformFile();
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            Console.WriteLine($"Erreur lors du chiffrement du fichier {file} : {ex.Message}");
-        //        }
-        //    }
-        //}
+            foreach (var file in filesToEncrypt)
+            {
+                try
+                {
+                    var encryptor = new CryptoSoft.FileManager(file, encryptionKey);
+                    encryptor.TransformFile();
+                }
+               catch (Exception ex)
+               {
+                   Console.WriteLine($"Erreur lors du chiffrement du fichier {file} : {ex.Message}");
+               }
+           }
+        }
+
 
     }
 }

@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CryptoSoft\CryptoSoft.csproj" />
     <ProjectReference Include="..\EasySave.Core\EasySave.Core.csproj" />
   </ItemGroup>
 

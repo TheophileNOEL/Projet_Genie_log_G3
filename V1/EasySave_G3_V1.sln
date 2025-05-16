@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasySave_G3_V2_0", "EasySav
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasySave.Core", "EasySave.Core\EasySave.Core.csproj", "{53109042-7963-4F3B-BAA5-84E58BCA37F0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoSoft", "CryptoSoft\CryptoSoft.csproj", "{49A44719-CB61-4D45-A407-1FBF5EB7CFA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{53109042-7963-4F3B-BAA5-84E58BCA37F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53109042-7963-4F3B-BAA5-84E58BCA37F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53109042-7963-4F3B-BAA5-84E58BCA37F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49A44719-CB61-4D45-A407-1FBF5EB7CFA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49A44719-CB61-4D45-A407-1FBF5EB7CFA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49A44719-CB61-4D45-A407-1FBF5EB7CFA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49A44719-CB61-4D45-A407-1FBF5EB7CFA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

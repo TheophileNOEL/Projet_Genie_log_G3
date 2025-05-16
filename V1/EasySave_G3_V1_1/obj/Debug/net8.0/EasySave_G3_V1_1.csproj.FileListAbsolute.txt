@@ -55,3 +55,5 @@ C:\Users\Corentin\Desktop\devCoco\Projet_Genie_log_G3\V1\EasySave_G3_V1_1\obj\De
 C:\Users\Corentin\Desktop\devCoco\Projet_Genie_log_G3\V1\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.csproj.CopyComplete
 C:\Users\Corentin\Desktop\devCoco\Projet_Genie_log_G3\V1\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.genruntimeconfig.cache
 C:\Users\Corentin\Desktop\devCoco\Projet_Genie_log_G3\V1\EasySave_G3_V1_1\obj\Debug\net8.0\ref\EasySave_G3_V1_1.dll
+C:\Users\Corentin\Desktop\devCoco\Projet_Genie_log_G3\V1\EasySave_G3_V1_1\bin\Debug\net8.0\CryptoSoft.dll
+C:\Users\Corentin\Desktop\devCoco\Projet_Genie_log_G3\V1\EasySave_G3_V1_1\bin\Debug\net8.0\CryptoSoft.pdb

@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CryptoSoft\CryptoSoft.csproj" />
     <ProjectReference Include="C:\Users\Corentin\Desktop\devCoco\Projet_Genie_log_G3\V1\EasySave.Core\EasySave.Core.csproj" />
   </ItemGroup>
 

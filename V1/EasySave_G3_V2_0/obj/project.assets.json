@@ -1,11 +1,46 @@
 {
   "version": 3,
   "targets": {
-    "net8.0-windows7.0": {}
+    "net8.0-windows7.0": {
+      "CryptoSoft/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/CryptoSoft.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CryptoSoft.dll": {}
+        }
+      },
+      "EasySave.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/EasySave.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EasySave.Core.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "CryptoSoft/1.0.0": {
+      "type": "project",
+      "path": "../CryptoSoft/CryptoSoft.csproj",
+      "msbuildProject": "../CryptoSoft/CryptoSoft.csproj"
+    },
+    "EasySave.Core/1.0.0": {
+      "type": "project",
+      "path": "../EasySave.Core/EasySave.Core.csproj",
+      "msbuildProject": "../EasySave.Core/EasySave.Core.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0-windows7.0": []
+    "net8.0-windows7.0": [
+      "CryptoSoft >= 1.0.0",
+      "EasySave.Core >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Corentin\\.nuget\\packages\\": {},
@@ -39,7 +74,14 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Corentin\\Desktop\\devCoco\\Projet_Genie_log_G3\\V1\\CryptoSoft\\CryptoSoft.csproj": {
+              "projectPath": "C:\\Users\\Corentin\\Desktop\\devCoco\\Projet_Genie_log_G3\\V1\\CryptoSoft\\CryptoSoft.csproj"
+            },
+            "C:\\Users\\Corentin\\Desktop\\devCoco\\Projet_Genie_log_G3\\V1\\EasySave.Core\\EasySave.Core.csproj": {
+              "projectPath": "C:\\Users\\Corentin\\Desktop\\devCoco\\Projet_Genie_log_G3\\V1\\EasySave.Core\\EasySave.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
