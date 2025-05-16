@@ -96,9 +96,10 @@ namespace EasySave_G3_V1
                 var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
                 if (!Directory.Exists(Source))
-                    return $"Source path '{Source}' not found.";
+                    throw new DirectoryNotFoundException($"Source path '{Source}' not found.");
+
                 if (!Directory.Exists(Target))
-                    return $"Target path '{Target}' not found.";
+                    throw new DirectoryNotFoundException($"Target path '{Target}' not found.");
 
                 List<Folder> folders = new List<Folder>();
 
