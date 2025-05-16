@@ -93,26 +93,42 @@ namespace EasySave_G3_V1
 
         private string RunSave()
         {
+            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
+            string description = "Save completed";
+            List<Folder> folders = new List<Folder>();
+            int nbItems = 0;
+            long totalSize = 0;
+
             try
             {
-                var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-
-                if (!Directory.Exists(Source))
-                    return $"Source path '{Source}' not found.";
-                if (!Directory.Exists(Target))
-                    return $"Target path '{Target}' not found.";
-
-                List<Folder> folders = new List<Folder>();
+                if (!Directory.Exists(Source) || !Directory.Exists(Target))
+                {
+                    description = "Invalid file path";
+                    stopwatch.Stop();
+                    Log = new LogEntry(
+                        DateTime.Now,
+                        Name,
+                        Type,
+                        Source,
+                        Target,
+                        0,
+                        (int)stopwatch.ElapsedMilliseconds,
+                        BackupState.Failed,
+                        description,
+                        folders
+                    );
+                    Log.AppendToFile();
+                    return description;
+                }
 
                 foreach (string filePath in Directory.GetFiles(Source, "*", SearchOption.AllDirectories))
                 {
-
                     string relativePath = Path.GetRelativePath(Source, filePath);
                     string targetPath = Path.Combine(Target, relativePath);
 
                     FileInfo fileInfo = new FileInfo(filePath);
-
-                    folders.Add(new Folder(filePath, File.GetLastWriteTime(filePath), Path.GetFileName(filePath), true, fileInfo.Length));
+                    folders.Add(new Folder(filePath, fileInfo.LastWriteTime, fileInfo.Name, true, fileInfo.Length));
 
                     bool shouldCopy = Type switch
                     {
@@ -128,38 +144,41 @@ namespace EasySave_G3_V1
                         {
                             File.Copy(filePath, targetPath, true);
                             EncryptIfNeeded(targetPath, ".txt", "cle123");
+                            nbItems++;
+                            totalSize += fileInfo.Length;
                         }
                         catch (Exception copyEx)
                         {
-                            return $"Erreur lors de la copie du fichier : {filePath} - {copyEx.Message}";
+                            description = $"Error during file enryption : {filePath} - {copyEx.Message}";
+                            break;
                         }
                     }
                 }
-
-                stopwatch.Stop();
-
-                Log = new LogEntry(
-                    DateTime.Now,
-                    Name,
-                    Type,
-                    Source,
-                    Target,
-                    1,
-                    (int)stopwatch.ElapsedMilliseconds,
-                    State,
-                    Description,
-                    folders
-                );
-
-                Log.SetDurationMs((int)stopwatch.ElapsedMilliseconds);
-                Log.AppendToFile();
-                return null;
             }
             catch (Exception ex)
             {
-                return $"Une erreur est survenue pendant la sauvegarde : {ex.Message}";
+                description = $"Unexpected error : {ex.Message}";
             }
+
+            stopwatch.Stop();
+
+            Log = new LogEntry(
+                DateTime.Now,
+                Name,
+                Type,
+                Source,
+                Target,
+                nbItems,
+                (int)stopwatch.ElapsedMilliseconds,
+                BackupState.Completed,
+                description,
+                folders
+            );
+            Log.AppendToFile();
+
+            return "done";
         }
+
 
         public string Cancel()
         {

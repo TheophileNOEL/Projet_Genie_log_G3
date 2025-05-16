@@ -1,5 +1,15 @@
 [
   {
+    "Id": 1,
+    "Name": "TestCrypt",
+    "Source": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Source",
+    "Target": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Dest",
+    "Type": 0,
+    "State": 0,
+    "Description": "Test du cryptage",
+    "Log": {}
+  },
+  {
     "Id": 2,
     "Name": "Test2",
     "Source": "C:\\Test\\Source",
@@ -10,13 +20,13 @@
     "Log": {}
   },
   {
-    "Id": 1,
-    "Name": "TestCrypt",
+    "Id": 3,
+    "Name": "TestCreate",
     "Source": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Source",
     "Target": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Dest",
     "Type": 0,
     "State": 0,
-    "Description": "Test du cryptage",
+    "Description": "Creation d\u0027un scenario",
     "Log": {}
   }
 ]
