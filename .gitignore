@@ -1,0 +1,15 @@
+obj/
+bin/
+.vs/
+
+EasySave.Core/obj/
+EasySave.Core/bin/
+
+V1/EasySave_G3_V1/obj/
+V1/EasySave_G3_V1/bin/
+
+V1/EasySave_G3_V1_1/obj/
+V1/EasySave_G3_V1_1/bin/
+
+V1/EasySave_G3_V2_0/obj/
+V1/EasySave_G3_V2_0/bin/
