@@ -26,9 +26,13 @@ public class ScenarioList
         };
 
         List<Scenario> scenarios = JsonSerializer.Deserialize<List<Scenario>>(json, options);
-        this.items = scenarios;
-        return scenarios;
+
+        // Trie les scénarios par ID croissant
+        this.items = scenarios.OrderBy(s => s.Id).ToList();
+
+        return this.items;
     }
+
 
     public Dictionary<Scenario, List<string>> RunRange(int start, int end)
     {

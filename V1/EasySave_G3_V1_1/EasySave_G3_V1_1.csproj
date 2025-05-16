@@ -6,8 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\..\EasySave.Core\EasySave.Core.csproj" />
-	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CryptoSoft\CryptoSoft.csproj" />
+    <ProjectReference Include="..\EasySave.Core\EasySave.Core.csproj" />
+  </ItemGroup>
 
 </Project>

@@ -48,3 +48,7 @@ C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logici
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\V1\EasySave_G3_V2_0\obj\Debug\net8.0-windows\EasySave_G3_V2_0.pdb
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\V1\EasySave_G3_V2_0\obj\Debug\net8.0-windows\EasySave_G3_V2_0.genruntimeconfig.cache
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\V1\EasySave_G3_V2_0\obj\Debug\net8.0-windows\ref\EasySave_G3_V2_0.dll
+C:\Users\Corentin\Desktop\devCoco\Projet_Genie_log_G3\V1\EasySave_G3_V2_0\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\Corentin\Desktop\devCoco\Projet_Genie_log_G3\V1\EasySave_G3_V2_0\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\Corentin\Desktop\devCoco\Projet_Genie_log_G3\V1\EasySave_G3_V2_0\obj\Debug\net8.0-windows\EasySave_G3_V2_0_MarkupCompile.cache
+C:\Users\Corentin\Desktop\devCoco\Projet_Genie_log_G3\V1\EasySave_G3_V2_0\obj\Debug\net8.0-windows\EasySave_G3_V2_0_MarkupCompile.lref

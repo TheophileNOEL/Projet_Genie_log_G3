@@ -96,9 +96,10 @@ namespace EasySave_G3_V1
                 var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
                 if (!Directory.Exists(Source))
-                    return $"Source path '{Source}' not found.";
+                    throw new DirectoryNotFoundException($"Source path '{Source}' not found.");
+
                 if (!Directory.Exists(Target))
-                    return $"Target path '{Target}' not found.";
+                    throw new DirectoryNotFoundException($"Target path '{Target}' not found.");
 
                 List<Folder> folders = new List<Folder>();
 
@@ -123,7 +124,7 @@ namespace EasySave_G3_V1
                     {
                         try
                         {
-                            //EncryptIfNeeded(targetPath, ".txt", "cle123");
+                            EncryptIfNeeded(targetPath, ".txt", "cle123");
                             File.Copy(filePath, targetPath, true);
                         }
                         catch (Exception copyEx)
@@ -171,25 +172,25 @@ namespace EasySave_G3_V1
             }
         }
 
-        //private void EncryptIfNeeded(string targetDirectory, string extension, string encryptionKey)
-        //{
-        //    if (!Directory.Exists(targetDirectory)) return;
+        private void EncryptIfNeeded(string targetDirectory, string extension, string encryptionKey)
+        {
+            if (!Directory.Exists(targetDirectory)) return;
 
-        //    var filesToEncrypt = Directory.GetFiles(targetDirectory, $"*{extension}", SearchOption.AllDirectories);
+            var filesToEncrypt = Directory.GetFiles(targetDirectory, $"*{extension}", SearchOption.AllDirectories);
 
-        //    foreach (var file in filesToEncrypt)
-        //    {
-        //        try
-        //        {
-        //            var encryptor = new CryptoSoft.FileManager(file, encryptionKey);
-        //            encryptor.TransformFile();
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            Console.WriteLine($"Erreur lors du chiffrement du fichier {file} : {ex.Message}");
-        //        }
-        //    }
-        //}
+            foreach (var file in filesToEncrypt)
+            {
+               try
+                {
+                 var encryptor = new CryptoSoft.FileManager(file, encryptionKey);
+                    encryptor.TransformFile();
+                }
+               catch (Exception ex)
+                {
+                    Console.WriteLine($"Erreur lors du chiffrement du fichier {file} : {ex.Message}");
+                }
+            }
+        }
 
     }
 }
