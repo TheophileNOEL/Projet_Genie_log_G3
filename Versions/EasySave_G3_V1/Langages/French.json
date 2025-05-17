@@ -1,0 +1,23 @@
+{
+  "Separator": "----------------------------------------",
+  "Welcome": "Bienvenue sur EasySave V1.0!",
+  "SelectAction": "Vous pouvez :\nScénarios                   --> Tapper 1\nChanger de Langue           --> Tapper 2\nQuitter                     --> Tapper 3",
+  "ErrorEntry": "Erreur : mauvaise saisie.",
+  "ScenarioMenu": "Sélectionnez une action à réaliser",
+  "ScenarioMenuOptions": "Sélectionner un scénario à exécuter  --> Tapper 1\nAjouter un scenario à la liste       --> Tapper 2\nModifier un scenario existant        --> Tapper 3\nSupprimer un scenario existant       --> Tapper 4\nQuitter                              --> Tapper 5",
+  "Selectscenario": "Sélectionnez un scénario à exécuter :",
+  "Exemplescenario": "Exemple : 1, 2-4, 3",
+  "Back": "Retour",
+  "ErrorType": "Erreur : type invalide.",
+  "AddScenarioPrompt": "Veuillez renseigner les informations suivantes :",
+  "ScenarioName": "Nom du scénario :",
+  "Source": "Source :",
+  "Target": "Cible :",
+  "BackupType": "Type de sauvegarde (Full/Differential) :",
+  "Description": "Description :",
+  "DeleteScenarioPrompt": "Veuillez renseigner l'ID du scénario à supprimer :",
+  "DeleteScenarioConfirm": "Etes-vous sûr de vouloir supprimer le scenario d'identifiant {0} pour toujours ? (y/n)",
+  "UpdateScenarioPrompt": "Veuillez sélectionner un scénario à modifier :",
+  "ChangeLangages": "Sélectionnez une langue :",
+  "SelectLogFormat": "Sélectionnez le format de log parmis la liste ci-dessous:"
+}

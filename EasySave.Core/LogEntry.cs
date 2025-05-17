@@ -19,7 +19,7 @@ namespace EasySave.Core
         private long fileSizeBytes;
         private long durationMs;
         private BackupState state;
-        private string descenarioion;
+        private string description;
 
         private static readonly object fileLock = new object();
 
@@ -34,7 +34,7 @@ namespace EasySave.Core
             fileSizeBytes = 0;
             durationMs = 0;
             state = BackupState.Pending;
-            descenarioion = string.Empty;
+            description = string.Empty;
         }
 
         public LogEntry(DateTime timestamp,
@@ -45,7 +45,7 @@ namespace EasySave.Core
                         long fileSizeBytes,
                         long durationMs,
                         BackupState state,
-                        string descenarioion,
+                        string description,
                         List<Folder> listFolder)
         {
             this.timestamp = timestamp;
@@ -55,7 +55,7 @@ namespace EasySave.Core
             this.targetUNC = targetUNC;
             this.durationMs = durationMs;
             this.state = state;
-            this.descenarioion = descenarioion;
+            this.description = description;
             this.listFolder = listFolder ?? new List<Folder>();
             this.fileSizeBytes = fileSizeBytes > 0
                                   ? fileSizeBytes
@@ -70,7 +70,7 @@ namespace EasySave.Core
         public long GetFileSizeBytes() => fileSizeBytes;
         public long GetDurationMs() => durationMs;
         public BackupState GetState() => state;
-        public string GetDescenarioion() => descenarioion;
+        public string Getdescription() => description;
         public List<Folder> GetListFolder() => listFolder;
 
         public void SetTimestamp(DateTime v) { timestamp = v; }
@@ -80,7 +80,7 @@ namespace EasySave.Core
         public void SetTargetUNC(string v) { targetUNC = v; }
         public void SetDurationMs(long v) { durationMs = v; }
         public void SetState(BackupState v) { state = v; }
-        public void SetDescenarioion(string v) { descenarioion = v; }
+        public void Setdescription(string v) { description = v; }
         public void SetListFolder(List<Folder> v) { listFolder = v; }
 
         public void AddFolder(Folder f) { listFolder.Add(f); }
@@ -103,7 +103,7 @@ namespace EasySave.Core
                    + $"Target UNC         : {targetUNC}\n"
                    + $"Duration (ms)      : {durationMs}\n"
                    + $"State              : {state}\n"
-                   + $"Descenarioion        : {descenarioion}\n"
+                   + $"description        : {description}\n"
                    + $"Total Size (Bytes) : {fileSizeBytes}\n"
                    + $"Nb Items           : {listFolder.Count}\n";
             foreach (var f in listFolder)
@@ -126,7 +126,7 @@ namespace EasySave.Core
                 fileSizeBytes,
                 durationMs,
                 state,
-                descenarioion,
+                description,
                 totalSize = fileSizeBytes,
                 listFolder = listFolder.ConvertAll(f => new
                 {
@@ -149,7 +149,7 @@ namespace EasySave.Core
                 new XElement("fileSizeBytes", fileSizeBytes),
                 new XElement("durationMs", durationMs),
                 new XElement("state", state),
-                new XElement("description", descenarioion),
+                new XElement("description", description),
                 new XElement("listFolder",
                     listFolder.ConvertAll(f => new XElement("item",
                         new XAttribute("path", f.GetPath()),

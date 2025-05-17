@@ -1,0 +1,22 @@
+[
+  {
+    "Id": 1,
+    "Name": "TestTheo",
+    "Source": "C:\\Test\\Source",
+    "Target": "C:\\Test\\Dest",
+    "Type": 0,
+    "State": 0,
+    "Description": "Desc",
+    "Log": {}
+  },
+  {
+    "Id": 2,
+    "Name": "TestCrypt",
+    "Source": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Source",
+    "Target": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Dest",
+    "Type": 0,
+    "State": 0,
+    "Description": "Test du cryptage",
+    "Log": {}
+  }
+]
