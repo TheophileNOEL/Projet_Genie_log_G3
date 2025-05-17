@@ -1,0 +1,23 @@
+{
+  "Separator": "----------------------------------------",
+  "Welcome": "Welcome to EasySave V1.1!",
+  "SelectAction": "You can:\nScenarios         --> Type 1\nChange language          --> Type 2\nQuit                     --> Type 3",
+  "ErrorEntry": "Error: bad entry.",
+  "ScenarioMenu": "Select an action to perform",
+  "ScenarioMenuOptions": "Select a scenario to execute  --> Type 1\nAdd a scenario to the list   --> Type 2\nModify an existing scenario  --> Type 3\nDelete an existing scenario  --> Type 4\nQuit                        --> Type 5",
+  "Selectscenario": "Select a scenario to execute:",
+  "Exemplescenario": "Example: 1, 2-4, 3",
+  "Back": "Back",
+  "ErrorType": "Error: invalid type.",
+  "AddScenarioPrompt": "Please enter the following information:",
+  "ScenarioName": "Scenario name:",
+  "Source": "Source:",
+  "Target": "Target:",
+  "BackupType": "Backup type (Full/Differential):",
+  "Description": "Description:",
+  "DeleteScenarioPrompt": "Please enter the ID of the scenario to delete:",
+  "DeleteScenarioConfirm": "Are you sure you want to permanently delete scenario with ID {0}? (y/n)",
+  "UpdateScenarioPrompt": "Please select a scenario to modify:",
+  "ChangeLangages": "Select a language:",
+  "SelectLogFormat": "Please select a format to the logs (default Json) :"
+}

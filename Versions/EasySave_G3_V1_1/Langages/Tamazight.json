@@ -1,0 +1,23 @@
+{
+  "Separator": "----------------------------------------",
+  "Welcome": "Ansuf yiswen EasySave V1.1!",
+  "SelectAction": "Tzemredh :\nad Yextar isina\u1e5dyuten      --> Tapper 1\nBeddel tutlayt             --> Tapper 2\nQuitter                    --> Tapper 3",
+  "ErrorEntry": "Tuccḍa: anekcum arameɣtu.",
+  "ScenarioMenu": "Fren tikkelt ara tzemreḍ",
+  "ScenarioMenuOptions": "Fren asenfar i tzemreḍ ad yessekles  --> Sekcem 1\nRnu asenfar ɣer tebdart             --> Sekcem 2\nBeddel asenfar yellan               --> Sekcem 3\nKkes asenfar yellan                 --> Sekcem 4\nFfeɣ                                --> Sekcem 5",
+  "Selectscenario": "Fren asenfar i tzemreḍ ad tessekles:",
+  "Exemplescenario": "Amud: 1, 2-4, 3",
+  "Back": "Uɣal",
+  "ErrorType": "Tuccḍa: anaw amaynut.",
+  "AddScenarioPrompt": "Ma ulac aɣilif, sekcem talɣut-agi:",
+  "ScenarioName": "Isem n usenfar:",
+  "Source": "Aɣbalu:",
+  "Target": "Asenfaṛ:",
+  "BackupType": "Anaw n uselkim (Full/Differential):",
+  "Description": "Agzul:",
+  "DeleteScenarioPrompt": "Sekcem ID n usenfar ara tessekles:",
+  "DeleteScenarioConfirm": "Tebɣiḍ ad tekkseḍ asenfar s ID {0} i lebda? (y/n)",
+  "UpdateScenarioPrompt": "Fren asenfar ara tbedleḍ:",
+  "ChangeLangages": "Fren tutlayt:",
+  "SelectLogFormat": "Fren aɣewwar n uɣmis (Json d amezwer) :"
+}
