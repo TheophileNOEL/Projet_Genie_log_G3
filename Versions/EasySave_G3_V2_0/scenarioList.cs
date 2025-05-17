@@ -31,44 +31,47 @@ public class ScenarioList
         return scenarios;
     }
 
-    public Dictionary<Scenario, List<string>> RunRange(int start, int end)
-    {
-        if (start < 1 || end > items.Count || start > end)
-            throw new ArgumentOutOfRangeException("Plage invalide.");
-
-        var result = new Dictionary<Scenario, List<string>>();
-
-        for (int i = start; i <= end; i++)
-        {
-            var scenario = items[i - 1];
-            if (scenario != null)
-            {
-
-                var messages = scenario.Execute(); 
-                result.Add(scenario, messages);
-            }
-        }
-
-        return result;
-    }
-
-
     public Dictionary<Scenario, List<string>> RunList(int[] ids)
     {
         var result = new Dictionary<Scenario, List<string>>();
 
-        foreach (int i in ids)
+        foreach (int id in ids)
         {
-            if (i >= 1 && i <= items.Count && items[i - 1] != null)
+            var scenario = items.FirstOrDefault(s => s != null && s.GetId() == id);
+            if (scenario != null)
             {
-                var scenario = items[i - 1];
                 var messages = scenario.Execute();
                 result.Add(scenario, messages);
+            }
+            else
+            {
+                // Optionnel : gérer scénario non trouvé
+                Console.WriteLine($"Scénario avec ID {id} non trouvé.");
             }
         }
 
         return result;
     }
+
+    public Dictionary<Scenario, List<string>> RunRange(int startId, int endId)
+    {
+        if (startId > endId)
+            throw new ArgumentOutOfRangeException("Plage invalide.");
+
+        var result = new Dictionary<Scenario, List<string>>();
+
+        var scenariosInRange = items.Where(s => s != null && s.GetId() >= startId && s.GetId() <= endId)
+                                    .OrderBy(s => s.GetId());
+
+        foreach (var scenario in scenariosInRange)
+        {
+            var messages = scenario.Execute();
+            result.Add(scenario, messages);
+        }
+
+        return result;
+    }
+
 
 
     public bool Modify(int index, int? newId = null, string newName = null, string newSource = null,
@@ -173,4 +176,8 @@ public class ScenarioList
 
         return newList;
     }
+    public static bool IsRange(string input) => !string.IsNullOrEmpty(input) && input.Contains("-");
+    public static bool IsList(string input) => !string.IsNullOrEmpty(input) && input.Contains(";");
 }
+
+

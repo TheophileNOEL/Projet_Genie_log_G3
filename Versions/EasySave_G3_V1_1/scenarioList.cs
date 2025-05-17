@@ -172,4 +172,61 @@ public class ScenarioList
 
         return newList;
     }
+    public Dictionary<Scenario, List<string>> RunMultiple(string selection)
+    {
+        var result = new Dictionary<Scenario, List<string>>();
+
+        if (string.IsNullOrWhiteSpace(selection))
+            throw new ArgumentException("La sélection ne peut pas être vide.");
+
+        var ids = new HashSet<int>();
+
+        var parts = selection.Split(';', StringSplitOptions.RemoveEmptyEntries);
+
+        foreach (var part in parts)
+        {
+            if (part.Contains('-'))
+            {
+                var bounds = part.Split('-', StringSplitOptions.RemoveEmptyEntries);
+                if (bounds.Length != 2
+                    || !int.TryParse(bounds[0], out int start)
+                    || !int.TryParse(bounds[1], out int end)
+                    || start > end)
+                {
+                    throw new ArgumentException($"Plage invalide : '{part}'");
+                }
+
+                for (int i = start; i <= end; i++)
+                    ids.Add(i);
+            }
+            else
+            {
+                if (!int.TryParse(part, out int single))
+                    throw new ArgumentException($"Valeur invalide : '{part}'");
+
+                ids.Add(single);
+            }
+        }
+
+        foreach (int id in ids.OrderBy(i => i))
+        {
+            if (id < 1 || id > items.Count)
+            {
+                // Option : ignorer ou lever une erreur
+                // Ici je préfère ignorer les IDs hors plage
+                continue;
+            }
+
+            var scenario = items[id - 1];
+            if (scenario != null)
+            {
+                var messages = scenario.Execute();
+                result.Add(scenario, messages);
+            }
+        }
+
+        return result;
+    }
+
 }
+
