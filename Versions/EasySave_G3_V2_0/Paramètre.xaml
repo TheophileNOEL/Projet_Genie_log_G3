@@ -16,7 +16,7 @@
                 <!-- Format log -->
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock Text="Format du fichier log : " VerticalAlignment="Center"/>
-                    <ComboBox Width="100">
+                    <ComboBox Width="100" AutomationProperties.Name="CB_Type_Log">
                         <ComboBoxItem Content="JSON" IsSelected="True"/>
                         <ComboBoxItem Content="XML"/>
                         <ComboBoxItem Content="TXT"/>
@@ -26,14 +26,17 @@
                 <!-- Extensions à chiffrer -->
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock Text="Extensions à chiffrer : " VerticalAlignment="Center"/>
-                    <TextBlock Text="[.zip,.docx,.xls]" Foreground="Black" VerticalAlignment="Center"/>
+                    <ComboBox Width="108" AutomationProperties.Name="CB_Ext_Chiffre">
+                        <ComboBoxItem Content=".txt" IsSelected="True"/>
+                    </ComboBox>
+                    <Button Content="Ajouter"/>
                 </StackPanel>
 
                 <!-- Logiciel métier -->
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock Text="Logiciel métier (.exe) : " VerticalAlignment="Center"/>
-                    <CheckBox VerticalAlignment="Center" Margin="5,0"/>
-                    <Button Content="Parcourir" Margin="10,0,0,0"/>
+                    <TextBox TextWrapping="Wrap" Text="Chemin" Width="120"/>
+                    <Button Content="Parcourir"/>
                 </StackPanel>
 
                 <!-- Langues -->

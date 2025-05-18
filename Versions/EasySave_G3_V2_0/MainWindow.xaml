@@ -1,7 +1,7 @@
 ﻿<Window x:Class="BackupManager.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Sauvegarde(s)" Height="1080" Width="1920" Background="Gray">
+        Title="Sauvegarde(s)" Height="604" Width="1096" Background="Gray">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -63,6 +63,6 @@
                 <TextBlock Text="Paramètre" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0"/>
             </StackPanel>
         </StackPanel>
-        <Button Content="CMD" HorizontalAlignment="Left" Height="39" Margin="1801,0,0,0" VerticalAlignment="Center" Width="59" AutomationProperties.HelpText="Passer en invite de commande"/>
+        <Button Content="CMD" HorizontalAlignment="Left" Height="39" Margin="977,0,0,0" VerticalAlignment="Center" Width="60" AutomationProperties.HelpText="Passer en invite de commande"/>
     </Grid>
 </Window>
