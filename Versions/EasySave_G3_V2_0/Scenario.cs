@@ -16,6 +16,7 @@ namespace EasySave_G3_V1
         public BackupType Type { get; set; }    // Type of backup (Full or Differential)
         public BackupState State { get; set; }  // Current state of the backup (Pending, Running, etc.)
         public string Description { get; set; } // Additional Description about the backup scenario
+        public bool IsSelected { get; set; }   
         public LogEntry Log { get; set; }       // Log entry associated with the backup scenario
 
         public int GetId() => Id;
@@ -51,6 +52,7 @@ namespace EasySave_G3_V1
             Type = BackupType.Full;
             State = BackupState.Pending;
             Description = string.Empty;
+            IsSelected = false;
             Log = new LogEntry();
         }
 
@@ -63,6 +65,7 @@ namespace EasySave_G3_V1
             Type = type;
             State = BackupState.Pending;
             Description = description;
+            IsSelected = false;
             Log = new LogEntry();
         }
 
