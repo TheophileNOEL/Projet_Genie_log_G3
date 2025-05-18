@@ -63,5 +63,6 @@
                 <TextBlock Text="Paramètre" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0"/>
             </StackPanel>
         </StackPanel>
+        <Button Content="CMD" HorizontalAlignment="Left" Height="39" Margin="1801,0,0,0" VerticalAlignment="Center" Width="59" AutomationProperties.HelpText="Passer en invite de commande"/>
     </Grid>
 </Window>

@@ -10,4 +10,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\EasySave.Core\EasySave.Core.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Images\" />
+	</ItemGroup>
 </Project>
