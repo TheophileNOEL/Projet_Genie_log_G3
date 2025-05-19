@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasySave_G3_V1", "EasySave_G3_V1\EasySave_G3_V1.csproj", "{76CA2554-E3CE-4C3F-BE9B-681880200F1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasySave_G3_V1", "EasySave_G3_V1\EasySave_G3_V1.csproj", "{76CA2554-E3CE-4C3F-BE9B-681880200F1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasySave_G3_V1_1", "EasySave_G3_V1_1\EasySave_G3_V1_1.csproj", "{973FA9B1-1663-495C-1FA1-EFBAF243752C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasySave_G3_V1_1", "EasySave_G3_V1_1\EasySave_G3_V1_1.csproj", "{973FA9B1-1663-495C-1FA1-EFBAF243752C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasySave_G3_V2_0", "EasySave_G3_V2_0\EasySave_G3_V2_0.csproj", "{1A85D9F2-2840-AB94-4C1D-94F708AE6488}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasySave_G3_V2_0", "EasySave_G3_V2_0\EasySave_G3_V2_0.csproj", "{1A85D9F2-2840-AB94-4C1D-94F708AE6488}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasySave.Core", "EasySave.Core\EasySave.Core.csproj", "{59F0CD8E-C1E2-BC34-89E0-269EAF1BFF78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasySave.Core", "EasySave.Core\EasySave.Core.csproj", "{59F0CD8E-C1E2-BC34-89E0-269EAF1BFF78}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoSoft", "..\..\..\devCoco\Projet_Genie_log_G3\V1\CryptoSoft\CryptoSoft.csproj", "{E05FB9B4-3804-499B-8953-166B646972E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{59F0CD8E-C1E2-BC34-89E0-269EAF1BFF78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59F0CD8E-C1E2-BC34-89E0-269EAF1BFF78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59F0CD8E-C1E2-BC34-89E0-269EAF1BFF78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E05FB9B4-3804-499B-8953-166B646972E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E05FB9B4-3804-499B-8953-166B646972E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E05FB9B4-3804-499B-8953-166B646972E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E05FB9B4-3804-499B-8953-166B646972E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
