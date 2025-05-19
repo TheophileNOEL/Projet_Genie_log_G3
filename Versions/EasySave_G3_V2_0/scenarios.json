@@ -1,32 +1,35 @@
 [
   {
     "Id": 1,
-    "Name": "TestCrypt",
+    "Name": "Test",
     "Source": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Source",
     "Target": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Dest",
-    "Type": 0,
-    "State": 0,
-    "Description": "Test du cryptage",
+    "Type": 1,
+    "State": 2,
+    "Description": "Bonjour",
+    "IsSelected": false,
     "Log": {}
   },
   {
     "Id": 2,
-    "Name": "Test2",
-    "Source": "C:\\Test\\Source",
-    "Target": "C:\\Test\\Dest",
-    "Type": 1,
-    "State": 0,
-    "Description": "Backup diff\u00E9rentiel 2",
-    "Log": {}
-  },
-  {
-    "Id": 3,
-    "Name": "TestCreate",
+    "Name": "Test4",
     "Source": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Source",
     "Target": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Dest",
     "Type": 0,
     "State": 0,
-    "Description": "Creation d\u0027un scenario",
+    "Description": "Bonjour,",
+    "IsSelected": false,
+    "Log": {}
+  },
+  {
+    "Id": 3,
+    "Name": "Test3",
+    "Source": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Source",
+    "Target": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Dest",
+    "Type": 1,
+    "State": 0,
+    "Description": "Bonjour!",
+    "IsSelected": false,
     "Log": {}
   }
 ]

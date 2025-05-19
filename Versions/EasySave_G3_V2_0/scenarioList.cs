@@ -1,8 +1,8 @@
-﻿using EasySave_G3_V1;
-using System.Text.Json.Serialization;
-using System.Text.Json;
+﻿using EasySave.Core;
+using EasySave_G3_V1;
 using System.IO;
-using EasySave.Core;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 public class ScenarioList
 {
@@ -74,8 +74,8 @@ public class ScenarioList
 
 
 
-    public bool Modify(int index, int? newId = null, string newName = null, string newSource = null,
-                   string newTarget = null, BackupType? newType = null, string newDesc = null)
+    public bool Modify(int index, int? newId = null, string? newName = null, string? newSource = null,
+                   string? newTarget = null, BackupType? newType = null, string? newDesc = null)
     {
         if (index <= 0 || index > items.Count || items[index - 1] == null)
             throw new IndexOutOfRangeException("Index invalide ou scénario vide.");
@@ -158,7 +158,7 @@ public class ScenarioList
         return true;
     }
 
-    public List<Scenario> Get() 
+    public List<Scenario> Get()
     {
         return items;
     }

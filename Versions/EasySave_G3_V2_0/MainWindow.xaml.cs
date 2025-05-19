@@ -28,7 +28,7 @@ namespace EasySave_G3_V2_0
 
             consoleViewModel.GetLangages().SearchLangages();
             Langage language = new Langage("Frensh.Json", Path.Combine(exePath, @"..\\..\\..\\Langages\\French.json"));
-            ScenarioList scenarioList = new ScenarioList();
+            ScenarioList scenarioList = consoleViewModel.GetScenarioList();
             try
             {
                 language.LoadLangage();
@@ -46,6 +46,7 @@ namespace EasySave_G3_V2_0
             {
                 MessageBox.Show("Error when loading scenario : " + ex.Message);
             }
+            UpdateType();
             ReadOnly();
         }
 
@@ -59,7 +60,7 @@ namespace EasySave_G3_V2_0
             CbBox_Type.IsEnabled = false;
             Button_Validation.IsEnabled = false;
         }
-        private void WriteOnly(int id = 0, string Name = null, string source = null, string target = null, string description=null, BackupType type=BackupType.Full)
+        private void WriteOnly(int id = 0, string? Name = null, string? source = null, string? target = null, string? description=null, BackupType type=BackupType.Full)
         {
             SaveDataGrid.IsEnabled = false;
             TxtBoxName.IsEnabled = true;
@@ -68,7 +69,6 @@ namespace EasySave_G3_V2_0
             TxTBoxDescription.IsEnabled = true;
             CbBox_Type.IsEnabled = true;
             Button_Validation.IsEnabled = true;
-            UpdateType();
             TxtBoxName.Text = Name;
             TxTBoxSource.Text = source;
             TxTBoxTarget.Text = target;
@@ -113,18 +113,17 @@ namespace EasySave_G3_V2_0
 
         private void AddScenario_Click(object sender, RoutedEventArgs e)
         {
-            string name = null;
-            string source = null;
-            string target = null;
-            string description = null;
+            string? name = null;
+            string? source = null;
+            string? target = null;
+            string? description = null;
             BackupType type = BackupType.Full;
             WriteOnly();
         }
 
         private void Button_Validation_Click(object sender, RoutedEventArgs e)
         {
-            ReadOnly();
-            int id = int.Parse(Grid_Modify.Name.Substring(Grid_Modify.Name.Length - 1))-1;
+            int id = int.Parse(Grid_Modify.Name.Substring(Grid_Modify.Name.Length - 1));
             if (id !=0)
             {
                 string name = TxtBoxName.Text;
@@ -141,11 +140,12 @@ namespace EasySave_G3_V2_0
                 string target = TxTBoxTarget.Text;
                 string description = TxTBoxDescription.Text;
                 BackupType type = GetBackupType(CbBox_Type.SelectedIndex);
-                Scenario scenario = new Scenario(id, name, source, target, type, description);
                 consoleViewModel.GetScenarioList().CreateScenario(name,source,target,type,description);
-                SaveDataGrid.Items.Add(scenario);
             }
-                SaveDataGrid.Items.Refresh();
+            ReadOnly();
+            SaveDataGrid.ItemsSource = consoleViewModel.GetScenarioList().Get();
+            SaveDataGrid.Items.Refresh();
+            Grid_Modify.Name = "Grid_Modify";
         }
         private void UpdateType()
         {
@@ -154,6 +154,26 @@ namespace EasySave_G3_V2_0
             {
                 CbBox_Type.Items.Add(Enum.GetName(typeof(BackupType), i));
             }
+        }
+        private void DeleteScenario_Click(object sender, RoutedEventArgs e)
+        {
+            Button? button = sender as Button;
+            var element = button.DataContext as Scenario;
+            MessageBoxResult result = MessageBox.Show(
+                "Êtes-vous sûr de vouloir supprimer ce scénario ?",
+                "Confirmation de suppression",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning
+                );
+            if (result == MessageBoxResult.Yes)
+            {
+                consoleViewModel.GetScenarioList().RemoveScenario(element.GetId());
+            }
+            else
+            {
+                MessageBox.Show("Suppression annulée.");
+            }
+            SaveDataGrid.Items.Refresh();
         }
         private BackupType GetBackupType(int id_cbbox)
         {

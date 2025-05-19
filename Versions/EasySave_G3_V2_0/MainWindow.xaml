@@ -30,7 +30,7 @@
                                 <Button Margin="5" ToolTip="Modifier" Click="ModifyScenario_Click">
                                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18"/>
                                 </Button>
-                                <Button Margin="5" ToolTip="Supprimer">
+                                <Button Margin="5" ToolTip="Supprimer" Click="DeleteScenario_Click">
                                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18"/>
                                 </Button>
                             </StackPanel>
