@@ -1,16 +1,16 @@
-﻿<Window x:Class="EasySave_G3_V2_0.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Sauvegarde(s)" Height="604" Width="1096" Background="Gray">
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+﻿    <Window x:Class="EasySave_G3_V2_0.MainWindow"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            Title="Sauvegarde(s)" Height="604" Width="1096" Background="Gray">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-        <!-- Titre -->
-        <TextBlock Text="Sauvegarde(s):" FontSize="36" FontWeight="Bold" Margin="10"/>
+            <!-- Titre -->
+            <TextBlock Text="Sauvegarde(s):" FontSize="36" FontWeight="Bold" Margin="10"/>
 
         <!-- Tableau -->
         <DataGrid Grid.Row="1" Name="SaveDataGrid" AutoGenerateColumns="False" Margin="0,10,0,10" HeadersVisibility="Column" CanUserAddRows="False">
@@ -40,15 +40,15 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <!-- Boutons bas -->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
-            <Button Width="60" Height="60" Margin="5" Click="Button_Click">
-                <StackPanel HorizontalAlignment="Center">
-                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="28" HorizontalAlignment="Center"/>
-                </StackPanel>
-            </Button>
-            <TextBlock Text="Play" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0"/>
-        </StackPanel>
+            <!-- Boutons bas -->
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+                <Button Width="60" Height="60" Margin="5" Click="Button_Click">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="28" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <TextBlock Text="Play" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0"/>
+            </StackPanel>
 
         <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Right" Margin="10">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">

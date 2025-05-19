@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Reflection;
+using System.Text.Json;
 using EasySave.Core;
 
 namespace EasySave_G3_V1
@@ -16,7 +19,7 @@ namespace EasySave_G3_V1
         public BackupType Type { get; set; }    // Type of backup (Full or Differential)
         public BackupState State { get; set; }  // Current state of the backup (Pending, Running, etc.)
         public string Description { get; set; } // Additional Description about the backup scenario
-        public bool IsSelected { get; set; }   
+        public bool IsSelected { get; set; }
         public LogEntry Log { get; set; }       // Log entry associated with the backup scenario
 
         public int GetId() => Id;
@@ -94,11 +97,56 @@ namespace EasySave_G3_V1
             return messages;
         }
 
-        private string RunSave()
+        private bool IsBusinessSoftwareRunning()
+            {
+                try
+                {
+                    string settingsPath = "settings.json";
+                    if (!File.Exists(settingsPath))
+                        return false; // Ou tu peux lever une exception
+
+                    string json = File.ReadAllText(settingsPath);
+                    using JsonDocument doc = JsonDocument.Parse(json);
+                    JsonElement root = doc.RootElement;
+
+                    if (!root.TryGetProperty("CheminsLogiciels", out JsonElement logicielsArray) || logicielsArray.ValueKind != JsonValueKind.Array)
+                        return false;
+
+                    foreach (JsonElement logicielElement in logicielsArray.EnumerateArray())
+                    {
+                        string exePath = logicielElement.GetString();
+                        if (string.IsNullOrWhiteSpace(exePath))
+                            continue;
+
+                        string exeName = Path.GetFileNameWithoutExtension(exePath)?.ToLower();
+                        if (string.IsNullOrEmpty(exeName))
+                            continue;
+
+                        var runningProcesses = Process.GetProcessesByName(exeName);
+                        if (runningProcesses.Length > 0)
+                        {
+                            Console.WriteLine($"Logiciel métier détecté : {exeName}");
+                            return true;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Erreur lors de la lecture de settings.json : {ex.Message}");
+                }
+
+                return false;
+            }
+
+
+
+    private string RunSave()
         {
             try
             {
                 var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+                if (IsBusinessSoftwareRunning())
+                    return "Backup blocked: a business software is currently running.";
 
                 if (!Directory.Exists(Source))
                     return $"Source path '{Source}' not found.";
@@ -106,11 +154,14 @@ namespace EasySave_G3_V1
                     return $"Target path '{Target}' not found.";
 
                 List<Folder> folders = new List<Folder>();
+                string encryptionKey = "cle123"; // À extraire depuis settings plus tard
 
                 foreach (string filePath in Directory.GetFiles(Source, "*", SearchOption.AllDirectories))
                 {
                     string relativePath = Path.GetRelativePath(Source, filePath);
                     string targetPath = Path.Combine(Target, relativePath);
+
+                    Directory.CreateDirectory(Path.GetDirectoryName(targetPath)!); // S'assure que le dossier cible existe
 
                     FileInfo fileInfo = new FileInfo(filePath);
 
@@ -128,8 +179,8 @@ namespace EasySave_G3_V1
                     {
                         try
                         {
-                            //EncryptIfNeeded(targetPath, ".txt", "cle123");
                             File.Copy(filePath, targetPath, true);
+                            EncryptIfNeeded(targetPath, encryptionKey); // On chiffre uniquement après la copie
                         }
                         catch (Exception copyEx)
                         {
@@ -146,7 +197,7 @@ namespace EasySave_G3_V1
                     Type,
                     Source,
                     Target,
-                    1,
+                    folders.Count,
                     (int)stopwatch.ElapsedMilliseconds,
                     State,
                     Description,
@@ -155,13 +206,15 @@ namespace EasySave_G3_V1
 
                 Log.SetDurationMs((int)stopwatch.ElapsedMilliseconds);
                 Log.AppendToFile();
-                return null;
+
+                return "done";
             }
             catch (Exception ex)
             {
                 return $"Une erreur est survenue pendant la sauvegarde : {ex.Message}";
             }
         }
+
 
         public string Cancel()
         {
@@ -176,25 +229,60 @@ namespace EasySave_G3_V1
             }
         }
 
-        //private void EncryptIfNeeded(string targetDirectory, string extension, string encryptionKey)
-        //{
-        //    if (!Directory.Exists(targetDirectory)) return;
+        private void EncryptIfNeeded(string targetDirectory, string encryptionKey)
+        {
+            if (!Directory.Exists(targetDirectory)) return;
 
-        //    var filesToEncrypt = Directory.GetFiles(targetDirectory, $"*{extension}", SearchOption.AllDirectories);
+            string[] extensionsToEncrypt = Array.Empty<string>();
 
-        //    foreach (var file in filesToEncrypt)
-        //    {
-        //        try
-        //        {
-        //            var encryptor = new CryptoSoft.FileManager(file, encryptionKey);
-        //            encryptor.TransformFile();
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            Console.WriteLine($"Erreur lors du chiffrement du fichier {file} : {ex.Message}");
-        //        }
-        //    }
-        //}
+            try
+            {
+                string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                string settingsPath = Path.Combine(exePath, @"..\..\..\settings.json");
 
+                if (File.Exists(settingsPath))
+                {
+                    string jsonSettings = File.ReadAllText(settingsPath);
+                    using JsonDocument doc = JsonDocument.Parse(jsonSettings);
+                    JsonElement root = doc.RootElement;
+
+                    if (root.TryGetProperty("ExtensionsChiffrees", out JsonElement extElem) && extElem.ValueKind == JsonValueKind.Array)
+                    {
+                        List<string> extensions = new List<string>();
+                        foreach (var item in extElem.EnumerateArray())
+                        {
+                            if (item.ValueKind == JsonValueKind.String)
+                                extensions.Add(item.GetString());
+                        }
+                        extensionsToEncrypt = extensions.ToArray();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+
+            foreach (var extension in extensionsToEncrypt)
+            {
+                var filesToEncrypt = Directory.GetFiles(targetDirectory, $"*{extension}", SearchOption.AllDirectories);
+
+                foreach (var file in filesToEncrypt)
+                {
+                    try
+                    {
+                        var encryptor = new CryptoSoft.FileManager(file, encryptionKey);
+                        encryptor.TransformFile();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Erreur lors du chiffrement" + ex.Message);
+                    }
+                }
+            }
+        }
     }
+
+
 }
+
