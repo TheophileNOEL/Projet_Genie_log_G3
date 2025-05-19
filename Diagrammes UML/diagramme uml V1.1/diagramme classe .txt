@@ -1,0 +1,141 @@
+@startuml
+' =======================
+' DIAGRAMME DE CLASSES
+' =======================
+left to right direction
+skinparam classAttributeIconSize 0
+skinparam packageBorderColor #1D70B8
+skinparam classBorderColor   #1D70B8
+
+package Model {
+  enum BackupType {
+    Full
+    Differential
+  }
+
+  enum BackupState {
+    Pending
+    Running
+    Completed
+    Failed
+    Cancelled
+  }
+
+  class Folder {
+    -path : string
+    -date : DateTime
+    -name : string
+    -isMounted : bool
+    -sizeBytes : long
+    -isFile : bool
+    --
+    +GetPath() : string
+    +GetDate() : DateTime
+    +GetName() : string
+    +GetIsMounted() : bool
+    +GetSize() : long
+    +GetIsFile() : bool
+    +SetPath(p) : void
+    +IsSame(f) : bool
+    +Move(dest) : bool
+  }
+
+  class LogEntry {
+    -timestamp : DateTime
+    -jobName : string
+    -backupType : BackupType
+    -sourceUNC : string
+    -targetUNC : string
+    -fileSizeBytes : long
+    -durationMs : long
+    -state : BackupState
+    -description : string
+    -listFolder : List<Folder>
+    --
+    +Display() : string
+    +AppendToFile(file) : void
+    +ToJson() : string
+  }
+
+  class Scenario {
+    -Id : int
+    -Name : string
+    -Source : string
+    -Target : string
+    -Type : BackupType
+    -State : BackupState
+    -Description : string
+    -Log : LogEntry
+    --
+    +Execute() : List<string>
+    +Cancel() : string
+  }
+
+  class ScenarioList {
+    -items : List<Scenario>
+    -scenarioStart : int
+    -scenarioEnd : int
+    --
+    +Load(path) : List<Scenario>
+    +RunRange(s,e) : Dictionary<Scenario,List<string>>
+    +RunList(ids) : Dictionary<Scenario,List<string>>
+    +Modify(...) : bool
+    +RemoveScenario(id) : bool
+    +Search(k) : ScenarioList
+    +Get() : List<Scenario>
+  }
+
+  class Langage {
+    -Title : string
+    -Source : string
+    -Elements : Dictionary<string,string>
+    --
+    +LoadLangage() : string
+    +GetElements() : Dictionary<string,string>
+  }
+
+  class Langages {
+    -Source : string
+    -ListLangage : List<Langage>
+    --
+    +SearchLangages() : void
+    +GetListLangage() : List<Langage>
+    +AddLangage(lang) : void
+    +RemoveLangage(lang) : void
+  }
+
+  Scenario --> LogEntry : uses
+  LogEntry --> Folder : contains *
+  ScenarioList --> Scenario : contains *
+  Langages --> Langage : contains *
+}
+
+package ViewModel {
+  class ConsoleViewModel {
+    -scenarioList : ScenarioList
+    -langages : Langages
+    --
+    +GetLangages() : Langages
+    +SetLangages(l) : void
+    +GetScenarioList() : ScenarioList
+    +SetScenarioList(s) : void
+  }
+
+  ConsoleViewModel --> Model.ScenarioList
+  ConsoleViewModel --> Model.Langages
+}
+
+package View {
+  class ConsoleUI {
+    -vm : ConsoleViewModel
+    --
+    +DisplayMainMenu() : void
+    +ExecuteScenario() : void
+    +EditScenario() : void
+    +ChangeLanguage() : void
+  }
+
+  ConsoleUI --> ViewModel.ConsoleViewModel
+  ConsoleUI --> Model.Langage
+}
+@enduml
