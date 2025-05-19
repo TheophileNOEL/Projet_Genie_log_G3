@@ -20,18 +20,27 @@ namespace EasySave_G3_V1
 
             try
             {
-                // Lire settings.json
-                string settingsContent = File.ReadAllText("settings.json");
-                var settings = JsonSerializer.Deserialize<Settings>(settingsContent);
+                // reading language from settings.json
+                using FileStream fs = File.OpenRead("settings.json");
+                using JsonDocument doc = JsonDocument.Parse(fs);
 
-                Title = settings.Langue;
-                Source = $"Lang/{Title}.json";
+                JsonElement root = doc.RootElement;
+                if (root.TryGetProperty("Langue", out JsonElement langueElement))
+                {
+                    Title = langueElement.GetString();
+                    Source = $"Langages/{Title}.json";
+                }
+                else
+                {
+                    Title = "Français";
+                    Source = "Langages/Français.json";
+                }
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Erreur de chargement des paramètres : {e.Message}");
+                Console.WriteLine($"Erreur de chargement de settings.json : {e.Message}");
                 Title = "Français";
-                Source = "Lang/Français.json";
+                Source = "Langages/Français.json";
             }
         }
 
@@ -89,13 +98,5 @@ namespace EasySave_G3_V1
                 return e.Message;
             }
         }
-    }
-
-    public class Settings
-    {
-        public string FormatLog { get; set; }
-        public List<string> ExtensionsChiffrees { get; set; }
-        public List<string> CheminsLogiciels { get; set; }
-        public string Langue { get; set; }
     }
 }
