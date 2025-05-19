@@ -109,7 +109,7 @@ public partial class ParametresWindow : Window
         pm.Parametres.FormatLog = ((ComboBoxItem)CB_TypeLog.SelectedItem).Content.ToString();
 
         // Extensions
-            pm.Parametres.ExtensionsChiffrees = LstExtensions.Items.Cast<string>().ToList();
+        pm.Parametres.ExtensionsChiffrees = LstExtensions.Items.Cast<string>().ToList();
 
         // Logiciels
         pm.Parametres.CheminsLogiciels = LstLogiciels.Items.Cast<string>().ToList();

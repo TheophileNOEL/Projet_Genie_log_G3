@@ -23,23 +23,23 @@
   },
   {
     "Id": 3,
-    "Name": "Test3",
-    "Source": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Source",
-    "Target": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Dest",
+    "Name": "TestCreate",
+    "Source": "C:\\Test\\Source",
+    "Target": "C:\\Test\\Dest",
     "Type": 1,
     "State": 0,
-    "Description": "Bonjour!",
+    "Description": "Bonjour",
     "IsSelected": false,
     "Log": {}
   },
   {
     "Id": 4,
-    "Name": "TestTheo",
+    "Name": "TestCreate",
     "Source": "C:\\Test\\Source",
     "Target": "C:\\Test\\Dest",
-    "Type": 0,
+    "Type": 1,
     "State": 0,
-    "Description": "Bonjour.",
+    "Description": "Bonjour",
     "IsSelected": false,
     "Log": {}
   }

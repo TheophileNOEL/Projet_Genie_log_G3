@@ -225,5 +225,12 @@ namespace EasySave_G3_V2_0
             };
             Process.Start(cmd);
         }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            ParametresWindow parametresWindow = new ParametresWindow();
+            parametresWindow.Owner = this;
+            parametresWindow.Show();
+        }
     }
 }

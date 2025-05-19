@@ -58,7 +58,7 @@
                 <TextBlock Text="Ajouter" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Width="40" Height="40" Margin="5">
+                <Button Name="Settings" Width="40" Height="40" Margin="5" Click="Settings_Click">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="20" HorizontalAlignment="Center"/>
                 </Button>
                 <TextBlock Text="Paramètre" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0"/>
