@@ -1,19 +1,9 @@
-﻿using System.Text;
+﻿using EasySave.Core;
+using EasySave_G3_V1;
+using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Reflection;
-using EasySave.Core;
-using EasySave_G3_V1;
-using EasySave_G3_V2_0;
-using System.IO;
-using System.Collections.ObjectModel;
-using System.Threading;
 
 namespace EasySave_G3_V2_0
 {
@@ -25,6 +15,16 @@ namespace EasySave_G3_V2_0
         public MainWindow()
         {
             InitializeComponent();
+            //var pm = new ParametersManager();
+
+            //// Accès aux paramètres
+            //Console.WriteLine(pm.Parametres.FormatLog);
+            //Console.WriteLine(string.Join(", ", pm.Parametres.ExtensionsChiffrees));
+
+            //// Modifier et sauvegarder
+            //pm.AjouterExtension();
+            //pm.ModifierCheminLogiciel();
+            //pm.ModifierLangue("Anglais");
 
             consoleViewModel.GetLangages().SearchLangages();
             Langage language = new Langage("Frensh.Json", Path.Combine(exePath, @"..\\..\\..\\Langages\\French.json"));
@@ -59,7 +59,7 @@ namespace EasySave_G3_V2_0
             CbBox_Type.IsEnabled = false;
             Button_Validation.IsEnabled = false;
         }
-        private void WriteOnly()
+        private void WriteOnly(int id = 0, string Name = null, string source = null, string target = null, string description=null, BackupType type=BackupType.Full)
         {
             SaveDataGrid.IsEnabled = false;
             TxtBoxName.IsEnabled = true;
@@ -68,6 +68,14 @@ namespace EasySave_G3_V2_0
             TxTBoxDescription.IsEnabled = true;
             CbBox_Type.IsEnabled = true;
             Button_Validation.IsEnabled = true;
+            UpdateType();
+            TxtBoxName.Text = Name;
+            TxTBoxSource.Text = source;
+            TxTBoxTarget.Text = target;
+            TxTBoxDescription.Text = description;
+            CbBox_Type.SelectedItem = type;
+            Grid_Modify.Name = Grid_Modify.Name+id.ToString();
+            
         }
 
 
@@ -81,7 +89,7 @@ namespace EasySave_G3_V2_0
                     {
                         scenario.SetState(BackupState.Running);
                         SaveDataGrid.Items.Refresh();
-                        List<string> Back = scenario.Execute();                        
+                        List<string> Back = scenario.Execute();
                         Thread.Sleep(2000);
                         if (Back[0].StartsWith("Error"))
                         {
@@ -105,12 +113,77 @@ namespace EasySave_G3_V2_0
 
         private void AddScenario_Click(object sender, RoutedEventArgs e)
         {
+            string name = null;
+            string source = null;
+            string target = null;
+            string description = null;
+            BackupType type = BackupType.Full;
             WriteOnly();
-            TxtBoxName.Text = "";
-            TxTBoxSource.Text = "";
-            TxTBoxTarget.Text = "";
-            TxTBoxDescription.Text = "";
-            CbBox_Type.SelectedIndex = -1;
+        }
+
+        private void Button_Validation_Click(object sender, RoutedEventArgs e)
+        {
+            ReadOnly();
+            int id = int.Parse(Grid_Modify.Name.Substring(Grid_Modify.Name.Length - 1))-1;
+            if (id !=0)
+            {
+                string name = TxtBoxName.Text;
+                string source = TxTBoxSource.Text;
+                string target = TxTBoxTarget.Text;
+                string description = TxTBoxDescription.Text;
+                BackupType type = GetBackupType(CbBox_Type.SelectedIndex);
+                consoleViewModel.GetScenarioList().Modify(id,id,name,source,target,type,description);
+            }
+            else
+            {
+                string name = TxtBoxName.Text;
+                string source = TxTBoxSource.Text;
+                string target = TxTBoxTarget.Text;
+                string description = TxTBoxDescription.Text;
+                BackupType type = GetBackupType(CbBox_Type.SelectedIndex);
+                Scenario scenario = new Scenario(id, name, source, target, type, description);
+                consoleViewModel.GetScenarioList().CreateScenario(name,source,target,type,description);
+                SaveDataGrid.Items.Add(scenario);
+            }
+                SaveDataGrid.Items.Refresh();
+        }
+        private void UpdateType()
+        {
+            int countType = Enum.GetNames(typeof(BackupType)).Length;
+            for (int i = 0; i < countType; i++)
+            {
+                CbBox_Type.Items.Add(Enum.GetName(typeof(BackupType), i));
+            }
+        }
+        private BackupType GetBackupType(int id_cbbox)
+        {
+            BackupType type;
+            switch (id_cbbox)
+            {
+                case 0:
+                    type = BackupType.Full;
+                    break;
+                case 1:
+                    type = BackupType.Differential;
+                    break;
+                default:
+                    type = BackupType.Full;
+                    break;
+            }
+            return type;
+        }
+
+        private void Button_Back_Click(object sender, RoutedEventArgs e)
+        {
+            ReadOnly();
+            SaveDataGrid.Items.Refresh();
+        }
+        private void ModifyScenario_Click(object sender, RoutedEventArgs e)
+        {
+            Button? button = sender as Button;
+            var element = button.DataContext as Scenario;
+            WriteOnly(element.GetId(),element.GetName(),element.GetSource(),element.GetTarget(), element.GetDescription(),element.GetSceanrioType());
+
         }
     }
 }
