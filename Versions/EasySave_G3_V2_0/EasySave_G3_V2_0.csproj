@@ -8,6 +8,7 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\devCoco\Projet_Genie_log_G3\V1\CryptoSoft\CryptoSoft.csproj" />
 		<ProjectReference Include="..\EasySave.Core\EasySave.Core.csproj" />
 	</ItemGroup>
 	<ItemGroup>

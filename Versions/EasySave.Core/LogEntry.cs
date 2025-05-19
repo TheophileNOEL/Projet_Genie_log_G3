@@ -166,8 +166,37 @@ namespace EasySave.Core
 
         public void AppendToFile(LogFormat format = LogFormat.Json, bool indent = false)
         {
-            string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string logsFolder = Path.GetFullPath(Path.Combine(exePath, @"..\..\..\Logs"));
+            try
+            {
+                string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                string settingsPath = Path.Combine(exePath, @"..\..\..\settings.json");
+
+                if (File.Exists(settingsPath))
+                {
+                    string jsonSettings = File.ReadAllText(settingsPath);
+                    using JsonDocument doc = JsonDocument.Parse(jsonSettings);
+                    JsonElement root = doc.RootElement;
+
+                    if (root.TryGetProperty("FormatLog", out JsonElement formatLogElem))
+                    {
+                        string formatLogStr = formatLogElem.GetString();
+
+                        if (Enum.TryParse<LogFormat>(formatLogStr, true, out var parsedFormat))
+                        {
+                            format = parsedFormat;
+                        }
+                    }
+                    indent = false; 
+                }
+
+            }
+            catch
+            {
+               
+            }
+
+            string exePath2 = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string logsFolder = Path.GetFullPath(Path.Combine(exePath2, @"..\..\..\Logs"));
 
             if (!Directory.Exists(logsFolder))
                 Directory.CreateDirectory(logsFolder);

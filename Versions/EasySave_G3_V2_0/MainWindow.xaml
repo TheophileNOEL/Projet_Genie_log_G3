@@ -1,100 +1,100 @@
-﻿<Window x:Class="EasySave_G3_V2_0.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Sauvegarde(s)" Height="604" Width="1096" Background="Gray">
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+﻿    <Window x:Class="EasySave_G3_V2_0.MainWindow"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            Title="Sauvegarde(s)" Height="604" Width="1096" Background="Gray">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-        <!-- Titre -->
-        <TextBlock Text="Sauvegarde(s):" FontSize="36" FontWeight="Bold" Margin="10"/>
+            <!-- Titre -->
+            <TextBlock Text="Sauvegarde(s):" FontSize="36" FontWeight="Bold" Margin="10"/>
 
-        <!-- Tableau -->
-        <DataGrid Grid.Row="1" Name="SaveDataGrid" AutoGenerateColumns="False" Margin="0,10,0,10" HeadersVisibility="Column" CanUserAddRows="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
-                <DataGridTextColumn Header="Source" Binding="{Binding Source}" Width="*"/>
-                <DataGridTextColumn Header="Target" Binding="{Binding Target}" Width="*"/>
-                <DataGridTextColumn Header="BackupType" Binding="{Binding Type}" Width="*"/>
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
-                <DataGridTextColumn Header="Etat" Binding="{Binding State}" Width="*"/>
-                <DataGridCheckBoxColumn Header="Select" Binding="{Binding IsSelected}" Width="80"/>
-                <DataGridTemplateColumn Header="Modifier / Supprimer" Width="150">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button Margin="5" ToolTip="Modifier">
-                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18"/>
-                                </Button>
-                                <Button Margin="5" ToolTip="Supprimer">
-                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18"/>
-                                </Button>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+            <!-- Tableau -->
+            <DataGrid Grid.Row="1" Name="SaveDataGrid" AutoGenerateColumns="False" Margin="0,10,0,10" HeadersVisibility="Column" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                    <DataGridTextColumn Header="Source" Binding="{Binding Source}" Width="*"/>
+                    <DataGridTextColumn Header="Target" Binding="{Binding Target}" Width="*"/>
+                    <DataGridTextColumn Header="BackupType" Binding="{Binding Type}" Width="*"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
+                    <DataGridTextColumn Header="Etat" Binding="{Binding State}" Width="*"/>
+                    <DataGridCheckBoxColumn Header="Select" Binding="{Binding IsSelected}" Width="80"/>
+                    <DataGridTemplateColumn Header="Modifier / Supprimer" Width="150">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Margin="5" ToolTip="Modifier">
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18"/>
+                                    </Button>
+                                    <Button Margin="5" ToolTip="Supprimer">
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18"/>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
 
-        <!-- Boutons bas -->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
-            <Button Width="60" Height="60" Margin="5" Click="Button_Click">
-                <StackPanel HorizontalAlignment="Center">
-                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="28" HorizontalAlignment="Center"/>
+            <!-- Boutons bas -->
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+                <Button Width="60" Height="60" Margin="5" Click="Button_Click">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="28" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <TextBlock Text="Play" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Right" Margin="10">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Name="Button_AddScenario" Width="40" Height="40" Margin="5" Click="AddScenario_Click">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="20" HorizontalAlignment="Center"/>
+                    </Button>
+                    <TextBlock Text="Ajouter" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0"/>
                 </StackPanel>
-            </Button>
-            <TextBlock Text="Play" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0"/>
-        </StackPanel>
-
-        <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Right" Margin="10">
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <Button Name="Button_AddScenario" Width="40" Height="40" Margin="5" Click="AddScenario_Click">
-                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="20" HorizontalAlignment="Center"/>
-                </Button>
-                <TextBlock Text="Ajouter" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button Width="40" Height="40" Margin="5">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="20" HorizontalAlignment="Center"/>
+                    </Button>
+                    <TextBlock Text="Paramètre" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0"/>
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Width="40" Height="40" Margin="5">
-                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="20" HorizontalAlignment="Center"/>
-                </Button>
-                <TextBlock Text="Paramètre" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0"/>
-            </StackPanel>
-        </StackPanel>
-        <Button Content="CMD" HorizontalAlignment="Left" Height="39" Margin="977,0,0,0" VerticalAlignment="Center" Width="60" AutomationProperties.HelpText="Passer en invite de commande"/>
-        <StackPanel HorizontalAlignment="Left" Height="110" Margin="144,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="799">
-            <Grid Height="100">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+            <Button Content="CMD" HorizontalAlignment="Left" Height="39" Margin="977,0,0,0" VerticalAlignment="Center" Width="60" AutomationProperties.HelpText="Passer en invite de commande"/>
+            <StackPanel HorizontalAlignment="Left" Height="110" Margin="144,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="799">
+                <Grid Height="100">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" MinWidth="120"/>
-                    <ColumnDefinition Width="Auto" MinWidth="120"/>
-                    <ColumnDefinition Width="Auto" MinWidth="120"/>
-                    <ColumnDefinition Width="*" MinWidth="120" MaxWidth="360"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" HorizontalAlignment="Left" Height="16"  TextWrapping="Wrap" Text="Nom :" VerticalAlignment="Top" Width="36"/>
-                <TextBox Name="TxtBoxName" Grid.Column="1" HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Height="16"  TextWrapping="Wrap" Text="Source :" VerticalAlignment="Center" Width="47" Grid.ColumnSpan="2"/>
-                <TextBox Name="TxTBoxSource" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
-                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Height="16"  TextWrapping="Wrap" Text="Destination :" VerticalAlignment="Center" Width="78"/>
-                <TextBox Name ="TxTBoxTarget"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Height="16"  TextWrapping="Wrap" Text="Type :" VerticalAlignment="Center" Width="78"/>
-                <ComboBox Name="CbBox_Type" Grid.Row="3" Grid.Column="1" >
-                    <ComboBoxItem Content="Complet" IsSelected="True"/>
-                    <ComboBoxItem Content="Differentielle" IsSelected="False"/>
-                </ComboBox>
-                <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Description :" VerticalAlignment="Center"/>
-                <TextBox Name="TxTBoxDescription" Grid.Column="3" Grid.Row="0" Grid.RowSpan="4" HorizontalAlignment="Stretch"/>
-                <Button Name="Button_Back" Grid.Column="2" Content="Annuler" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top"/>
-                <Button Name="Button_Validation" Grid.Column="2" Content="Valider" HorizontalAlignment="Center" Grid.RowSpan="2" Grid.Row="2" VerticalAlignment="Top"/>
-            </Grid>
-        </StackPanel>
-    </Grid>
-</Window>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="120"/>
+                        <ColumnDefinition Width="Auto" MinWidth="120"/>
+                        <ColumnDefinition Width="Auto" MinWidth="120"/>
+                        <ColumnDefinition Width="*" MinWidth="120" MaxWidth="360"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" HorizontalAlignment="Left" Height="16"  TextWrapping="Wrap" Text="Nom :" VerticalAlignment="Top" Width="36"/>
+                    <TextBox Name="TxtBoxName" Grid.Column="1" HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Height="16"  TextWrapping="Wrap" Text="Source :" VerticalAlignment="Center" Width="47" Grid.ColumnSpan="2"/>
+                    <TextBox Name="TxTBoxSource" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Height="16"  TextWrapping="Wrap" Text="Destination :" VerticalAlignment="Center" Width="78"/>
+                    <TextBox Name ="TxTBoxTarget"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Height="16"  TextWrapping="Wrap" Text="Type :" VerticalAlignment="Center" Width="78"/>
+                    <ComboBox Name="CbBox_Type" Grid.Row="3" Grid.Column="1" >
+                        <ComboBoxItem Content="Complet" IsSelected="True"/>
+                        <ComboBoxItem Content="Differentielle" IsSelected="False"/>
+                    </ComboBox>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Description :" VerticalAlignment="Center"/>
+                    <TextBox Name="TxTBoxDescription" Grid.Column="3" Grid.Row="0" Grid.RowSpan="4" HorizontalAlignment="Stretch"/>
+                    <Button Name="Button_Back" Grid.Column="2" Content="Annuler" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top"/>
+                    <Button Name="Button_Validation" Grid.Column="2" Content="Valider" HorizontalAlignment="Center" Grid.RowSpan="2" Grid.Row="2" VerticalAlignment="Top"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Window>
