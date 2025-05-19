@@ -64,7 +64,7 @@
                 <TextBlock Text="Paramètre" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0"/>
             </StackPanel>
         </StackPanel>
-        <Button Content="CMD" HorizontalAlignment="Left" Height="39" Margin="977,0,0,0" VerticalAlignment="Center" Width="60" AutomationProperties.HelpText="Passer en invite de commande"/>
+        <Button Content="CMD" HorizontalAlignment="Left" Height="39" Margin="977,0,0,0" VerticalAlignment="Center" Width="60" AutomationProperties.HelpText="Passer en invite de commande" Click="Button_Click_1"/>
         <StackPanel HorizontalAlignment="Left" Height="110" Margin="144,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="799">
             <Grid Name="Grid_Modify" Height="100">
                 <Grid.RowDefinitions>

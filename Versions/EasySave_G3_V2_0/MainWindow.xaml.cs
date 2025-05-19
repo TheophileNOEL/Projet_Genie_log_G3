@@ -4,6 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Diagnostics;
 
 namespace EasySave_G3_V2_0
 {
@@ -41,6 +42,13 @@ namespace EasySave_G3_V2_0
             {
                 scenarioList.Load(Path.Combine(exePath, @"..\\..\\..\\scenarios.json"));
                 SaveDataGrid.ItemsSource = scenarioList.Get();
+                foreach (var item in SaveDataGrid.Items)
+                {
+                    if (item is Scenario scenario)
+                    {
+                        scenario.SetState(BackupState.Pending);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -90,7 +98,6 @@ namespace EasySave_G3_V2_0
                         scenario.SetState(BackupState.Running);
                         SaveDataGrid.Items.Refresh();
                         List<string> Back = scenario.Execute();
-                        Thread.Sleep(2000);
                         if (Back[0].StartsWith("Error"))
                         {
                             MessageBox.Show(Back[0]);
@@ -204,6 +211,16 @@ namespace EasySave_G3_V2_0
             var element = button.DataContext as Scenario;
             WriteOnly(element.GetId(),element.GetName(),element.GetSource(),element.GetTarget(), element.GetDescription(),element.GetSceanrioType());
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ProcessStartInfo cmd = new ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                Arguments = "/C ..\\..\\..\\..\\EasySave_G3_V1_1\\bin\\Debug\\net8.0\\EasySave_G3_V1.exe"
+            };
+            Process.Start(cmd);
         }
     }
 }
