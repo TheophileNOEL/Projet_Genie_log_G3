@@ -11,10 +11,10 @@ public partial class ParametresWindow : Window
     {
         InitializeComponent();
         pm = new ParametersManager();
-        ChargerParametresDansUI();
+        LoadParametersInUI();
     }
 
-    private void ChargerParametresDansUI()
+    private void LoadParametersInUI()
     {
         // Format du log
         foreach (ComboBoxItem item in CB_TypeLog.Items)
@@ -47,7 +47,7 @@ public partial class ParametresWindow : Window
         }
     }
 
-    private void AjouterExtension_Click(object sender, RoutedEventArgs e)
+    private void AddExtension_Click(object sender, RoutedEventArgs e)
     {
         string ext = TxtNouvelleExtension.Text.Trim();
 
@@ -63,13 +63,13 @@ public partial class ParametresWindow : Window
         TxtNouvelleExtension.Clear();
     }
 
-    private void SupprimerExtension_Click(object sender, RoutedEventArgs e)
+    private void RemoveExtension_Click(object sender, RoutedEventArgs e)
     {
         if (LstExtensions.SelectedItem != null)
             LstExtensions.Items.Remove(LstExtensions.SelectedItem);
     }
 
-    private void AjouterLogiciel_Click(object sender, RoutedEventArgs e)
+    private void AddSoftware_Click(object sender, RoutedEventArgs e)
     {
         string path = TxtNouveauLogiciel.Text.Trim();
 
@@ -86,13 +86,13 @@ public partial class ParametresWindow : Window
         TxtNouveauLogiciel.Clear();
     }
 
-    private void SupprimerLogiciel_Click(object sender, RoutedEventArgs e)
+    private void RemoveSoftware_Click(object sender, RoutedEventArgs e)
     {
         if (LstLogiciels.SelectedItem != null)
             LstLogiciels.Items.Remove(LstLogiciels.SelectedItem);
     }
 
-    private void ParcourirLogiciel_Click(object sender, RoutedEventArgs e)
+    private void BrowseSoftware_Click(object sender, RoutedEventArgs e)
     {
         OpenFileDialog dialog = new OpenFileDialog();
         dialog.Filter = "Fichiers exécutables (*.exe)|*.exe";
@@ -103,28 +103,26 @@ public partial class ParametresWindow : Window
         }
     }
 
-    private void Valider_Click(object sender, RoutedEventArgs e)
+    private void Validate_Click(object sender, RoutedEventArgs e)
     {
-        // Format Log
+
         pm.Parametres.FormatLog = ((ComboBoxItem)CB_TypeLog.SelectedItem).Content.ToString();
 
-        // Extensions
+
             pm.Parametres.ExtensionsChiffrees = LstExtensions.Items.Cast<string>().ToList();
 
-        // Logiciels
+
         pm.Parametres.CheminsLogiciels = LstLogiciels.Items.Cast<string>().ToList();
 
-        // Langue
         pm.Parametres.Langue = ((ComboBoxItem)CB_Langue.SelectedItem).Content.ToString();
 
-        // Sauvegarde
         pm.Save();
 
         MessageBox.Show("Paramètres sauvegardés !");
         Close(); // Fermer la fenêtre si tu veux
     }
 
-    private void Annuler_Click(object sender, RoutedEventArgs e)
+    private void Cancel_Click(object sender, RoutedEventArgs e)
     {
         Close(); // Ferme simplement la fenêtre
     }

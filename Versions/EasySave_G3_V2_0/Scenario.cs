@@ -46,7 +46,7 @@ namespace EasySave_G3_V1
         public LogEntry GetLog() => Log;
         public void SetLog(LogEntry value) => Log = value;
 
-        public Scenario()
+        public Scenario() // default values for scenario
         {
             Id = -1;
             Name = string.Empty;
@@ -72,11 +72,11 @@ namespace EasySave_G3_V1
             Log = new LogEntry();
         }
 
-        public List<string> Execute()
+        public List<string> Execute() 
         {
             List<string> messages = new List<string>();
 
-            try
+            try // try to run the save
             {
                 State = BackupState.Running;
                 messages.Add($"Backup '{Name}' is running...");
@@ -88,7 +88,7 @@ namespace EasySave_G3_V1
                 State = BackupState.Completed;
                 messages.Add($"Backup '{Name}' completed successfully.");
             }
-            catch (Exception ex)
+            catch (Exception ex) // return the error
             {
                 State = BackupState.Failed;
                 messages.Add($"Error during backup '{Name}': {ex.Message}");
@@ -97,13 +97,13 @@ namespace EasySave_G3_V1
             return messages;
         }
 
-        private bool IsBusinessSoftwareRunning()
+        private bool IsBusinessSoftwareRunning() // check for the business software
             {
                 try
                 {
                     string settingsPath = "settings.json";
                     if (!File.Exists(settingsPath))
-                        return false; // Ou tu peux lever une exception
+                        return false; 
 
                     string json = File.ReadAllText(settingsPath);
                     using JsonDocument doc = JsonDocument.Parse(json);
@@ -140,13 +140,13 @@ namespace EasySave_G3_V1
 
 
 
-    private string RunSave()
+    private string RunSave()  
         {
             try
             {
                 var stopwatch = System.Diagnostics.Stopwatch.StartNew();
                 if (IsBusinessSoftwareRunning())
-                    return "Backup blocked: a business software is currently running.";
+                    return "Backup blocked: a business software is currently running."; // cancel save if a business software is running
 
                 if (!Directory.Exists(Source))
                     return $"Source path '{Source}' not found.";
@@ -154,14 +154,14 @@ namespace EasySave_G3_V1
                     return $"Target path '{Target}' not found.";
 
                 List<Folder> folders = new List<Folder>();
-                string encryptionKey = "cle123"; // À extraire depuis settings plus tard
+                string encryptionKey = "cle123"; // Encryption key (might add it in settings later)
 
                 foreach (string filePath in Directory.GetFiles(Source, "*", SearchOption.AllDirectories))
                 {
                     string relativePath = Path.GetRelativePath(Source, filePath);
                     string targetPath = Path.Combine(Target, relativePath);
 
-                    Directory.CreateDirectory(Path.GetDirectoryName(targetPath)!); // S'assure que le dossier cible existe
+                    Directory.CreateDirectory(Path.GetDirectoryName(targetPath)!);   
 
                     FileInfo fileInfo = new FileInfo(filePath);
 
@@ -171,8 +171,8 @@ namespace EasySave_G3_V1
                     {
                         BackupType.Full => true,
                         BackupType.Differential => !File.Exists(targetPath) ||
-                                                   File.GetLastWriteTimeUtc(filePath) > File.GetLastWriteTimeUtc(targetPath),
-                        _ => false
+                                                   File.GetLastWriteTimeUtc(filePath) > File.GetLastWriteTimeUtc(targetPath), 
+                        _ => false // check if the save is needed for each file
                     };
 
                     if (shouldCopy)
@@ -180,7 +180,7 @@ namespace EasySave_G3_V1
                         try
                         {
                             File.Copy(filePath, targetPath, true);
-                            EncryptIfNeeded(targetPath, encryptionKey); // On chiffre uniquement après la copie
+                            EncryptIfNeeded(targetPath, encryptionKey); // XOR encryption
                         }
                         catch (Exception copyEx)
                         {
@@ -216,7 +216,7 @@ namespace EasySave_G3_V1
         }
 
 
-        public string Cancel()
+        public string Cancel()  // needs to be implemented
         {
             if (State == BackupState.Running)
             {
@@ -229,7 +229,7 @@ namespace EasySave_G3_V1
             }
         }
 
-        private void EncryptIfNeeded(string targetDirectory, string encryptionKey)
+        private void EncryptIfNeeded(string targetDirectory, string encryptionKey)  // Encryption with Cryptosoft
         {
             if (!Directory.Exists(targetDirectory)) return;
 

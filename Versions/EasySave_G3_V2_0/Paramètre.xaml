@@ -57,8 +57,8 @@
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <TextBox Name="TxtNouvelleExtension" Width="120"/>
-                            <Button Content="Ajouter" Click="AjouterExtension_Click"/>
-                            <Button Content="Supprimer" Click="SupprimerExtension_Click"/>
+                            <Button Content="Ajouter" Click="AddExtension_Click"/>
+                            <Button Content="Supprimer" Click="RemoveExtension_Click"/>
                         </StackPanel>
                         <ListBox Name="LstExtensions" Height="80"/>
                     </StackPanel>
@@ -70,9 +70,9 @@
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <TextBox Name="TxtNouveauLogiciel" Width="220" IsReadOnly="True"/>
-                            <Button Content="Parcourir" Click="ParcourirLogiciel_Click"/>
-                            <Button Content="Ajouter" Click="AjouterLogiciel_Click"/>
-                            <Button Content="Supprimer" Click="SupprimerLogiciel_Click"/>
+                            <Button Content="Parcourir" Click="BrowseSoftware_Click"/>
+                            <Button Content="Ajouter" Click="AddSoftware_Click"/>
+                            <Button Content="Supprimer" Click="RemoveSoftware_Click"/>
                         </StackPanel>
                         <ListBox Name="LstLogiciels" Height="80"/>
                     </StackPanel>
@@ -94,8 +94,8 @@
 
             <!-- Boutons -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                <Button Content="Valider" Width="120" Click="Valider_Click"/>
-                <Button Content="Annuler" Width="120" Click="Annuler_Click"/>
+                <Button Content="Valider" Width="120" Click="Validate_Click"/>
+                <Button Content="Annuler" Width="120" Click="Cancel_Click"/>
             </StackPanel>
 
         </StackPanel>
