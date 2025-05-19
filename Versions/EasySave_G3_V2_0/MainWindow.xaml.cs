@@ -98,10 +98,13 @@ namespace EasySave_G3_V2_0
                         scenario.SetState(BackupState.Running);
                         SaveDataGrid.Items.Refresh();
                         List<string> Back = scenario.Execute();
-                        if (Back[0].StartsWith("Error"))
-                        {
-                            MessageBox.Show(Back[0]);
+                        if (Back[1].Contains("path") || Back[1].Contains("not found"))
+                        { 
                             scenario.SetState(BackupState.Failed);
+                            foreach (string message in Back)
+                            {
+                                MessageBox.Show(message);
+                            }
                             SaveDataGrid.Items.Refresh();
                         }
                         else

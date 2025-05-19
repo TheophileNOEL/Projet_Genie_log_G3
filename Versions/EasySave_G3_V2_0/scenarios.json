@@ -31,5 +31,16 @@
     "Description": "Bonjour!",
     "IsSelected": false,
     "Log": {}
+  },
+  {
+    "Id": 4,
+    "Name": "TestTheo",
+    "Source": "C:\\Test\\Source",
+    "Target": "C:\\Test\\Dest",
+    "Type": 0,
+    "State": 0,
+    "Description": "Bonjour.",
+    "IsSelected": false,
+    "Log": {}
   }
 ]
