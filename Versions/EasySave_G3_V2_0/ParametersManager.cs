@@ -11,7 +11,7 @@ public class Parameters
 	public string Langue { get; set; } = "Français";
 }
 
-
+ 
 public class ParametersManager
 {
     private const string FileName = "settings.json";
