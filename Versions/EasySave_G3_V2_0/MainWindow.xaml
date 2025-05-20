@@ -153,11 +153,13 @@
                 <Button
                     Name="Button_Back"
                     Grid.Column="2"
+                    Grid.Row="3"
                     Content="{DynamicResource MainWindow.Cancel}"
                     Click="Button_Back_Click"/>
                 <Button
                     Name="Button_Validation"
                     Grid.Column="2"
+                    Grid.Row="2"
                     Content="{DynamicResource MainWindow.Validate}"
                     Click="Button_Validation_Click"/>
             </Grid>
