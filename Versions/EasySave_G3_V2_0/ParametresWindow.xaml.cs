@@ -20,7 +20,6 @@ namespace EasySave_G3_V2_0
 
         private void ChargerParametresDansUI()
         {
-            // Format du log
             foreach (ComboBoxItem item in CB_TypeLog.Items)
             {
                 if (item.Content.ToString() == pm.Parametres.FormatLog)
@@ -30,17 +29,14 @@ namespace EasySave_G3_V2_0
                 }
             }
 
-            // Extensions
             LstExtensions.Items.Clear();
             foreach (var ext in pm.Parametres.ExtensionsChiffrees)
                 LstExtensions.Items.Add(ext);
 
-            // Logiciels
             LstLogiciels.Items.Clear();
             foreach (var logic in pm.Parametres.CheminsLogiciels)
                 LstLogiciels.Items.Add(logic);
 
-            // Langue
             foreach (ComboBoxItem item in CB_Langue.Items)
             {
                 if (item.Content.ToString() == pm.Parametres.Langue)
@@ -105,7 +101,6 @@ namespace EasySave_G3_V2_0
 
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
-            // Met à jour les paramètres
             pm.Parametres.FormatLog = ((ComboBoxItem)CB_TypeLog.SelectedItem).Content.ToString();
             pm.Parametres.ExtensionsChiffrees = LstExtensions.Items.Cast<string>().ToList();
             pm.Parametres.CheminsLogiciels = LstLogiciels.Items.Cast<string>().ToList();
@@ -113,7 +108,6 @@ namespace EasySave_G3_V2_0
 
             pm.Save();
 
-            // Appliquer immédiatement la nouvelle langue
             LocalizationManager.ChangeLanguage(pm.Parametres.Langue);
 
             MessageBox.Show("Paramètres sauvegardés !");

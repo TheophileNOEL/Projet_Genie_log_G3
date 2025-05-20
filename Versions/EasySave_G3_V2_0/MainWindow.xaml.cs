@@ -16,16 +16,7 @@ namespace EasySave_G3_V2_0
         public MainWindow()
         {
             InitializeComponent();
-            //var pm = new ParametersManager();
 
-            //// Accès aux paramètres
-            //Console.WriteLine(pm.Parametres.FormatLog);
-            //Console.WriteLine(string.Join(", ", pm.Parametres.ExtensionsChiffrees));
-
-            //// Modifier et sauvegarder
-            //pm.AjouterExtension();
-            //pm.ModifierCheminLogiciel();
-            //pm.ModifierLangue("Anglais");
 
             consoleViewModel.GetLangages().SearchLangages();
             Langage language = new Langage("Frensh.Json", Path.Combine(exePath, @"..\\..\\..\\Langages\\French.json"));

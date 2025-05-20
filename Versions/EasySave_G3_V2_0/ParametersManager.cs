@@ -31,18 +31,18 @@ public class ParametersManager
                 string json = File.ReadAllText(FileName);
                 Parametres = JsonSerializer.Deserialize<Parameters>(json);
                 if (Parametres == null)
-                    Parametres = new Parameters(); // fallback par défaut
+                    Parametres = new Parameters();
             }
             else
             {
-                Parametres = new Parameters(); // fichier non trouvé → valeurs par défaut
-                Save(); // créer fichier initial
+                Parametres = new Parameters();
+                Save();
             }
         }
         catch (Exception ex)
         {
             Console.WriteLine("Erreur chargement paramètres : " + ex.Message);
-            Parametres = new Parameters(); // fallback safe
+            Parametres = new Parameters();
         }
     }
 
@@ -59,7 +59,6 @@ public class ParametersManager
         }
     }
 
-    // Méthodes d’aide pour modifier les paramètres
 
     public void AjouterExtension(string extension)
     {
