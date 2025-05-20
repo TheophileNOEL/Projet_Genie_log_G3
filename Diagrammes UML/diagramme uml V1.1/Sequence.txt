@@ -1,0 +1,36 @@
+@startuml
+' =======================
+' SEQUENCE DIAGRAM: Full Scenario Execution
+' ===
+====================
+actor User
+participant ConsoleUI
+participant ConsoleViewModel
+participant Langages
+participant Langage
+participant ScenarioList
+participant Scenario
+participant LogEntry
+participant Folder
+
+User -> ConsoleUI : start Application
+ConsoleUI -> ConsoleViewModel : initialize()
+ConsoleViewModel -> Langages : SearchLangages()
+ConsoleUI -> Langage : LoadLangage()
+User -> ConsoleUI : choose scenario(s)
+ConsoleUI -> ConsoleViewModel : GetScenarioList()
+ConsoleViewModel -> ScenarioList : RunList(ids)
+loop for each Scenario
+    ScenarioList -> Scenario : Execute()
+    Scenario -> Folder : check source path
+    Scenario -> Folder : check destination path
+    Scenario -> Folder : list eligible files
+    loop for each file
+        Scenario -> Folder : compare timestamp
+        Scenario -> Folder : copy file
+        Scenario -> LogEntry : log transfer
+    end
+    Scenario -> LogEntry : save log
+end
+ConsoleUI -> Langage : GetElements()
+@enduml

@@ -1,0 +1,44 @@
+@startuml
+' =======================
+' USE CASE DIAGRAM
+' =======================
+left to right direction
+actor User as u
+
+package UI {
+  usecase "Launch the application" as UC1
+  usecase "Select scenario to execute" as UC2
+  usecase "Trigger scenario execution" as UC3
+  usecase "Create / Edit a scenario" as UC4
+  usecase "Enter source path" as UC5
+  usecase "Enter destination path" as UC6
+  usecase "Change language" as UC7
+  usecase "Display logs" as UC8
+}
+
+package Core {
+  usecase "Start the software" as Log1
+  usecase "Execute scenario" as Log2
+  usecase "Copy source to destination" as Log3
+  usecase "Log backup details" as Log4
+  usecase "Save scenario" as Log5
+}
+
+u --> UC1
+u --> UC2
+u --> UC3
+u --> UC4
+u --> UC5
+u --> UC6
+u --> UC7
+u --> UC8
+
+UC3 ..> UC2 : <<include>>
+UC5 ..> UC4 : <<include>>
+UC6 ..> UC4 : <<include>>
+UC1 ..> Log1 : <<include>>
+UC3 ..> Log2 : <<extend>>
+UC4 ..> Log5 : <<include>>
+Log2 ..> Log3 : <<extend>>
+Log2 ..> Log4 : <<extend>>
+@enduml
