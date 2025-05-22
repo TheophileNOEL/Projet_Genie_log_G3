@@ -1,0 +1,34 @@
+{
+  "MainWindow.Title":            "Backup(s):",
+  "MainWindow.Play":             "Play",
+  "MainWindow.Add":              "Add",
+  "MainWindow.Settings":         "Settings",
+  "MainWindow.CMD":              "CMD",
+  
+  "MainWindow.NameLabel":        "Name:",
+  "MainWindow.SourceLabel":      "Source:",
+  "MainWindow.TargetLabel":      "Target:",
+  "MainWindow.TypeLabel":        "Type:",
+  "MainWindow.DescriptionLabel": "Description:",
+  "MainWindow.Cancel":           "Cancel",
+  "MainWindow.Validate":         "Validate",
+  
+  "ParamsWindow.Title":                      "🎛️ Settings",
+  "ParamsWindow.LogFormatHeader":            "📝 Log file format",
+  "ParamsWindow.LogFormat.JSON":             "JSON",
+  "ParamsWindow.LogFormat.XML":              "XML",
+  
+  "ParamsWindow.EncryptedExtensionsHeader":  "🔐 Extensions to encrypt",
+  "ParamsWindow.AddExtension":               "Add",
+  "ParamsWindow.RemoveExtension":            "Remove",
+  
+  "ParamsWindow.SoftwareHeader":             "📦 Business software (.exe)",
+  "ParamsWindow.Browse":                     "Browse",
+  "ParamsWindow.AddSoftware":                "Add",
+  "ParamsWindow.RemoveSoftware":             "Remove",
+  
+  "ParamsWindow.LanguageHeader":             "🌐 Interface language",
+  
+  "ParamsWindow.Save":                       "Save",
+  "ParamsWindow.Cancel":                     "Cancel"
+}

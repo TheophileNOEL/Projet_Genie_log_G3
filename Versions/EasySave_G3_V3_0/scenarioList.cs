@@ -1,7 +1,8 @@
-﻿using EasySave_G3_V1;
-using System.Text.Json.Serialization;
+﻿using EasySave.Core;
+using EasySave_G3_V1;
+using System.IO;
 using System.Text.Json;
-using EasySave.Core;
+using System.Text.Json.Serialization;
 
 public class ScenarioList
 {
@@ -30,48 +31,51 @@ public class ScenarioList
         return scenarios;
     }
 
-    public Dictionary<Scenario, List<string>> RunRange(int start, int end, LogFormat logFormat)
+    public Dictionary<Scenario, List<string>> RunList(int[] ids)
     {
-        if (start < 1 || end > items.Count || start > end)
+        var result = new Dictionary<Scenario, List<string>>();
+
+        foreach (int id in ids)
+        {
+            var scenario = items.FirstOrDefault(s => s != null && s.GetId() == id);
+            if (scenario != null)
+            {
+                var messages = scenario.Execute();
+                result.Add(scenario, messages);
+            }
+            else
+            {
+                // Optionnel : gérer scénario non trouvé
+                Console.WriteLine($"Scénario avec ID {id} non trouvé.");
+            }
+        }
+
+        return result;
+    }
+
+    public Dictionary<Scenario, List<string>> RunRange(int startId, int endId)
+    {
+        if (startId > endId)
             throw new ArgumentOutOfRangeException("Plage invalide.");
 
         var result = new Dictionary<Scenario, List<string>>();
 
-        for (int i = start; i <= end; i++)
-        {
-            var scenario = items[i - 1];
-            if (scenario != null)
-            {
+        var scenariosInRange = items.Where(s => s != null && s.GetId() >= startId && s.GetId() <= endId)
+                                    .OrderBy(s => s.GetId());
 
-                var messages = scenario.Execute(logFormat); 
-                result.Add(scenario, messages);
-            }
+        foreach (var scenario in scenariosInRange)
+        {
+            var messages = scenario.Execute();
+            result.Add(scenario, messages);
         }
 
         return result;
     }
 
 
-    public Dictionary<Scenario, List<string>> RunList(int[] ids, LogFormat logFormat)
-    {
-        var result = new Dictionary<Scenario, List<string>>();
 
-        foreach (int i in ids)
-        {
-            if (i >= 1 && i <= items.Count && items[i - 1] != null)
-            {
-                var scenario = items[i - 1];
-                var messages = scenario.Execute(logFormat);
-                result.Add(scenario, messages);
-            }
-        }
-
-        return result;
-    }
-
-
-    public bool Modify(int index, int? newId = null, string newName = null, string newSource = null,
-                   string newTarget = null, BackupType? newType = null, string newDesc = null)
+    public bool Modify(int index, int? newId = null, string? newName = null, string? newSource = null,
+                   string? newTarget = null, BackupType? newType = null, string? newDesc = null)
     {
         if (index <= 0 || index > items.Count || items[index - 1] == null)
             throw new IndexOutOfRangeException("Index invalide ou scénario vide.");
@@ -154,7 +158,7 @@ public class ScenarioList
         return true;
     }
 
-    public List<Scenario> Get() 
+    public List<Scenario> Get()
     {
         return items;
     }
@@ -172,61 +176,8 @@ public class ScenarioList
 
         return newList;
     }
-    public Dictionary<Scenario, List<string>> RunMultiple(string selection)
-    {
-        var result = new Dictionary<Scenario, List<string>>();
-
-        if (string.IsNullOrWhiteSpace(selection))
-            throw new ArgumentException("La sélection ne peut pas être vide.");
-
-        var ids = new HashSet<int>();
-
-        var parts = selection.Split(';', StringSplitOptions.RemoveEmptyEntries);
-
-        foreach (var part in parts)
-        {
-            if (part.Contains('-'))
-            {
-                var bounds = part.Split('-', StringSplitOptions.RemoveEmptyEntries);
-                if (bounds.Length != 2
-                    || !int.TryParse(bounds[0], out int start)
-                    || !int.TryParse(bounds[1], out int end)
-                    || start > end)
-                {
-                    throw new ArgumentException($"Plage invalide : '{part}'");
-                }
-
-                for (int i = start; i <= end; i++)
-                    ids.Add(i);
-            }
-            else
-            {
-                if (!int.TryParse(part, out int single))
-                    throw new ArgumentException($"Valeur invalide : '{part}'");
-
-                ids.Add(single);
-            }
-        }
-
-        foreach (int id in ids.OrderBy(i => i))
-        {
-            if (id < 1 || id > items.Count)
-            {
-                // Option : ignorer ou lever une erreur
-                // Ici je préfère ignorer les IDs hors plage
-                continue;
-            }
-
-            var scenario = items[id - 1];
-            if (scenario != null)
-            {
-                var messages = scenario.Execute(LogFormat.Json);
-                result.Add(scenario, messages);
-            }
-        }
-
-        return result;
-    }
-
+    public static bool IsRange(string input) => !string.IsNullOrEmpty(input) && input.Contains("-");
+    public static bool IsList(string input) => !string.IsNullOrEmpty(input) && input.Contains(";");
 }
+
 

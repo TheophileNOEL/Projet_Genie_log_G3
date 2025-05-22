@@ -1,0 +1,34 @@
+{
+  "MainWindow.Title":            "Sauvegarde(s):",
+  "MainWindow.Play":             "Play",
+  "MainWindow.Add":              "Ajouter",
+  "MainWindow.Settings":         "Paramètre",
+  "MainWindow.CMD":              "CMD",
+  
+  "MainWindow.NameLabel":        "Nom :",
+  "MainWindow.SourceLabel":      "Source :",
+  "MainWindow.TargetLabel":      "Destination :",
+  "MainWindow.TypeLabel":        "Type :",
+  "MainWindow.DescriptionLabel": "Description :",
+  "MainWindow.Cancel":           "Annuler",
+  "MainWindow.Validate":         "Valider",
+  
+  "ParamsWindow.Title":                      "🎛️ Paramètres",
+  "ParamsWindow.LogFormatHeader":            "📝 Format du fichier log",
+  "ParamsWindow.LogFormat.JSON":             "JSON",
+  "ParamsWindow.LogFormat.XML":              "XML",
+  
+  "ParamsWindow.EncryptedExtensionsHeader":  "🔐 Extensions à chiffrer",
+  "ParamsWindow.AddExtension":               "Ajouter",
+  "ParamsWindow.RemoveExtension":            "Supprimer",
+  
+  "ParamsWindow.SoftwareHeader":             "📦 Logiciels métier (.exe)",
+  "ParamsWindow.Browse":                     "Parcourir",
+  "ParamsWindow.AddSoftware":                "Ajouter",
+  "ParamsWindow.RemoveSoftware":             "Supprimer",
+  
+  "ParamsWindow.LanguageHeader":             "🌐 Langue de l’interface",
+  
+  "ParamsWindow.Save":                       "Valider",
+  "ParamsWindow.Cancel":                     "Annuler"
+}

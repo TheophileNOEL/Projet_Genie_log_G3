@@ -1,0 +1,248 @@
+﻿[
+  {
+    "timestamp": "2025-05-21T15:34:34.2918063\u002B02:00",
+    "jobName": "TestCreate",
+    "backupType": "Differential",
+    "sourceUNC": "C:\\Test\\Source",
+    "targetUNC": "C:\\Test\\Dest",
+    "fileSizeBytes": 7,
+    "durationMs": 67,
+    "state": 1,
+    "Description": "Bonjour",
+    "totalSize": 7,
+    "listFolder": [
+      {
+        "path": "C:\\Test\\Source\\Attestation de Marquage Antivol.pdf",
+        "size": 441495,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Bon de commande.pdf",
+        "size": 7837449,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Certificat D\u0027assurence GMF.pdf",
+        "size": 2953743,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Contrat de vente Ford P1.pdf",
+        "size": 904100,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Contrat de vente Ford P2.pdf",
+        "size": 1444341,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Dossier d\u0027immatriculation.pdf",
+        "size": 190045,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Planing des r\u00E9visions .pdf",
+        "size": 378090,
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-05-21T15:36:28.5617328\u002B02:00",
+    "jobName": "TesteAdd",
+    "backupType": "Full",
+    "sourceUNC": "C:\\Test\\Source",
+    "targetUNC": "C:\\Test\\Dest",
+    "fileSizeBytes": 7,
+    "durationMs": 11,
+    "state": 1,
+    "Description": "bonjour",
+    "totalSize": 7,
+    "listFolder": [
+      {
+        "path": "C:\\Test\\Source\\Attestation de Marquage Antivol.pdf",
+        "size": 441495,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Bon de commande.pdf",
+        "size": 7837449,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Certificat D\u0027assurence GMF.pdf",
+        "size": 2953743,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Contrat de vente Ford P1.pdf",
+        "size": 904100,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Contrat de vente Ford P2.pdf",
+        "size": 1444341,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Dossier d\u0027immatriculation.pdf",
+        "size": 190045,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Planing des r\u00E9visions .pdf",
+        "size": 378090,
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-05-21T15:40:51.9815479\u002B02:00",
+    "jobName": "TesteAdd",
+    "backupType": "Full",
+    "sourceUNC": "C:\\Test\\Source",
+    "targetUNC": "C:\\Test\\Dest",
+    "fileSizeBytes": 7,
+    "durationMs": 20,
+    "state": 1,
+    "Description": "bonjour",
+    "totalSize": 7,
+    "listFolder": [
+      {
+        "path": "C:\\Test\\Source\\Attestation de Marquage Antivol.pdf",
+        "size": 441495,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Bon de commande.pdf",
+        "size": 7837449,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Certificat D\u0027assurence GMF.pdf",
+        "size": 2953743,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Contrat de vente Ford P1.pdf",
+        "size": 904100,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Contrat de vente Ford P2.pdf",
+        "size": 1444341,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Dossier d\u0027immatriculation.pdf",
+        "size": 190045,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Planing des r\u00E9visions .pdf",
+        "size": 378090,
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-05-21T15:49:55.0256745\u002B02:00",
+    "jobName": "TestCreate",
+    "backupType": "Differential",
+    "sourceUNC": "C:\\Test\\Source",
+    "targetUNC": "C:\\Test\\Dest",
+    "fileSizeBytes": 8,
+    "durationMs": 27,
+    "state": 1,
+    "Description": "Bonjour",
+    "totalSize": 8,
+    "listFolder": [
+      {
+        "path": "C:\\Test\\Source\\Attestation de Marquage Antivol.pdf",
+        "size": 441495,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Bon de commande.pdf",
+        "size": 7837449,
+        "type": "file"
+      },
+      { "path": "C:\\Test\\Source\\Bonjour.txt", "size": 14, "type": "file" },
+      {
+        "path": "C:\\Test\\Source\\Certificat D\u0027assurence GMF.pdf",
+        "size": 2953743,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Contrat de vente Ford P1.pdf",
+        "size": 904100,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Contrat de vente Ford P2.pdf",
+        "size": 1444341,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Dossier d\u0027immatriculation.pdf",
+        "size": 190045,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Planing des r\u00E9visions .pdf",
+        "size": 378090,
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-05-21T16:24:38.3045804\u002B02:00",
+    "jobName": "Test Demo",
+    "backupType": "Full",
+    "sourceUNC": "C:\\Test\\Source",
+    "targetUNC": "C:\\Test\\Dest",
+    "fileSizeBytes": 7,
+    "durationMs": 45,
+    "state": 1,
+    "Description": "Bonjour",
+    "totalSize": 7,
+    "listFolder": [
+      {
+        "path": "C:\\Test\\Source\\Attestation de Marquage Antivol.pdf",
+        "size": 441495,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Bon de commande.pdf",
+        "size": 7837449,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Certificat D\u0027assurence GMF.pdf",
+        "size": 2953743,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Contrat de vente Ford P1.pdf",
+        "size": 904100,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Contrat de vente Ford P2.pdf",
+        "size": 1444341,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Dossier d\u0027immatriculation.pdf",
+        "size": 190045,
+        "type": "file"
+      },
+      {
+        "path": "C:\\Test\\Source\\Planing des r\u00E9visions .pdf",
+        "size": 378090,
+        "type": "file"
+      }
+    ]
+  }
+]
