@@ -2,11 +2,11 @@
 using System.Reflection;
 namespace EasySave_G3_V1;
 using EasySave.Core;
-class Programm
+class Program
 {
     static void Main(string[] args)
     {
-        Programm p = new Programm();
+        Program p = new Program();
         string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         ConsoleViewModel consoleViewModel = new ConsoleViewModel();
         consoleViewModel.GetLangages().SearchLangages();
@@ -16,24 +16,29 @@ class Programm
         langage.LoadLangage();
         if (args.Length > 0)
         {
-            string ListArgs = null;
-            foreach (string arg in args)
+            if (args.Length > 0)
             {
-                ListArgs += arg;
-                ListArgs += ";";
-            }
-            Dictionary<Scenario, List<string>> message = scenarioList.RunMultiple(ListArgs);
-            foreach (Scenario arg in message.Keys)
-            {
-                Console.WriteLine(arg.Name);
-                foreach (string arg2 in message[arg])
+                try
                 {
-                    Console.WriteLine(arg2);
+                    int[] ids = args.Select(a => int.Parse(a)).ToArray();
+                    Dictionary<Scenario, List<string>> message = scenarioList.RunList(ids, LogFormat.Json);
+                    foreach (var kvp in message)
+                    {
+                        Console.WriteLine(kvp.Key.GetLog().Display());
+                    }
+                    return;
+                }
+                catch
+                {
+                    Console.WriteLine("Erreur : arguments invalides.");
+                    return;
                 }
             }
-            return;
         }
-        p.Begin(consoleViewModel, langage);
+        else
+        {
+            p.Begin(consoleViewModel, langage);
+        }
     }
     void Begin(ConsoleViewModel consoleViewModel, Langage L)
     {

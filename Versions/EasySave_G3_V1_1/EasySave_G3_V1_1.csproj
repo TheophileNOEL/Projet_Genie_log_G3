@@ -5,6 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>  <!-- Utilise .NET 8.0 (tu peux changer en net7.0 ou net6.0) -->
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <StartupObject>ConsoleGUI.cs</StartupObject>
   </PropertyGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\EasySave.Core\EasySave.Core.csproj" />
