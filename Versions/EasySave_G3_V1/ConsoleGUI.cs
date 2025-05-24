@@ -16,7 +16,7 @@ class Programm
         ScenarioList scenarioList = consoleViewModel.GetScenarioList();
         scenarioList.Load(Path.Combine(exePath, @"..\\..\\..\\scenarios.json"));
         langage.LoadLangage();
-        if (args.Length > 0)
+        if (args != null)
         {
             p.Selectscenario(consoleViewModel, langage, args[0]);
         }
@@ -98,7 +98,7 @@ class Programm
                     string[] rangeParts = result.Split('-');
                     int Start = int.Parse(rangeParts[0].Trim());
                     int end = int.Parse(rangeParts[1].Trim());
-                    var messages = scenarioList.RunRange(Start, end);
+                    var messages = scenarioList.RunRange(Start, end,LogFormat.Json);
                     foreach (var kvp in messages)
                     {
                         Console.WriteLine(kvp.Key.GetLog().Display());
@@ -109,7 +109,7 @@ class Programm
                 else if (IsList(result))
                 {
                     var ids = result.Split(',').Select(s => int.Parse(s.Trim())).ToArray();
-                    var messages = scenarioList.RunList(ids);
+                    var messages = scenarioList.RunList(ids, LogFormat.Json);
                     foreach (var kvp in messages)
                     {
                         Console.WriteLine(kvp.Key.GetLog().Display());
@@ -119,7 +119,7 @@ class Programm
                 }
                 else
                 {
-                    var messages = scenarioList.RunList(new int[] { choice });
+                    var messages = scenarioList.RunList(new int[] { choice },LogFormat.Json);
                     foreach (var kvp in messages)
                     {
                         Console.WriteLine(kvp.Key.GetLog().Display());

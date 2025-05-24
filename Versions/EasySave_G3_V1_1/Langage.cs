@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using EasySave.Core;
 
-namespace EasySave_G3_V1
+namespace EasySave_G3_V1_1
 {
     public class Langage
     {

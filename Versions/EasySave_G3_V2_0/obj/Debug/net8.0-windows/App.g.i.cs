@@ -52,7 +52,7 @@ namespace EasySave_G3_V2_0 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EasySave_G3_V2_0;V1.0.0.0;component/app.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EasySave_G3_V2_0;component/app.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\App.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

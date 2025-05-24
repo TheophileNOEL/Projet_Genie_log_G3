@@ -6,6 +6,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Reflection;
 using EasySave.Core;
+using EasySave_G3_V1_1;
 
 
 namespace EasySave_G3_V1
