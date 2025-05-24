@@ -55,6 +55,12 @@ C:\Users\theop\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logic
 C:\Users\theop\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\V1\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.pdb
 C:\Users\theop\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\V1\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.genruntimeconfig.cache
 C:\Users\theop\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\V1\EasySave_G3_V1_1\obj\Debug\net8.0\ref\EasySave_G3_V1_1.dll
+C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.AssemblyInfoInputs.cache
+C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.AssemblyInfo.cs
+C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.sourcelink.json
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\bin\Debug\net8.0\EasySave_G3_V1_1.exe
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\bin\Debug\net8.0\EasySave_G3_V1_1.deps.json
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\bin\Debug\net8.0\EasySave_G3_V1_1.runtimeconfig.json
@@ -62,12 +68,6 @@ C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logici
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\bin\Debug\net8.0\EasySave_G3_V1_1.pdb
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\bin\Debug\net8.0\EasySave.Core.dll
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\bin\Debug\net8.0\EasySave.Core.pdb
-C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.csproj.AssemblyReference.cache
-C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.AssemblyInfoInputs.cache
-C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.AssemblyInfo.cs
-C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.csproj.CoreCompileInputs.cache
-C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.sourcelink.json
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave.F35947B8.Up2Date
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\EasySave_G3_V1_1.dll
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave_G3_V1_1\obj\Debug\net8.0\refint\EasySave_G3_V1_1.dll

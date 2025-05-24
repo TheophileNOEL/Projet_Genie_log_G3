@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using EasySave.Core;
+using EasySave_G3_V1;
 
-namespace EasySave_G3_V1
+namespace EasySave_G3_V1_1
 {
     public class ConsoleViewModel
     {

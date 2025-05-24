@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using EasySave.Core;
 
-namespace EasySave_G3_V1
+namespace EasySave_G3_V1_1
 {
 
     public class Scenario
@@ -144,7 +144,7 @@ namespace EasySave_G3_V1
                         {
                             //EncryptIfNeeded(targetPath, ".txt", "cle123");
                             File.Copy(filePath, targetPath, true);
-                            EncryptIfNeeded(targetPath, ".txt", "cle123");
+                            //EncryptIfNeeded(targetPath, ".txt", "cle123");
                             nbItems++;
                             totalSize += fileInfo.Length;
                         }
@@ -176,7 +176,8 @@ namespace EasySave_G3_V1
                 folders
             );
             Log.AppendToFile();
-
+            try 
+            { 
                 Log.SetDurationMs((int)stopwatch.ElapsedMilliseconds);
                 Log.AppendToFile();
                 return null;
@@ -200,26 +201,5 @@ namespace EasySave_G3_V1
                 return $"Cannot cancel backup '{Name}' as it is not currently running.";
             }
         }
-
-        //private void EncryptIfNeeded(string targetDirectory, string extension, string encryptionKey)
-        //{
-        //    if (!Directory.Exists(targetDirectory)) return;
-
-        //    var filesToEncrypt = Directory.GetFiles(targetDirectory, $"*{extension}", SearchOption.AllDirectories);
-
-        //    foreach (var file in filesToEncrypt)
-        //    {
-        //        try
-        //        {
-        //            var encryptor = new CryptoSoft.FileManager(file, encryptionKey);
-        //            encryptor.TransformFile();
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            Console.WriteLine($"Erreur lors du chiffrement du fichier {file} : {ex.Message}");
-        //        }
-        //    }
-        //}
-
     }
 }
