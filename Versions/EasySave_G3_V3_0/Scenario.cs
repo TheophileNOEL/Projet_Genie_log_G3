@@ -5,6 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Text.Json;
 using EasySave.Core;
+using System.Threading;
 
 namespace EasySave_G3_V1
 {
@@ -80,8 +81,10 @@ namespace EasySave_G3_V1
             {
                 State = BackupState.Running;
                 messages.Add($"Backup '{Name}' is running...");
-
-                string result = RunSave();
+                string result = null;
+                Thread thread = new Thread(() => result = RunSave());
+                thread.Start();
+                thread.Join();
                 if (!string.IsNullOrWhiteSpace(result))
                     messages.Add(result);
 

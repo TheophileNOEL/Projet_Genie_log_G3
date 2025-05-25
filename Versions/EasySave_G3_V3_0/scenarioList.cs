@@ -77,7 +77,7 @@ public class ScenarioList
     public bool Modify(int index, int? newId = null, string? newName = null, string? newSource = null,
                    string? newTarget = null, BackupType? newType = null, string? newDesc = null)
     {
-        if (index <= 0 || index > items.Count || items[index - 1] == null)
+        if (index < 0 || index > items.Count || items[index - 1] == null)
             throw new IndexOutOfRangeException("Index invalide ou scénario vide.");
 
         var current = items[index - 1];
