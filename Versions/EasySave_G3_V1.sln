@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasySave_G3_V1", "EasySave_G3_V1\EasySave_G3_V1.csproj", "{76CA2554-E3CE-4C3F-BE9B-681880200F1A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F17AC4F9-E834-354E-B694-7C47867E9A79} = {F17AC4F9-E834-354E-B694-7C47867E9A79}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasySave_G3_V1_1", "EasySave_G3_V1_1\EasySave_G3_V1_1.csproj", "{973FA9B1-1663-495C-1FA1-EFBAF243752C}"
 EndProject
@@ -22,9 +25,11 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{76CA2554-E3CE-4C3F-BE9B-681880200F1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76CA2554-E3CE-4C3F-BE9B-681880200F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76CA2554-E3CE-4C3F-BE9B-681880200F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76CA2554-E3CE-4C3F-BE9B-681880200F1A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{973FA9B1-1663-495C-1FA1-EFBAF243752C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{973FA9B1-1663-495C-1FA1-EFBAF243752C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{973FA9B1-1663-495C-1FA1-EFBAF243752C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{973FA9B1-1663-495C-1FA1-EFBAF243752C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1A85D9F2-2840-AB94-4C1D-94F708AE6488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

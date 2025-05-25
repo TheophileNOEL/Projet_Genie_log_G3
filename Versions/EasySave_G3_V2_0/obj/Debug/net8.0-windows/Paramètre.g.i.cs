@@ -99,7 +99,7 @@ public partial class ParametresWindow : System.Windows.Window, System.Windows.Ma
             return;
         }
         _contentLoaded = true;
-        System.Uri resourceLocater = new System.Uri("/EasySave_G3_V2_0;V1.0.0.0;component/param%c3%a8tre.xaml", System.UriKind.Relative);
+        System.Uri resourceLocater = new System.Uri("/EasySave_G3_V2_0;component/param%c3%a8tre.xaml", System.UriKind.Relative);
         
         #line 1 "..\..\..\Paramètre.xaml"
         System.Windows.Application.LoadComponent(this, resourceLocater);

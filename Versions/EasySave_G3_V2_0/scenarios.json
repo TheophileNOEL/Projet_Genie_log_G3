@@ -1,45 +1,23 @@
 [
   {
     "Id": 1,
-    "Name": "Test",
-    "Source": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Source",
-    "Target": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Dest",
-    "Type": 1,
-    "State": 0,
-    "Description": "Bonjour",
-    "IsSelected": false,
-    "Log": {}
-  },
-  {
-    "Id": 2,
-    "Name": "Test4",
-    "Source": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Source",
-    "Target": "C:\\Users\\Corentin\\Desktop\\GenieLog\\Dest",
+    "Name": "Test Demo",
+    "Source": "C:\\Test\\Source",
+    "Target": "C:\\Test\\Dest",
     "Type": 0,
     "State": 0,
-    "Description": "Bonjour,",
+    "Description": "Bonjour",
     "IsSelected": false,
     "Log": {}
   },
   {
     "Id": 3,
-    "Name": "TestCreate",
+    "Name": "Test Demo",
     "Source": "C:\\Test\\Source",
     "Target": "C:\\Test\\Dest",
-    "Type": 1,
+    "Type": 0,
     "State": 0,
-    "Description": "Bonjour",
-    "IsSelected": false,
-    "Log": {}
-  },
-  {
-    "Id": 4,
-    "Name": "TestCreate",
-    "Source": "C:\\Test\\Source",
-    "Target": "C:\\Test\\Dest",
-    "Type": 1,
-    "State": 0,
-    "Description": "Bonjour",
+    "Description": "Bonour",
     "IsSelected": false,
     "Log": {}
   }
