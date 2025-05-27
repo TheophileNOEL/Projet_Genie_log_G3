@@ -3,6 +3,8 @@ using EasySave_G3_V1;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Windows;
+using System.Xml.Linq;
 
 public class ScenarioList
 {

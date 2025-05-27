@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text.Json;
 using EasySave.Core;
 using System.Threading;
+using System.Windows;
 
 namespace EasySave_G3_V1
 {
@@ -22,6 +23,7 @@ namespace EasySave_G3_V1
         public string Description { get; set; } // Additional Description about the backup scenario
         public bool IsSelected { get; set; }
         public LogEntry Log { get; set; }       // Log entry associated with the backup scenario
+        public int waitThread { get; set; }
 
         public int GetId() => Id;
         public void SetId(int value) => Id = value;
@@ -58,6 +60,7 @@ namespace EasySave_G3_V1
             Description = string.Empty;
             IsSelected = false;
             Log = new LogEntry();
+            waitThread = 2000;
         }
 
         public Scenario(int id, string name, string source, string target, BackupType type, string description)
@@ -71,6 +74,7 @@ namespace EasySave_G3_V1
             Description = description;
             IsSelected = false;
             Log = new LogEntry();
+            waitThread = 2000;
         }
 
         public List<string> Execute()
@@ -82,9 +86,7 @@ namespace EasySave_G3_V1
                 State = BackupState.Running;
                 messages.Add($"Backup '{Name}' is running...");
                 string result = null;
-                Thread thread = new Thread(() => result = RunSave());
-                thread.Start();
-                thread.Join();
+                result = this.RunSave();
                 if (!string.IsNullOrWhiteSpace(result))
                     messages.Add(result);
 
@@ -98,6 +100,26 @@ namespace EasySave_G3_V1
             }
 
             return messages;
+        }
+        public List<string> Execute(List<Scenario> scnearioList)
+        {
+            List<string> message = new List<string>();
+            List<Thread> threads = new List<Thread>();
+            foreach (Scenario scenario in scnearioList)
+            {
+                Thread thread = new Thread(() => {MessageBox.Show("Thread créé"); message.Add(scenario.RunSave()); });
+                thread.Start();
+                threads.Add(thread);
+                if(!thread.Join(waitThread))
+                {
+                    scenario.SetState(BackupState.Failed);
+                }
+                else 
+                {
+                    scenario.SetState(BackupState.Completed);
+                }
+            }
+            return message;
         }
 
         private bool IsBusinessSoftwareRunning()

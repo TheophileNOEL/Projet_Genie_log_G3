@@ -80,36 +80,40 @@ namespace EasySave_G3_V2_0
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            List<Scenario> scenarios = new List<Scenario>();
             foreach (var item in SaveDataGrid.Items)
             {
                 if (item is Scenario scenario)
                 {
-                    if (scenario.IsSelected)
-                    {
-                        scenario.SetState(BackupState.Running);
-                        SaveDataGrid.Items.Refresh();
-                        List<string> Back = scenario.Execute();
-                        if (Back[1].Contains("path") || Back[1].Contains("not found"))
-                        { 
-                            scenario.SetState(BackupState.Failed);
-                            foreach (string message in Back)
-                            {
-                                MessageBox.Show(message);
-                            }
-                            SaveDataGrid.Items.Refresh();
-                        }
-                        else
-                        {
-                            scenario.SetState(BackupState.Completed);
-                            SaveDataGrid.Items.Refresh();
-                        }
-                    }
+                    scenarios.Add(scenario);
+                    //if (scenario.IsSelected)
+                    //{
+                    //    scenario.SetState(BackupState.Running);
+                    //    SaveDataGrid.Items.Refresh();
+                    //    List<string> Back = scenario.Execute();
+                    //    if (Back[1].Contains("path") || Back[1].Contains("not found"))
+                    //    {
+                    //        scenario.SetState(BackupState.Failed);
+                    //        foreach (string message in Back)
+                    //        {
+                    //            MessageBox.Show(message);
+                    //        }
+                    //        SaveDataGrid.Items.Refresh();
+                    //    }
+                    //    else
+                    //    {
+                    //        scenario.SetState(BackupState.Completed);
+                    //        SaveDataGrid.Items.Refresh();
+                    //    }
+                    //}
                 }
                 else
                 {
                     MessageBox.Show("Error when loading scenario : " + item.ToString());
                 }
             }
+            Scenario scenario1 = new Scenario();
+            scenario1.Execute(scenarios);
         }
 
         private void AddScenario_Click(object sender, RoutedEventArgs e)
