@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using EasySave.Core;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
-using System.Threading;
-using EasySave.Core;
 using System.Windows;
+using System.Windows.Input;
 
 namespace EasySave_G3_V1
 {
@@ -26,6 +23,7 @@ namespace EasySave_G3_V1
         public bool IsSelected { get; set; }
         public LogEntry Log { get; set; }       // Log entry associated with the backup scenario
         public int waitThread { get; set; }
+        public int Maxsize { get; set; } = 10000; // Taille maximale des fichiers à sauvegarder (en octets)
 
         // Accesseurs existants pour compatibilité
         public int GetId() => Id;
@@ -123,15 +121,15 @@ namespace EasySave_G3_V1
             foreach (Scenario scenario in scnearioList)
             {
                 scenario.SetState(BackupState.Running);
-                Thread thread = new Thread(() => {MessageBox.Show("Thread créé"); message.Add(scenario.RunSave()); });
+                Thread thread = new Thread(() => {message.Add(scenario.RunSave()); });
                 thread.Name = scenario.Name;
                 thread.Start();
                 threads.Add(thread);
-                if(!thread.Join(waitThread))
+                if (!thread.Join(waitThread))
                 {
                     scenario.SetState(BackupState.Failed);
                 }
-                else 
+                else
                 {
                     scenario.SetState(BackupState.Completed);
                 }
@@ -174,6 +172,43 @@ namespace EasySave_G3_V1
         /// </summary>
         private string RunSave()
         {
+            void CopyPast(string f, string key, List<Folder> folders, int totalFiles, ref int doneCount)
+            {
+                // Création du dossier cible
+                var rel = Path.GetRelativePath(Source, f);
+                var dest = Path.Combine(Target, rel);
+                Directory.CreateDirectory(Path.GetDirectoryName(dest)!);
+
+                // Enregistrement pour log
+                var info = new FileInfo(f);
+                folders.Add(new Folder(
+                    f,
+                    File.GetLastWriteTime(f),
+                    Path.GetFileName(f),
+                    true,
+                    info.Length));
+
+                // Full ou différentiel
+                bool copy = Type switch
+                {
+                    BackupType.Full => true,
+                    BackupType.Differential =>
+                        !File.Exists(dest) ||
+                        File.GetLastWriteTimeUtc(f) > File.GetLastWriteTimeUtc(dest),
+                    _ => false
+                };
+
+                if (copy)
+                {
+                    File.Copy(f, dest, true);
+                    EncryptIfNeeded(dest, key);
+                }
+
+                // Mise à jour de la ProgressBar
+                doneCount++;
+                Progress = 100.0 * doneCount / totalFiles;
+            }
+
             try
             {
                 var sw = Stopwatch.StartNew();
@@ -203,42 +238,40 @@ namespace EasySave_G3_V1
                 int totalFiles = list.Count;
                 int doneCount = 0;
 
+                //Preparation of list folder > n ko 
+                List<Folder> bigFolder = new List<Folder>();
+
+
                 // Boucle de sauvegarde
                 foreach (var f in list)
                 {
-                    // Création du dossier cible
-                    var rel = Path.GetRelativePath(Source, f);
-                    var dest = Path.Combine(Target, rel);
-                    Directory.CreateDirectory(Path.GetDirectoryName(dest)!);
-
-                    // Enregistrement pour log
-                    var info = new FileInfo(f);
-                    folders.Add(new Folder(
-                        f,
-                        File.GetLastWriteTime(f),
-                        Path.GetFileName(f),
-                        true,
-                        info.Length));
-
-                    // Full ou différentiel
-                    bool copy = Type switch
+                    if (GetFileSize(f) < Maxsize)
                     {
-                        BackupType.Full => true,
-                        BackupType.Differential =>
-                            !File.Exists(dest) ||
-                            File.GetLastWriteTimeUtc(f) > File.GetLastWriteTimeUtc(dest),
-                        _ => false
-                    };
-
-                    if (copy)
-                    {
-                        File.Copy(f, dest, true);
-                        EncryptIfNeeded(dest, key);
+                        CopyPast(f, key, folders, totalFiles, ref doneCount);
                     }
-
-                    // Mise à jour de la ProgressBar
-                    doneCount++;
-                    Progress = 100.0 * doneCount / totalFiles;
+                    else
+                    {
+                        // Si le fichier est trop gros, on l'ajoute à une liste spéciale
+                        bigFolder.Add(new Folder(
+                            f,
+                            File.GetLastWriteTime(f),
+                            Path.GetFileName(f),
+                            true,
+                            GetFileSize(f)));
+                    }
+                }
+                if (bigFolder.Count > 0)
+                {
+                    MessageBox.Show(
+                        $"Attention : {bigFolder.Count} fichier(s) dépassent {Maxsize} octets et seront traités séparément.",
+                        "Fichiers trop gros",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Warning);
+                    // On traite les fichiers trop gros
+                    foreach (var f in bigFolder)
+                    {
+                        CopyPast(f.GetPath(), key, folders, totalFiles, ref doneCount);
+                    }
                 }
 
                 sw.Stop();
@@ -264,6 +297,24 @@ namespace EasySave_G3_V1
             catch (Exception ex)
             {
                 return $"Une erreur est survenue pendant la sauvegarde : {ex.Message}";
+            }
+        }
+        public int GetFileSize(string filePath)
+        {
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    return (int)new FileInfo(filePath).Length;
+                }
+                else
+                {
+                    throw new FileNotFoundException($"File '{filePath}' not found.");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error getting file size: {ex.Message}");
             }
         }
 
