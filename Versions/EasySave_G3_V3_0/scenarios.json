@@ -11,13 +11,24 @@
     "Log": {}
   },
   {
+    "Id": 2,
+    "Name": "zdcez",
+    "Source": "C:\\Users\\ylies\\Desktop\\ahl",
+    "Target": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "Type": 0,
+    "State": 2,
+    "Description": "oli",
+    "IsSelected": true,
+    "Log": {}
+  },
+  {
     "Id": 3,
-    "Name": "Test Demo",
-    "Source": "C:\\Test\\Source",
-    "Target": "C:\\Test\\Dest",
+    "Name": "rzrefzef",
+    "Source": "C:\\Users\\ylies\\Desktop\\ahl",
+    "Target": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
     "Type": 0,
     "State": 0,
-    "Description": "Bonour",
+    "Description": "",
     "IsSelected": false,
     "Log": {}
   }

@@ -7,7 +7,9 @@ public class Parameters
 {
 	public string FormatLog { get; set; } = "JSON";
 	public List<string> ExtensionsChiffrees { get; set; } = new();
-	public List<string> CheminsLogiciels { get; set; } = new();
+    public List<string> ExtensionsPrioritaires { get; set; } = new();
+
+    public List<string> CheminsLogiciels { get; set; } = new();
 	public string Langue { get; set; } = "Français";
 }
 
@@ -56,6 +58,29 @@ public class ParametersManager
         catch (Exception ex)
         {
             Console.WriteLine("Erreur sauvegarde paramètres : " + ex.Message);
+        }
+    }
+
+    public void AjouterExtensionPrioritaire(string extension)
+    {
+        if (!extension.StartsWith("."))
+            extension = "." + extension;
+
+        if (!Parametres.ExtensionsPrioritaires
+                .Contains(extension, StringComparer.OrdinalIgnoreCase))
+        {
+            Parametres.ExtensionsPrioritaires.Add(extension);
+            Save();
+        }
+    }
+
+
+    public void SupprimerExtensionPrioritaire(string extension)
+    {
+        if (Parametres.ExtensionsPrioritaires
+                .RemoveAll(e => e.Equals(extension, StringComparison.OrdinalIgnoreCase)) > 0)
+        {
+            Save();
         }
     }
 

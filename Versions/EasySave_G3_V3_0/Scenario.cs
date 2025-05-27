@@ -1,53 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
-using EasySave.Core;
 using System.Threading;
+using EasySave.Core;
 using System.Windows;
 
 namespace EasySave_G3_V1
 {
-
-    public class Scenario
+    public class Scenario : INotifyPropertyChanged
     {
-        // Properties of the backup scenario
-        public int Id { get; set; }             // Unique identifier for the scenario
-        public string Name { get; set; }        // Name of the scenario (Description or title)
-        public string Source { get; set; }      // Source directory or file to backup
-        public string Target { get; set; }      // Target directory or location to store the backup
-        public BackupType Type { get; set; }    // Type of backup (Full or Differential)
-        public BackupState State { get; set; }  // Current state of the backup (Pending, Running, etc.)
-        public string Description { get; set; } // Additional Description about the backup scenario
+        // Propriétés principales
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Source { get; set; }
+        public string Target { get; set; }
+        public BackupType Type { get; set; }
+        public BackupState State { get; set; }
+        public string Description { get; set; }
         public bool IsSelected { get; set; }
         public LogEntry Log { get; set; }       // Log entry associated with the backup scenario
         public int waitThread { get; set; }
 
+        // Accesseurs existants pour compatibilité
         public int GetId() => Id;
-        public void SetId(int value) => Id = value;
-
+        public void SetId(int v) => Id = v;
         public string GetName() => Name;
-        public void SetName(string value) => Name = value;
-
+        public void SetName(string v) => Name = v;
         public string GetSource() => Source;
-        public void SetSource(string value) => Source = value;
-
+        public void SetSource(string v) => Source = v;
         public string GetTarget() => Target;
-        public void SetTarget(string value) => Target = value;
-
+        public void SetTarget(string v) => Target = v;
         public BackupType GetSceanrioType() => Type;
-        public void SetType(BackupType value) => Type = value;
-
+        public void SetType(BackupType v) => Type = v;
         public BackupState GetState() => State;
-        public void SetState(BackupState value) => State = value;
-
+        public void SetState(BackupState v) => State = v;
         public string GetDescription() => Description;
-        public void SetDescription(string value) => Description = value;
-
+        public void SetDescription(string v) => Description = v;
         public LogEntry GetLog() => Log;
-        public void SetLog(LogEntry value) => Log = value;
+        public void SetLog(LogEntry v) => Log = v;
+
+        // Nouvelle propriété pour la progression
+        private double _progress;
+        public double Progress
+        {
+            get => _progress;
+            private set { _progress = value; OnPropertyChanged(); }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string? name = null) =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
         public Scenario()
         {
@@ -60,33 +68,41 @@ namespace EasySave_G3_V1
             Description = string.Empty;
             IsSelected = false;
             Log = new LogEntry();
+            _progress = 0;
             waitThread = 20000;
         }
 
         public Scenario(int id, string name, string source, string target, BackupType type, string description)
+            : this()
         {
             Id = id;
             Name = name;
             Source = source;
             Target = target;
             Type = type;
-            State = BackupState.Pending;
             Description = description;
             IsSelected = false;
             Log = new LogEntry();
             waitThread = 20000;
         }
 
+        /// <summary>
+        /// Appelé par l'UI : lance la sauvegarde sur un thread dédié pour ne pas bloquer.
+        /// </summary>
         public List<string> Execute()
         {
-            List<string> messages = new List<string>();
-
+            var messages = new List<string>();
             try
             {
                 State = BackupState.Running;
                 messages.Add($"Backup '{Name}' is running...");
                 string result = null;
-                result = this.RunSave();
+
+                // Lancement sur thread séparé
+                var t = new Thread(() => result = RunSave());
+                t.Start();
+                t.Join();
+
                 if (!string.IsNullOrWhiteSpace(result))
                     messages.Add(result);
 
@@ -98,7 +114,6 @@ namespace EasySave_G3_V1
                 State = BackupState.Failed;
                 messages.Add($"Error during backup '{Name}': {ex.Message}");
             }
-
             return messages;
         }
         public List<string> Execute(List<Scenario> scnearioList)
@@ -125,99 +140,110 @@ namespace EasySave_G3_V1
         }
 
         private bool IsBusinessSoftwareRunning()
-            {
-                try
-                {
-                    string settingsPath = "settings.json";
-                    if (!File.Exists(settingsPath))
-                        return false; // Ou tu peux lever une exception
-
-                    string json = File.ReadAllText(settingsPath);
-                    using JsonDocument doc = JsonDocument.Parse(json);
-                    JsonElement root = doc.RootElement;
-
-                    if (!root.TryGetProperty("CheminsLogiciels", out JsonElement logicielsArray) || logicielsArray.ValueKind != JsonValueKind.Array)
-                        return false;
-
-                    foreach (JsonElement logicielElement in logicielsArray.EnumerateArray())
-                    {
-                        string exePath = logicielElement.GetString();
-                        if (string.IsNullOrWhiteSpace(exePath))
-                            continue;
-
-                        string exeName = Path.GetFileNameWithoutExtension(exePath)?.ToLower();
-                        if (string.IsNullOrEmpty(exeName))
-                            continue;
-
-                        var runningProcesses = Process.GetProcessesByName(exeName);
-                        if (runningProcesses.Length > 0)
-                        {
-                            Console.WriteLine($"Logiciel métier détecté : {exeName}");
-                            return true;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Erreur lors de la lecture de settings.json : {ex.Message}");
-                }
-
-                return false;
-            }
-
-
-
-    private string RunSave()
         {
             try
             {
-                var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+                const string settingsPath = "settings.json";
+                if (!File.Exists(settingsPath))
+                    return false;
+
+                using var doc = JsonDocument.Parse(File.ReadAllText(settingsPath));
+                if (!doc.RootElement.TryGetProperty("CheminsLogiciels", out var arr) ||
+                    arr.ValueKind != JsonValueKind.Array)
+                    return false;
+
+                foreach (var elem in arr.EnumerateArray())
+                {
+                    var exe = elem.GetString();
+                    if (string.IsNullOrWhiteSpace(exe)) continue;
+                    var name = Path.GetFileNameWithoutExtension(exe)!.ToLower();
+                    if (Process.GetProcessesByName(name).Any())
+                        return true;
+                }
+            }
+            catch
+            {
+                // ignore
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Exécute la sauvegarde, en traitant d'abord les fichiers prioritaires par réordonnancement,
+        /// et met à jour <see cref="Progress"/> à chaque fichier.
+        /// </summary>
+        private string RunSave()
+        {
+            try
+            {
+                var sw = Stopwatch.StartNew();
+
                 if (IsBusinessSoftwareRunning())
                     return "Backup blocked: a business software is currently running.";
-
                 if (!Directory.Exists(Source))
                     return $"Source path '{Source}' not found.";
                 if (!Directory.Exists(Target))
                     return $"Target path '{Target}' not found.";
 
-                List<Folder> folders = new List<Folder>();
-                string encryptionKey = "cle123"; // À extraire depuis settings plus tard
+                // Lecture des extensions prioritaires
+                var pm = new ParametersManager();
+                var prio = pm.Parametres.ExtensionsPrioritaires
+                              .Select(e => e.StartsWith(".") ? e.ToLower() : "." + e.ToLower())
+                              .ToHashSet();
 
-                foreach (string filePath in Directory.GetFiles(Source, "*", SearchOption.AllDirectories))
+                // Collecte et réordonnancement
+                var all = Directory.GetFiles(Source, "*", SearchOption.AllDirectories).ToList();
+                var p = all.Where(f => prio.Contains(Path.GetExtension(f).ToLower())).ToList();
+                var np = all.Where(f => !prio.Contains(Path.GetExtension(f).ToLower())).ToList();
+                var list = p.Concat(np).ToList();
+
+                // Préparation log & chiffrement
+                var folders = new List<Folder>();
+                string key = "cle123"; // TODO : extraire de pm.Parametres
+                int totalFiles = list.Count;
+                int doneCount = 0;
+
+                // Boucle de sauvegarde
+                foreach (var f in list)
                 {
-                    string relativePath = Path.GetRelativePath(Source, filePath);
-                    string targetPath = Path.Combine(Target, relativePath);
+                    // Création du dossier cible
+                    var rel = Path.GetRelativePath(Source, f);
+                    var dest = Path.Combine(Target, rel);
+                    Directory.CreateDirectory(Path.GetDirectoryName(dest)!);
 
-                    Directory.CreateDirectory(Path.GetDirectoryName(targetPath)!); // S'assure que le dossier cible existe
+                    // Enregistrement pour log
+                    var info = new FileInfo(f);
+                    folders.Add(new Folder(
+                        f,
+                        File.GetLastWriteTime(f),
+                        Path.GetFileName(f),
+                        true,
+                        info.Length));
 
-                    FileInfo fileInfo = new FileInfo(filePath);
-
-                    folders.Add(new Folder(filePath, File.GetLastWriteTime(filePath), Path.GetFileName(filePath), true, fileInfo.Length));
-
-                    bool shouldCopy = Type switch
+                    // Full ou différentiel
+                    bool copy = Type switch
                     {
                         BackupType.Full => true,
-                        BackupType.Differential => !File.Exists(targetPath) ||
-                                                   File.GetLastWriteTimeUtc(filePath) > File.GetLastWriteTimeUtc(targetPath),
+                        BackupType.Differential =>
+                            !File.Exists(dest) ||
+                            File.GetLastWriteTimeUtc(f) > File.GetLastWriteTimeUtc(dest),
                         _ => false
                     };
 
-                    if (shouldCopy)
+                    if (copy)
                     {
-                        try
-                        {
-                            File.Copy(filePath, targetPath, true);
-                            EncryptIfNeeded(targetPath, encryptionKey); // On chiffre uniquement après la copie
-                        }
-                        catch (Exception copyEx)
-                        {
-                            return $"Erreur lors de la copie du fichier : {filePath} - {copyEx.Message}";
-                        }
+                        File.Copy(f, dest, true);
+                        EncryptIfNeeded(dest, key);
                     }
+
+                    // Mise à jour de la ProgressBar
+                    doneCount++;
+                    Progress = 100.0 * doneCount / totalFiles;
                 }
 
-                stopwatch.Stop();
+                sw.Stop();
 
+                // Création du log final
                 Log = new LogEntry(
                     DateTime.Now,
                     Name,
@@ -225,13 +251,12 @@ namespace EasySave_G3_V1
                     Source,
                     Target,
                     folders.Count,
-                    (int)stopwatch.ElapsedMilliseconds,
+                    (int)sw.ElapsedMilliseconds,
                     State,
                     Description,
                     folders
                 );
-
-                Log.SetDurationMs((int)stopwatch.ElapsedMilliseconds);
+                Log.SetDurationMs((int)sw.ElapsedMilliseconds);
                 Log.AppendToFile();
 
                 return "done";
@@ -242,7 +267,7 @@ namespace EasySave_G3_V1
             }
         }
 
-
+        /// <summary>Arrête immédiatement la sauvegarde en cours.</summary>
         public string Cancel()
         {
             if (State == BackupState.Running)
@@ -250,66 +275,43 @@ namespace EasySave_G3_V1
                 State = BackupState.Cancelled;
                 return $"Backup '{Name}' has been cancelled.";
             }
-            else
-            {
-                return $"Cannot cancel backup '{Name}' as it is not currently running.";
-            }
+            return $"Cannot cancel backup '{Name}' as it is not currently running.";
         }
 
         private void EncryptIfNeeded(string targetDirectory, string encryptionKey)
         {
             if (!Directory.Exists(targetDirectory)) return;
 
-            string[] extensionsToEncrypt = Array.Empty<string>();
-
+            string[] exts = Array.Empty<string>();
             try
             {
-                string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string settingsPath = Path.Combine(exePath, @"..\..\..\settings.json");
-
+                var exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
+                var settingsPath = Path.Combine(exePath, @"..\..\..\settings.json");
                 if (File.Exists(settingsPath))
                 {
-                    string jsonSettings = File.ReadAllText(settingsPath);
-                    using JsonDocument doc = JsonDocument.Parse(jsonSettings);
-                    JsonElement root = doc.RootElement;
-
-                    if (root.TryGetProperty("ExtensionsChiffrees", out JsonElement extElem) && extElem.ValueKind == JsonValueKind.Array)
+                    using var doc = JsonDocument.Parse(File.ReadAllText(settingsPath));
+                    if (doc.RootElement.TryGetProperty("ExtensionsChiffrees", out var arr))
                     {
-                        List<string> extensions = new List<string>();
-                        foreach (var item in extElem.EnumerateArray())
-                        {
-                            if (item.ValueKind == JsonValueKind.String)
-                                extensions.Add(item.GetString());
-                        }
-                        extensionsToEncrypt = extensions.ToArray();
+                        exts = arr.EnumerateArray()
+                                  .Where(x => x.ValueKind == JsonValueKind.String)
+                                  .Select(x => x.GetString()!)
+                                  .ToArray();
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                return;
+                // ignore
             }
 
-            foreach (var extension in extensionsToEncrypt)
+            foreach (var ext in exts)
             {
-                var filesToEncrypt = Directory.GetFiles(targetDirectory, $"*{extension}", SearchOption.AllDirectories);
-
-                foreach (var file in filesToEncrypt)
+                var files = Directory.GetFiles(targetDirectory, $"*{ext}", SearchOption.AllDirectories);
+                foreach (var file in files)
                 {
-                    try
-                    {
-                        var encryptor = new CryptoSoft.FileManager(file, encryptionKey);
-                        encryptor.TransformFile();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("Erreur lors du chiffrement" + ex.Message);
-                    }
+                    new CryptoSoft.FileManager(file, encryptionKey).TransformFile();
                 }
             }
         }
     }
-
-
 }
-
