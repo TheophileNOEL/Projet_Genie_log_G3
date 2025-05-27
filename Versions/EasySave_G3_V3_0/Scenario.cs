@@ -232,9 +232,10 @@ namespace EasySave_G3_V1
             }
         }
 
-        private void EncryptIfNeeded(string targetDirectory, string encryptionKey)
+        private int EncryptIfNeeded(string targetDirectory, string encryptionKey)
         {
-            if (!Directory.Exists(targetDirectory)) return;
+            if (!Directory.Exists(targetDirectory))
+                return 0;
 
             string[] extensionsToEncrypt = Array.Empty<string>();
 
@@ -259,12 +260,22 @@ namespace EasySave_G3_V1
                         }
                         extensionsToEncrypt = extensions.ToArray();
                     }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                else
+                {
+                    return 0;
                 }
             }
             catch (Exception ex)
             {
-                return;
+                return -1;
             }
+
+            bool anyEncrypted = false;
 
             foreach (var extension in extensionsToEncrypt)
             {
@@ -276,14 +287,19 @@ namespace EasySave_G3_V1
                     {
                         var encryptor = new CryptoSoft.FileManager(file, encryptionKey);
                         encryptor.TransformFile();
+                        anyEncrypted = true;
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("Erreur lors du chiffrement" + ex.Message);
+                        throw new Exception("Erreur lors du chiffrement: " + ex.Message);
+                        return -1;
                     }
                 }
             }
+
+            return anyEncrypted ? 1 : 0;
         }
+
     }
 
 
