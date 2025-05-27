@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading;
 using EasySave.Core;
+using System.Threading.Tasks;
 
 namespace EasySave_G3_V1
 {
@@ -178,19 +179,12 @@ namespace EasySave_G3_V1
                 // Boucle de sauvegarde
                 foreach (var f in list)
                 {
+                    Thread.Sleep(1000);
+
                     // Création du dossier cible
                     var rel = Path.GetRelativePath(Source, f);
                     var dest = Path.Combine(Target, rel);
                     Directory.CreateDirectory(Path.GetDirectoryName(dest)!);
-
-                    // Enregistrement pour log
-                    var info = new FileInfo(f);
-                    folders.Add(new Folder(
-                        f,
-                        File.GetLastWriteTime(f),
-                        Path.GetFileName(f),
-                        true,
-                        info.Length));
 
                     // Full ou différentiel
                     bool copy = Type switch
@@ -202,11 +196,37 @@ namespace EasySave_G3_V1
                         _ => false
                     };
 
+                    long encTime = 0; // durée de chiffrement en ms
+
                     if (copy)
                     {
+                        // 1) Copie du fichier
                         File.Copy(f, dest, true);
-                        EncryptIfNeeded(dest, key);
+
+                        // 2) Mesure du temps de chiffrement
+                        try
+                        {
+                            var encSw = Stopwatch.StartNew();
+                            EncryptIfNeeded(dest, key);
+                            encSw.Stop();
+                            encTime = encSw.ElapsedMilliseconds; // >0 si chiffré
+                        }
+                        catch
+                        {
+                            encTime = -1; // erreur de chiffrement
+                        }
                     }
+
+                    // Enregistrement pour log
+                    var info = new FileInfo(f);
+                    var folder = new Folder(
+                        f,
+                        File.GetLastWriteTime(f),
+                        Path.GetFileName(f),
+                        true,
+                        info.Length);
+                    folder.SetEncryptionTimeMs(encTime);
+                    folders.Add(folder);
 
                     // Mise à jour de la ProgressBar
                     doneCount++;
@@ -225,7 +245,6 @@ namespace EasySave_G3_V1
                     folders.Count,
                     (int)sw.ElapsedMilliseconds,
                     State,
-                    Description,
                     folders
                 );
                 Log.SetDurationMs((int)sw.ElapsedMilliseconds);
@@ -238,6 +257,8 @@ namespace EasySave_G3_V1
                 return $"Une erreur est survenue pendant la sauvegarde : {ex.Message}";
             }
         }
+
+
 
         /// <summary>Arrête immédiatement la sauvegarde en cours.</summary>
         public string Cancel()
@@ -285,5 +306,34 @@ namespace EasySave_G3_V1
                 }
             }
         }
+
+        /// <summary>
+        /// Lance la sauvegarde en tâche de fond et renvoie les messages.
+        /// </summary>
+        public Task<List<string>> ExecuteAsync()
+        {
+            return Task.Run(() =>
+            {
+                // On garde l'ancien Execute() pour les messages et l'état
+                List<string> messages = new List<string>();
+                try
+                {
+                    State = BackupState.Running;
+                    messages.Add($"Backup '{Name}' is running...");
+                    string result = RunSave();
+                    if (!string.IsNullOrWhiteSpace(result))
+                        messages.Add(result);
+                    State = BackupState.Completed;
+                    messages.Add($"Backup '{Name}' completed successfully.");
+                }
+                catch (Exception ex)
+                {
+                    State = BackupState.Failed;
+                    messages.Add($"Error during backup '{Name}': {ex.Message}");
+                }
+                return messages;
+            });
+        }
+
     }
 }

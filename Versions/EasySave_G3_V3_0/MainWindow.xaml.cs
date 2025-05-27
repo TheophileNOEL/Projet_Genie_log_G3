@@ -78,39 +78,24 @@ namespace EasySave_G3_V2_0
         }
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var item in SaveDataGrid.Items)
+            foreach (var scenario in SaveDataGrid.Items.OfType<Scenario>())
             {
-                if (item is Scenario scenario)
-                {
-                    if (scenario.IsSelected)
-                    {
-                        scenario.SetState(BackupState.Running);
-                        SaveDataGrid.Items.Refresh();
-                        List<string> Back = scenario.Execute();
-                        if (Back[1].Contains("path") || Back[1].Contains("not found"))
-                        { 
-                            scenario.SetState(BackupState.Failed);
-                            foreach (string message in Back)
-                            {
-                                MessageBox.Show(message);
-                            }
-                            SaveDataGrid.Items.Refresh();
-                        }
-                        else
-                        {
-                            scenario.SetState(BackupState.Completed);
-                            SaveDataGrid.Items.Refresh();
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Error when loading scenario : " + item.ToString());
-                }
+                if (!scenario.IsSelected) continue;
+
+                // Lance la sauvegarde *asynchrone* sans bloquer la UI
+                var messages = await scenario.ExecuteAsync();
+
+                // (optionnel) afficher les messages d’erreur
+                if (messages.Count > 1)
+                    MessageBox.Show(string.Join("\n", messages));
+
+                // Mets à jour ton DataGrid pour voir State & Progress changer
+                SaveDataGrid.Items.Refresh();
             }
         }
+
 
         private void AddScenario_Click(object sender, RoutedEventArgs e)
         {
