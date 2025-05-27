@@ -60,7 +60,7 @@ namespace EasySave_G3_V1
             Description = string.Empty;
             IsSelected = false;
             Log = new LogEntry();
-            waitThread = 2000;
+            waitThread = 20000;
         }
 
         public Scenario(int id, string name, string source, string target, BackupType type, string description)
@@ -74,7 +74,7 @@ namespace EasySave_G3_V1
             Description = description;
             IsSelected = false;
             Log = new LogEntry();
-            waitThread = 2000;
+            waitThread = 20000;
         }
 
         public List<string> Execute()
@@ -107,7 +107,9 @@ namespace EasySave_G3_V1
             List<Thread> threads = new List<Thread>();
             foreach (Scenario scenario in scnearioList)
             {
+                scenario.SetState(BackupState.Running);
                 Thread thread = new Thread(() => {MessageBox.Show("Thread créé"); message.Add(scenario.RunSave()); });
+                thread.Name = scenario.Name;
                 thread.Start();
                 threads.Add(thread);
                 if(!thread.Join(waitThread))

@@ -85,7 +85,10 @@ namespace EasySave_G3_V2_0
             {
                 if (item is Scenario scenario)
                 {
-                    scenarios.Add(scenario);
+                    if(scenario.IsSelected)
+                    {
+                        scenarios.Add(scenario);
+                    }
                     //if (scenario.IsSelected)
                     //{
                     //    scenario.SetState(BackupState.Running);
@@ -114,6 +117,7 @@ namespace EasySave_G3_V2_0
             }
             Scenario scenario1 = new Scenario();
             scenario1.Execute(scenarios);
+            SaveDataGrid.Items.Refresh();
         }
 
         private void AddScenario_Click(object sender, RoutedEventArgs e)
