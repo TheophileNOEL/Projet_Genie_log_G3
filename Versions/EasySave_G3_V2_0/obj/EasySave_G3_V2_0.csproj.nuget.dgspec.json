@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\EasySave_G3_V2_0\\EasySave_G3_V2_0.csproj": {}
+    "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\EasySave_G3_V2_0\\EasySave_G3_V2_0.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\CryptoSoft\\CryptoSoft.csproj": {
+    "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\CryptoSoft\\CryptoSoft.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\CryptoSoft\\CryptoSoft.csproj",
+        "projectUniqueName": "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\CryptoSoft\\CryptoSoft.csproj",
         "projectName": "CryptoSoft",
-        "projectPath": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\CryptoSoft\\CryptoSoft.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\CryptoSoft\\obj\\",
+        "projectPath": "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\CryptoSoft\\CryptoSoft.csproj",
+        "packagesPath": "C:\\Users\\ylies\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\CryptoSoft\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ylies\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,7 +53,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.15, )",
+              "version": "[8.0.16, )",
               "autoReferenced": true
             }
           },
@@ -74,24 +73,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\EasySave.Core\\EasySave.Core.csproj": {
+    "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\EasySave.Core\\EasySave.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\EasySave.Core\\EasySave.Core.csproj",
+        "projectUniqueName": "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\EasySave.Core\\EasySave.Core.csproj",
         "projectName": "EasySave.Core",
-        "projectPath": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\EasySave.Core\\EasySave.Core.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\EasySave.Core\\obj\\",
+        "projectPath": "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\EasySave.Core\\EasySave.Core.csproj",
+        "packagesPath": "C:\\Users\\ylies\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\EasySave.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ylies\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -100,7 +99,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -140,24 +138,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\EasySave_G3_V2_0\\EasySave_G3_V2_0.csproj": {
+    "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\EasySave_G3_V2_0\\EasySave_G3_V2_0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\EasySave_G3_V2_0\\EasySave_G3_V2_0.csproj",
+        "projectUniqueName": "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\EasySave_G3_V2_0\\EasySave_G3_V2_0.csproj",
         "projectName": "EasySave_G3_V2_0",
-        "projectPath": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\EasySave_G3_V2_0\\EasySave_G3_V2_0.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\EasySave_G3_V2_0\\obj\\",
+        "projectPath": "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\EasySave_G3_V2_0\\EasySave_G3_V2_0.csproj",
+        "packagesPath": "C:\\Users\\ylies\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ylies\\source\\repos\\Projet_Genie_log_G3\\Versions\\EasySave_G3_V2_0\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ylies\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -166,18 +164,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\CryptoSoft\\CryptoSoft.csproj": {
-                "projectPath": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\CryptoSoft\\CryptoSoft.csproj"
+              "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\CryptoSoft\\CryptoSoft.csproj": {
+                "projectPath": "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\CryptoSoft\\CryptoSoft.csproj"
               },
-              "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\EasySave.Core\\EasySave.Core.csproj": {
-                "projectPath": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\EasySave.Core\\EasySave.Core.csproj"
+              "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\EasySave.Core\\EasySave.Core.csproj": {
+                "projectPath": "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\EasySave.Core\\EasySave.Core.csproj"
               }
             }
           }
@@ -216,7 +213,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

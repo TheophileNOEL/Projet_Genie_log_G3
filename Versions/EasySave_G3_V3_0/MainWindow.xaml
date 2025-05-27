@@ -36,6 +36,18 @@
                 <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
                 <DataGridTextColumn Header="Etat" Binding="{Binding State}" Width="*"/>
                 <DataGridCheckBoxColumn Header="Select" Binding="{Binding IsSelected}" Width="80"/>
+                <DataGridTemplateColumn Header="{DynamicResource MainWindow.ProgressHeader}" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ProgressBar
+                                Value="{Binding Progress, Mode=OneWay}"
+                                Minimum="0" Maximum="100"
+                                Height="16"
+                                VerticalAlignment="Center"/>        
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
                 <DataGridTemplateColumn Header="Modifier / Supprimer" Width="150">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

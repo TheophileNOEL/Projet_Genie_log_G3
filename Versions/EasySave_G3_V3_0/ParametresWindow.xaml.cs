@@ -45,6 +45,9 @@ namespace EasySave_G3_V2_0
                     break;
                 }
             }
+            LstExtensionsPrioritaires.Items.Clear();
+            foreach (var ext in pm.Parametres.ExtensionsPrioritaires)
+            LstExtensionsPrioritaires.Items.Add(ext);
         }
 
         private void AjouterExtension_Click(object sender, RoutedEventArgs e)
@@ -99,11 +102,35 @@ namespace EasySave_G3_V2_0
                 TxtNouveauLogiciel.Text = dialog.FileName;
         }
 
-        private void Valider_Click(object sender, RoutedEventArgs e)
+        private void AjouterExtensionPrioritaire_Click(object sender, RoutedEventArgs e)
+        {
+            var ext = TxtNouvelleExtensionPrioritaire.Text.Trim();
+            if (!ext.StartsWith("."))
+            {
+                MessageBox.Show(
+                    "L'extension doit commencer par un point (ex: .pdf)",
+                    "Erreur",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+                return;
+            }
+            if (!LstExtensionsPrioritaires.Items.Contains(ext))
+                LstExtensionsPrioritaires.Items.Add(ext);
+            TxtNouvelleExtensionPrioritaire.Clear();
+        }
+
+        private void SupprimerExtensionPrioritaire_Click(object sender, RoutedEventArgs e)
+        {
+            if (LstExtensionsPrioritaires.SelectedItem != null)
+                LstExtensionsPrioritaires.Items.Remove(LstExtensionsPrioritaires.SelectedItem);
+        }
+
+private void Valider_Click(object sender, RoutedEventArgs e)
         {
             pm.Parametres.FormatLog = ((ComboBoxItem)CB_TypeLog.SelectedItem).Content.ToString();
             pm.Parametres.ExtensionsChiffrees = LstExtensions.Items.Cast<string>().ToList();
             pm.Parametres.CheminsLogiciels = LstLogiciels.Items.Cast<string>().ToList();
+            pm.Parametres.ExtensionsPrioritaires = LstExtensionsPrioritaires.Items.Cast<string>().ToList();
             pm.Parametres.Langue = ((ComboBoxItem)CB_Langue.SelectedItem).Content.ToString();
 
             pm.Save();
