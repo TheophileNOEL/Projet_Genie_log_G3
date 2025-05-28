@@ -11,11 +11,14 @@ namespace EasySave_G3_V2_0
 
     public partial class MainWindow : Window
     {
+        private SocketServer _server;
         ConsoleViewModel consoleViewModel = new ConsoleViewModel();
         string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         public MainWindow()
         {
             InitializeComponent();
+            _server = new SocketServer();
+            _server.Start(); // Démarre le serveur socket TCP
 
 
             consoleViewModel.GetLangages().SearchLangages();

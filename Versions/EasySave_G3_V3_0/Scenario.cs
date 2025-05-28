@@ -329,9 +329,10 @@ namespace EasySave_G3_V1
             return $"Cannot cancel backup '{Name}' as it is not currently running.";
         }
 
-        private void EncryptIfNeeded(string targetDirectory, string encryptionKey)
+        private int EncryptIfNeeded(string targetDirectory, string encryptionKey)
         {
-            if (!Directory.Exists(targetDirectory)) return;
+            if (!Directory.Exists(targetDirectory))
+                return 0;
 
             string[] exts = Array.Empty<string>();
             try
@@ -348,6 +349,14 @@ namespace EasySave_G3_V1
                                   .Select(x => x.GetString()!)
                                   .ToArray();
                     }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                else
+                {
+                    return 0;
                 }
             }
             catch
@@ -355,14 +364,26 @@ namespace EasySave_G3_V1
                 // ignore
             }
 
-            foreach (var ext in exts)
+            foreach (var extension in extensionsToEncrypt)
             {
-                var files = Directory.GetFiles(targetDirectory, $"*{ext}", SearchOption.AllDirectories);
-                foreach (var file in files)
+                var filesToEncrypt = Directory.GetFiles(targetDirectory, $"*{extension}", SearchOption.AllDirectories);
+
+                foreach (var file in filesToEncrypt)
                 {
-                    new CryptoSoft.FileManager(file, encryptionKey).TransformFile();
+                    try
+                    {
+                        var encryptor = new CryptoSoft.FileManager(file, encryptionKey);
+                        encryptor.TransformFile();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Erreur lors du chiffrement" + ex.Message);
+                    }
                 }
             }
+
+            return anyEncrypted ? 1 : 0;
         }
+
     }
 }
