@@ -46,15 +46,15 @@ C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logici
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave.Core\obj\Debug\net8.0\refint\EasySave.Core.dll
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.pdb
 C:\Users\User\OneDrive - Association Cesi Viacesi mail\CESI\FISE A3\Genie logiciel\Projet\EasySave_G3_V1\Versions\EasySave.Core\obj\Debug\net8.0\ref\EasySave.Core.dll
-C:\Users\ylies\source\repos\Projet_Genie_log_G3\Versions\EasySave.Core\bin\Debug\net8.0\EasySave.Core.deps.json
-C:\Users\ylies\source\repos\Projet_Genie_log_G3\Versions\EasySave.Core\bin\Debug\net8.0\EasySave.Core.dll
-C:\Users\ylies\source\repos\Projet_Genie_log_G3\Versions\EasySave.Core\bin\Debug\net8.0\EasySave.Core.pdb
-C:\Users\ylies\source\repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\ylies\source\repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.AssemblyInfoInputs.cache
-C:\Users\ylies\source\repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.AssemblyInfo.cs
-C:\Users\ylies\source\repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.csproj.CoreCompileInputs.cache
-C:\Users\ylies\source\repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.sourcelink.json
-C:\Users\ylies\source\repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.dll
-C:\Users\ylies\source\repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\refint\EasySave.Core.dll
-C:\Users\ylies\source\repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.pdb
-C:\Users\ylies\source\repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\ref\EasySave.Core.dll
+C:\Users\ylies\Source\Repos\Projet_Genie_log_G3\Versions\EasySave.Core\bin\Debug\net8.0\EasySave.Core.deps.json
+C:\Users\ylies\Source\Repos\Projet_Genie_log_G3\Versions\EasySave.Core\bin\Debug\net8.0\EasySave.Core.dll
+C:\Users\ylies\Source\Repos\Projet_Genie_log_G3\Versions\EasySave.Core\bin\Debug\net8.0\EasySave.Core.pdb
+C:\Users\ylies\Source\Repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ylies\Source\Repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.AssemblyInfoInputs.cache
+C:\Users\ylies\Source\Repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.AssemblyInfo.cs
+C:\Users\ylies\Source\Repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.csproj.CoreCompileInputs.cache
+C:\Users\ylies\Source\Repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.sourcelink.json
+C:\Users\ylies\Source\Repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.dll
+C:\Users\ylies\Source\Repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\refint\EasySave.Core.dll
+C:\Users\ylies\Source\Repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\EasySave.Core.pdb
+C:\Users\ylies\Source\Repos\Projet_Genie_log_G3\Versions\EasySave.Core\obj\Debug\net8.0\ref\EasySave.Core.dll

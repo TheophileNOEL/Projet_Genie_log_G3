@@ -1,16 +1,5 @@
 [
   {
-    "Id": 1,
-    "Name": "Test Demo",
-    "Source": "C:\\Test\\Source",
-    "Target": "C:\\Test\\Dest",
-    "Type": 0,
-    "State": 0,
-    "Description": "Bonjour",
-    "IsSelected": false,
-    "Log": {}
-  },
-  {
     "Id": 2,
     "Name": "zdcez",
     "Source": "C:\\Users\\ylies\\Desktop\\ahl",
@@ -19,17 +8,31 @@
     "State": 2,
     "Description": "oli",
     "IsSelected": true,
-    "Log": {}
+    "Log": {},
+    "Progress": 100
   },
   {
-    "Id": 3,
-    "Name": "rzrefzef",
-    "Source": "C:\\Users\\ylies\\Desktop\\ahl",
+    "Id": 4,
+    "Name": "dzsz",
+    "Source": "C:\\Users\\ylies\\Desktop\\Perso",
+    "Target": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "Type": 0,
+    "State": 2,
+    "Description": "",
+    "IsSelected": true,
+    "Log": {},
+    "Progress": 100
+  },
+  {
+    "Id": 1,
+    "Name": "test",
+    "Source": "C:\\Users\\ylies\\Desktop\\gg",
     "Target": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
     "Type": 0,
     "State": 0,
     "Description": "",
     "IsSelected": false,
-    "Log": {}
+    "Log": {},
+    "Progress": 0
   }
 ]

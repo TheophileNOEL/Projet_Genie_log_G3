@@ -172,44 +172,68 @@ namespace EasySave.Core
         /// <summary>
         /// Écrit l'entrée de log dans un fichier JSON ou XML selon FormatLog.
         /// </summary>
-        public void AppendToFile(LogFormat format = LogFormat.Json, bool indent = false)
+        public void AppendToFile(LogFormat format = LogFormat.Json)
         {
-            try
-            {
-                // Lecture du format dans settings.json
-                string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string settingsPath = Path.Combine(exePath, @"..\..\..\settings.json");
-                if (File.Exists(settingsPath))
-                {
-                    var doc = JsonDocument.Parse(File.ReadAllText(settingsPath));
-                    if (doc.RootElement.TryGetProperty("FormatLog", out var fmtElem))
-                    {
-                        var fmtStr = fmtElem.GetString();
-                        if (Enum.TryParse<LogFormat>(fmtStr, true, out var parsed))
-                            format = parsed;
-                    }
-                }
-            }
-            catch { }
+            // 1) Préparer la représentation JSON indentée de cette entrée
+            //    ToJson(true) produit un objet multi-lignes, sans saut de ligne final
+            string rawEntry = ToJson(indent: true).TrimEnd();
+            //    On ajoute deux espaces devant chaque ligne pour l'indenter dans le tableau
+            var indentedEntry = rawEntry
+                .Split(new[] { "\r\n", "\n" }, StringSplitOptions.None)
+                .Select(line => "  " + line)
+                .Aggregate((a, b) => a + Environment.NewLine + b);
 
-            string exePath2 = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string logsFolder = Path.GetFullPath(Path.Combine(exePath2, @"..\..\..\Logs"));
+            // 2) Préparer le chemin du fichier
+            string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
+            string logsFolder = Path.GetFullPath(Path.Combine(exePath, @"..\..\..\Logs"));
             if (!Directory.Exists(logsFolder))
                 Directory.CreateDirectory(logsFolder);
 
             string datePart = DateTime.Now.ToString("yyyy-MM-dd");
-            string logFileName = format == LogFormat.Json
-                                 ? $"log-{datePart}.json"
-                                 : $"log-{datePart}.xml";
-            string finalPath = Path.Combine(logsFolder, logFileName);
-
-            string content = format == LogFormat.Json
-                             ? ToJson(indent)
-                             : ToXml(indent);
+            string fileName = format == LogFormat.Json
+                ? $"log-{datePart}.json"
+                : $"log-{datePart}.xml";
+            string finalPath = Path.Combine(logsFolder, fileName);
 
             lock (fileLock)
             {
-                File.AppendAllText(finalPath, content, Encoding.UTF8);
+                if (format == LogFormat.Json)
+                {
+                    if (!File.Exists(finalPath) || new FileInfo(finalPath).Length == 0)
+                    {
+                        // Premier objet : on crée [ <entry> ]
+                        var first = "[\n" + indentedEntry + "\n]";
+                        File.WriteAllText(finalPath, first, Encoding.UTF8);
+                    }
+                    else
+                    {
+                        // On lit tout, on retire la ] finale, on ajoute ,\n<entry>\n]
+                        string existing = File.ReadAllText(finalPath, Encoding.UTF8);
+                        int idx = existing.LastIndexOf(']');
+                        if (idx >= 0)
+                        {
+                            string head = existing.Substring(0, idx).TrimEnd();
+                            string updated =
+                                head
+                                + ",\n"
+                                + indentedEntry
+                                + "\n]";
+                            File.WriteAllText(finalPath, updated, Encoding.UTF8);
+                        }
+                        else
+                        {
+                            // Si mal formé, on réinitialise
+                            var fresh = "[\n" + indentedEntry + "\n]";
+                            File.WriteAllText(finalPath, fresh, Encoding.UTF8);
+                        }
+                    }
+                }
+                else
+                {
+                    // XML reste inchangé
+                    string xml = ToXml(indent: true) + Environment.NewLine;
+                    File.AppendAllText(finalPath, xml, Encoding.UTF8);
+                }
             }
         }
     }

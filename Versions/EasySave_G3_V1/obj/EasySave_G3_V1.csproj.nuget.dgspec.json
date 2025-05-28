@@ -76,7 +76,7 @@
         "projectName": "EasySave_G3_V1",
         "projectPath": "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\EasySave_G3_V1\\EasySave_G3_V1.csproj",
         "packagesPath": "C:\\Users\\ylies\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ylies\\source\\repos\\Projet_Genie_log_G3\\Versions\\EasySave_G3_V1\\obj\\",
+        "outputPath": "C:\\Users\\ylies\\Source\\Repos\\Projet_Genie_log_G3\\Versions\\EasySave_G3_V1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
