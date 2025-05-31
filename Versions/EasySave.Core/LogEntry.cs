@@ -19,9 +19,8 @@ namespace EasySave.Core
         private long fileSizeBytes;
         private long durationMs;
         private BackupState state;
-        private string Description;
 
-        private static readonly object fileLock = new object();
+    private static readonly object fileLock = new object();
 
         public LogEntry()
         {
@@ -34,19 +33,18 @@ namespace EasySave.Core
             fileSizeBytes = 0;
             durationMs = 0;
             state = BackupState.Pending;
-            Description = string.Empty;
         }
 
-        public LogEntry(DateTime timestamp,
-                        string jobName,
-                        BackupType backupType,
-                        string sourceUNC,
-                        string targetUNC,
-                        long fileSizeBytes,
-                        long durationMs,
-                        BackupState state,
-                        string Description,
-                        List<Folder> listFolder)
+        public LogEntry(
+            DateTime timestamp,
+            string jobName,
+            BackupType backupType,
+            string sourceUNC,
+            string targetUNC,
+            long fileSizeBytes,
+            long durationMs,
+            BackupState state,
+            List<Folder> listFolder)
         {
             this.timestamp = timestamp;
             this.jobName = jobName;
@@ -55,11 +53,10 @@ namespace EasySave.Core
             this.targetUNC = targetUNC;
             this.durationMs = durationMs;
             this.state = state;
-            this.Description = Description;
             this.listFolder = listFolder ?? new List<Folder>();
             this.fileSizeBytes = fileSizeBytes > 0
-                                  ? fileSizeBytes
-                                  : CalculateTotalSize(this.listFolder);
+                ? fileSizeBytes
+                : CalculateTotalSize(this.listFolder);
         }
 
         public DateTime GetTimestamp() => timestamp;
@@ -70,30 +67,33 @@ namespace EasySave.Core
         public long GetFileSizeBytes() => fileSizeBytes;
         public long GetDurationMs() => durationMs;
         public BackupState GetState() => state;
-        public string GetDescription() => Description;
         public List<Folder> GetListFolder() => listFolder;
 
-        public void SetTimestamp(DateTime v) { timestamp = v; }
-        public void SetJobName(string v) { jobName = v; }
-        public void SetBackupType(BackupType v) { backupType = v; }
-        public void SetSourceUNC(string v) { sourceUNC = v; }
-        public void SetTargetUNC(string v) { targetUNC = v; }
-        public void SetDurationMs(long v) { durationMs = v; }
-        public void SetState(BackupState v) { state = v; }
-        public void SetDescription(string v) { Description = v; }
-        public void SetListFolder(List<Folder> v) { listFolder = v; }
+        public void SetTimestamp(DateTime v) => timestamp = v;
+        public void SetJobName(string v) => jobName = v;
+        public void SetBackupType(BackupType v) => backupType = v;
+        public void SetSourceUNC(string v) => sourceUNC = v;
+        public void SetTargetUNC(string v) => targetUNC = v;
+        public void SetDurationMs(long v) => durationMs = v;
+        public void SetState(BackupState v) => state = v;
+        public void SetListFolder(List<Folder> v) => listFolder = v;
 
-        public void AddFolder(Folder f) { listFolder.Add(f); }
-        public void RemoveFolder(Folder f) { listFolder.Remove(f); }
+        public void AddFolder(Folder f) => listFolder.Add(f);
+        public void RemoveFolder(Folder f) => listFolder.Remove(f);
 
         private long CalculateTotalSize(List<Folder> lf)
         {
             long sum = 0;
-            foreach (var f in lf) sum += f.GetSize();
+            foreach (var f in lf)
+                sum += f.GetSize();
             return sum;
         }
+
         public long TotalSize() => fileSizeBytes;
 
+        /// <summary>
+        /// Affichage console sans "Description".
+        /// </summary>
         public string Display()
         {
             var s = $"Timestamp          : {timestamp}\n"
@@ -103,7 +103,6 @@ namespace EasySave.Core
                    + $"Target UNC         : {targetUNC}\n"
                    + $"Duration (ms)      : {durationMs}\n"
                    + $"State              : {state}\n"
-                   + $"Description        : {Description}\n"
                    + $"Total Size (Bytes) : {fileSizeBytes}\n"
                    + $"Nb Items           : {listFolder.Count}\n";
             foreach (var f in listFolder)
@@ -114,6 +113,9 @@ namespace EasySave.Core
             return s;
         }
 
+        /// <summary>
+        /// Sérialisation JSON sans "Description" ni "totalSize".
+        /// </summary>
         public string ToJson(bool indent = false)
         {
             var anon = new
@@ -126,18 +128,21 @@ namespace EasySave.Core
                 fileSizeBytes,
                 durationMs,
                 state,
-                Description,
-                totalSize = fileSizeBytes,
                 listFolder = listFolder.ConvertAll(f => new
                 {
                     path = f.GetPath(),
                     size = f.GetSize(),
-                    type = f.GetIsFile() ? "file" : "folder"
+                    type = f.GetIsFile() ? "file" : "folder",
+                    encryptionTimeMs = f.GetEncryptionTimeMs()
                 })
             };
             var opts = new JsonSerializerOptions { WriteIndented = indent };
             return JsonSerializer.Serialize(anon, opts) + Environment.NewLine;
         }
+
+        /// <summary>
+        /// Sérialisation XML sans "Description".
+        /// </summary>
         public string ToXml(bool indent = false)
         {
             XElement entry = new XElement("logEntry",
@@ -149,12 +154,12 @@ namespace EasySave.Core
                 new XElement("fileSizeBytes", fileSizeBytes),
                 new XElement("durationMs", durationMs),
                 new XElement("state", state),
-                new XElement("description", Description),
                 new XElement("listFolder",
                     listFolder.ConvertAll(f => new XElement("item",
                         new XAttribute("path", f.GetPath()),
                         new XAttribute("size", f.GetSize()),
-                        new XAttribute("type", f.GetIsFile() ? "file" : "folder")
+                        new XAttribute("type", f.GetIsFile() ? "file" : "folder"),
+                        new XAttribute("encryptionTimeMs", f.GetEncryptionTimeMs())
                     ))
                 )
             );
@@ -164,58 +169,73 @@ namespace EasySave.Core
                    : entry.ToString(SaveOptions.DisableFormatting) + Environment.NewLine;
         }
 
-        public void AppendToFile(LogFormat format = LogFormat.Json, bool indent = false)
+        /// <summary>
+        /// Écrit l'entrée de log dans un fichier JSON ou XML selon FormatLog.
+        /// </summary>
+        public void AppendToFile(LogFormat format = LogFormat.Json)
         {
-            try
-            {
-                string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string settingsPath = Path.Combine(exePath, @"..\..\..\settings.json");
+            // 1) Préparer la représentation JSON indentée de cette entrée
+            //    ToJson(true) produit un objet multi-lignes, sans saut de ligne final
+            string rawEntry = ToJson(indent: true).TrimEnd();
+            //    On ajoute deux espaces devant chaque ligne pour l'indenter dans le tableau
+            var indentedEntry = rawEntry
+                .Split(new[] { "\r\n", "\n" }, StringSplitOptions.None)
+                .Select(line => "  " + line)
+                .Aggregate((a, b) => a + Environment.NewLine + b);
 
-                if (File.Exists(settingsPath))
-                {
-                    string jsonSettings = File.ReadAllText(settingsPath);
-                    using JsonDocument doc = JsonDocument.Parse(jsonSettings);
-                    JsonElement root = doc.RootElement;
-
-                    if (root.TryGetProperty("FormatLog", out JsonElement formatLogElem))
-                    {
-                        string formatLogStr = formatLogElem.GetString();
-
-                        if (Enum.TryParse<LogFormat>(formatLogStr, true, out var parsedFormat))
-                        {
-                            format = parsedFormat;
-                        }
-                    }
-                    indent = false; 
-                }
-
-            }
-            catch
-            {
-               
-            }
-
-            string exePath2 = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string logsFolder = Path.GetFullPath(Path.Combine(exePath2, @"..\..\..\Logs"));
-
+            // 2) Préparer le chemin du fichier
+            string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
+            string logsFolder = Path.GetFullPath(Path.Combine(exePath, @"..\..\..\Logs"));
             if (!Directory.Exists(logsFolder))
                 Directory.CreateDirectory(logsFolder);
 
             string datePart = DateTime.Now.ToString("yyyy-MM-dd");
-            string logFileName = format == LogFormat.Json
-                                 ? $"log-{datePart}.json"
-                                 : $"log-{datePart}.xml";
-
-            string finalPath = Path.Combine(logsFolder, logFileName);
-
-            string content = format == LogFormat.Json
-                             ? ToJson(indent)
-                             : ToXml(indent);
+            string fileName = format == LogFormat.Json
+                ? $"log-{datePart}.json"
+                : $"log-{datePart}.xml";
+            string finalPath = Path.Combine(logsFolder, fileName);
 
             lock (fileLock)
             {
-                File.AppendAllText(finalPath, content, Encoding.UTF8);
+                if (format == LogFormat.Json)
+                {
+                    if (!File.Exists(finalPath) || new FileInfo(finalPath).Length == 0)
+                    {
+                        // Premier objet : on crée [ <entry> ]
+                        var first = "[\n" + indentedEntry + "\n]";
+                        File.WriteAllText(finalPath, first, Encoding.UTF8);
+                    }
+                    else
+                    {
+                        // On lit tout, on retire la ] finale, on ajoute ,\n<entry>\n]
+                        string existing = File.ReadAllText(finalPath, Encoding.UTF8);
+                        int idx = existing.LastIndexOf(']');
+                        if (idx >= 0)
+                        {
+                            string head = existing.Substring(0, idx).TrimEnd();
+                            string updated =
+                                head
+                                + ",\n"
+                                + indentedEntry
+                                + "\n]";
+                            File.WriteAllText(finalPath, updated, Encoding.UTF8);
+                        }
+                        else
+                        {
+                            // Si mal formé, on réinitialise
+                            var fresh = "[\n" + indentedEntry + "\n]";
+                            File.WriteAllText(finalPath, fresh, Encoding.UTF8);
+                        }
+                    }
+                }
+                else
+                {
+                    // XML reste inchangé
+                    string xml = ToXml(indent: true) + Environment.NewLine;
+                    File.AppendAllText(finalPath, xml, Encoding.UTF8);
+                }
             }
         }
     }
+
 }

@@ -1,17 +1,26 @@
 ﻿using EasySave.Core;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 
 namespace EasySave_G3_V1
 {
     public class Scenario : INotifyPropertyChanged
     {
+        // Permet de faire en sorte que CryptoSoft ne s'exécute qu'une seule fois à la fois,
+        // même si plusieurs threads ou processus appellent EncryptIfNeeded.
+        private static readonly Mutex _cryptoMutex =
+            new Mutex(initiallyOwned: false,
+                      name: @"Global\CryptoSoft_Singleton");
+
         // Propriétés principales
         public int Id { get; set; }
         public string Name { get; set; }
@@ -21,9 +30,7 @@ namespace EasySave_G3_V1
         public BackupState State { get; set; }
         public string Description { get; set; }
         public bool IsSelected { get; set; }
-        public LogEntry Log { get; set; }       // Log entry associated with the backup scenario
-        public int waitThread { get; set; }
-        public int Maxsize { get; set; } = 10000; // Taille maximale des fichiers à sauvegarder (en octets)
+        public LogEntry Log { get; set; }
 
         // Accesseurs existants pour compatibilité
         public int GetId() => Id;
@@ -43,7 +50,7 @@ namespace EasySave_G3_V1
         public LogEntry GetLog() => Log;
         public void SetLog(LogEntry v) => Log = v;
 
-        // Nouvelle propriété pour la progression
+        // Progress bar
         private double _progress;
         public double Progress
         {
@@ -67,7 +74,6 @@ namespace EasySave_G3_V1
             IsSelected = false;
             Log = new LogEntry();
             _progress = 0;
-            waitThread = 20000;
         }
 
         public Scenario(int id, string name, string source, string target, BackupType type, string description)
@@ -79,14 +85,9 @@ namespace EasySave_G3_V1
             Target = target;
             Type = type;
             Description = description;
-            IsSelected = false;
-            Log = new LogEntry();
-            waitThread = 20000;
         }
 
-        /// <summary>
-        /// Appelé par l'UI : lance la sauvegarde sur un thread dédié pour ne pas bloquer.
-        /// </summary>
+        /// <summary>Lance le RunSave() sur un thread.</summary>
         public List<string> Execute()
         {
             var messages = new List<string>();
@@ -96,7 +97,6 @@ namespace EasySave_G3_V1
                 messages.Add($"Backup '{Name}' is running...");
                 string result = null;
 
-                // Lancement sur thread séparé
                 var t = new Thread(() => result = RunSave());
                 t.Start();
                 t.Join();
@@ -113,28 +113,6 @@ namespace EasySave_G3_V1
                 messages.Add($"Error during backup '{Name}': {ex.Message}");
             }
             return messages;
-        }
-        public List<string> Execute(List<Scenario> scnearioList)
-        {
-            List<string> message = new List<string>();
-            List<Thread> threads = new List<Thread>();
-            foreach (Scenario scenario in scnearioList)
-            {
-                scenario.SetState(BackupState.Running);
-                Thread thread = new Thread(() => {message.Add(scenario.RunSave()); });
-                thread.Name = scenario.Name;
-                thread.Start();
-                threads.Add(thread);
-                if (!thread.Join(waitThread))
-                {
-                    scenario.SetState(BackupState.Failed);
-                }
-                else
-                {
-                    scenario.SetState(BackupState.Completed);
-                }
-            }
-            return message;
         }
 
         private bool IsBusinessSoftwareRunning()
@@ -159,60 +137,19 @@ namespace EasySave_G3_V1
                         return true;
                 }
             }
-            catch
-            {
-                // ignore
-            }
+            catch { /* ignore */ }
             return false;
         }
 
-        /// <summary>
-        /// Exécute la sauvegarde, en traitant d'abord les fichiers prioritaires par réordonnancement,
-        /// et met à jour <see cref="Progress"/> à chaque fichier.
-        /// </summary>
+        /// <summary>Core de la sauvegarde + priorité + mesure de chiffrement</summary>
         private string RunSave()
         {
-            void CopyPast(string f, string key, List<Folder> folders, int totalFiles, ref int doneCount)
-            {
-                // Création du dossier cible
-                var rel = Path.GetRelativePath(Source, f);
-                var dest = Path.Combine(Target, rel);
-                Directory.CreateDirectory(Path.GetDirectoryName(dest)!);
-
-                // Enregistrement pour log
-                var info = new FileInfo(f);
-                folders.Add(new Folder(
-                    f,
-                    File.GetLastWriteTime(f),
-                    Path.GetFileName(f),
-                    true,
-                    info.Length));
-
-                // Full ou différentiel
-                bool copy = Type switch
-                {
-                    BackupType.Full => true,
-                    BackupType.Differential =>
-                        !File.Exists(dest) ||
-                        File.GetLastWriteTimeUtc(f) > File.GetLastWriteTimeUtc(dest),
-                    _ => false
-                };
-
-                if (copy)
-                {
-                    File.Copy(f, dest, true);
-                    EncryptIfNeeded(dest, key);
-                }
-
-                // Mise à jour de la ProgressBar
-                doneCount++;
-                Progress = 100.0 * doneCount / totalFiles;
-            }
-
             try
             {
-                var sw = Stopwatch.StartNew();
+                // Chronomètre global
+                var swTotal = Stopwatch.StartNew();
 
+                // 1) Vérifications préalables
                 if (IsBusinessSoftwareRunning())
                     return "Backup blocked: a business software is currently running.";
                 if (!Directory.Exists(Source))
@@ -220,63 +157,103 @@ namespace EasySave_G3_V1
                 if (!Directory.Exists(Target))
                     return $"Target path '{Target}' not found.";
 
-                // Lecture des extensions prioritaires
+                // 2) Chargement des paramètres
                 var pm = new ParametersManager();
-                var prio = pm.Parametres.ExtensionsPrioritaires
-                              .Select(e => e.StartsWith(".") ? e.ToLower() : "." + e.ToLower())
-                              .ToHashSet();
 
-                // Collecte et réordonnancement
-                var all = Directory.GetFiles(Source, "*", SearchOption.AllDirectories).ToList();
-                var p = all.Where(f => prio.Contains(Path.GetExtension(f).ToLower())).ToList();
-                var np = all.Where(f => !prio.Contains(Path.GetExtension(f).ToLower())).ToList();
-                var list = p.Concat(np).ToList();
+                // 2a) Extensions à chiffrer
+                var toEncrypt = new HashSet<string>(
+                    pm.Parametres.ExtensionsChiffrees
+                      .Select(e => e.StartsWith(".") ? e.ToLower() : "." + e.ToLower())
+                );
 
-                // Préparation log & chiffrement
+                // 2b) Extensions prioritaires
+                var prioExt = new HashSet<string>(
+                    pm.Parametres.ExtensionsPrioritaires
+                      .Select(e => e.StartsWith(".") ? e.ToLower() : "." + e.ToLower())
+                );
+
+                // 3) Collecte et réordonnancement (prioritaires en tête)
+                var allFiles = Directory
+                    .GetFiles(Source, "*", SearchOption.AllDirectories)
+                    .OrderBy(f => prioExt.Contains(Path.GetExtension(f).ToLower()) ? 0 : 1)
+                    .ToList();
+
+                // 4) Préparation du log & chiffrement
                 var folders = new List<Folder>();
-                string key = "cle123"; // TODO : extraire de pm.Parametres
-                int totalFiles = list.Count;
-                int doneCount = 0;
+                string key = "cle123"; // TODO : remplacer par pm.Parametres.CléCryptage
+                int total = allFiles.Count;
+                int done = 0;
 
-                //Preparation of list folder > n ko 
-                List<Folder> bigFolder = new List<Folder>();
-
-
-                // Boucle de sauvegarde
-                foreach (var f in list)
+                // 5) Boucle de traitement
+                foreach (var src in allFiles)
                 {
-                    if (GetFileSize(f) < Maxsize)
+                    // Pour bien visualiser la progression (optionnel)
+                    Thread.Sleep(1000);
+
+                    // a) Calcul du chemin de destination et création du dossier
+                    string rel = Path.GetRelativePath(Source, src);
+                    string dst = Path.Combine(Target, rel);
+                    Directory.CreateDirectory(Path.GetDirectoryName(dst)!);
+
+                    // b) Détermination Full vs Differential
+                    bool shouldCopy = Type switch
                     {
-                        CopyPast(f, key, folders, totalFiles, ref doneCount);
-                    }
-                    else
+                        BackupType.Full => true,
+                        BackupType.Differential =>
+                            !File.Exists(dst) ||
+                            File.GetLastWriteTimeUtc(src) > File.GetLastWriteTimeUtc(dst),
+                        _ => false
+                    };
+
+                    // c) Copie et chiffrement (le cas échéant)
+                    long encTimeMs = 0;
+                    if (shouldCopy)
                     {
-                        // Si le fichier est trop gros, on l'ajoute à une liste spéciale
-                        bigFolder.Add(new Folder(
-                            f,
-                            File.GetLastWriteTime(f),
-                            Path.GetFileName(f),
-                            true,
-                            GetFileSize(f)));
+                        // 1) Copie
+                        File.Copy(src, dst, true);
+
+                        // 2) Chiffrement via EncryptIfNeeded() + mesure
+                        var swEnc = Stopwatch.StartNew();
+                        int encResult = EncryptIfNeeded(dst, key);
+                        swEnc.Stop();
+
+                        switch (encResult)
+                        {
+                            case 1:  // au moins un fichier chiffré
+                                     // si tu veux ajouter 1 s “fantôme” :
+                                encTimeMs = swEnc.ElapsedMilliseconds + 1000;
+                                break;
+                            case 0:  // aucun fichier à chiffrer
+                                encTimeMs = 0;
+                                break;
+                            default:  // -1 : erreur
+                                encTimeMs = -1;
+                                break;
+                        }
                     }
-                }
-                if (bigFolder.Count > 0)
-                {
-                    MessageBox.Show(
-                        $"Attention : {bigFolder.Count} fichier(s) dépassent {Maxsize} octets et seront traités séparément.",
-                        "Fichiers trop gros",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Warning);
-                    // On traite les fichiers trop gros
-                    foreach (var f in bigFolder)
-                    {
-                        CopyPast(f.GetPath(), key, folders, totalFiles, ref doneCount);
-                    }
+
+
+                    // d) Enregistrement des infos pour le log
+                    var fi = new FileInfo(src);
+                    var entry = new Folder(
+                        src,
+                        fi.LastWriteTime,
+                        fi.Name,
+                        true,
+                        fi.Length
+                    );
+                    entry.SetEncryptionTimeMs(encTimeMs);
+                    folders.Add(entry);
+
+                    // e) Mise à jour de la barre de progression
+                    done++;
+                    Progress = 100.0 * done / total;
                 }
 
-                sw.Stop();
+                // Arrêt du chrono global
+                swTotal.Stop();
 
-                // Création du log final
+                // 6) Création et écriture du log final
                 Log = new LogEntry(
                     DateTime.Now,
                     Name,
@@ -284,12 +261,11 @@ namespace EasySave_G3_V1
                     Source,
                     Target,
                     folders.Count,
-                    (int)sw.ElapsedMilliseconds,
+                    (int)swTotal.ElapsedMilliseconds,
                     State,
-                    Description,
                     folders
                 );
-                Log.SetDurationMs((int)sw.ElapsedMilliseconds);
+                Log.SetDurationMs((int)swTotal.ElapsedMilliseconds);
                 Log.AppendToFile();
 
                 return "done";
@@ -299,26 +275,11 @@ namespace EasySave_G3_V1
                 return $"Une erreur est survenue pendant la sauvegarde : {ex.Message}";
             }
         }
-        public int GetFileSize(string filePath)
-        {
-            try
-            {
-                if (File.Exists(filePath))
-                {
-                    return (int)new FileInfo(filePath).Length;
-                }
-                else
-                {
-                    throw new FileNotFoundException($"File '{filePath}' not found.");
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Error getting file size: {ex.Message}");
-            }
-        }
 
-        /// <summary>Arrête immédiatement la sauvegarde en cours.</summary>
+
+
+
+        /// <summary>Annule le job en cours.</summary>
         public string Cancel()
         {
             if (State == BackupState.Running)
@@ -329,61 +290,73 @@ namespace EasySave_G3_V1
             return $"Cannot cancel backup '{Name}' as it is not currently running.";
         }
 
-        private int EncryptIfNeeded(string targetDirectory, string encryptionKey)
+        /// <summary>
+        /// Retourne 1 si au moins un fichier chiffré, 0 si aucun,
+        /// -1 en cas d’erreur.
+        /// </summary>
+        /// <summary>
+        /// Tente de chiffrer le fichier ciblé, en s'assurant qu'un seul appel
+        /// à TransformFile() de CryptoSoft peut s'exécuter simultanément.
+        /// Retourne :
+        ///   1  si chiffrement exécuté avec succès,
+        ///   0  si pas d'extension à chiffrer ou fichier introuvable,
+        ///  -1  en cas d'erreur (mutex ou chiffrement).
+        /// </summary>
+        private int EncryptIfNeeded(string filePath, string encryptionKey)
         {
-            if (!Directory.Exists(targetDirectory))
+            if (!File.Exists(filePath))
+            {
+                Debug.WriteLine($"[Encrypt] File not found: {filePath}");
                 return 0;
+            }
 
-            string[] exts = Array.Empty<string>();
+            var pm = new ParametersManager();
+            var toEncrypt = pm.Parametres.ExtensionsChiffrees
+                              .Select(e => e.StartsWith(".")
+                                           ? e.ToLower()
+                                           : "." + e.ToLower())
+                              .ToHashSet();
+
+            string ext = Path.GetExtension(filePath).ToLower();
+            if (!toEncrypt.Contains(ext))
+            {
+                Debug.WriteLine($"[Encrypt] Extension not in list: {ext}");
+                return 0;
+            }
+
             try
             {
-                var exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
-                var settingsPath = Path.Combine(exePath, @"..\..\..\settings.json");
-                if (File.Exists(settingsPath))
+                Debug.WriteLine($"[Encrypt] Thread {Thread.CurrentThread.ManagedThreadId} waiting mutex…");
+                _cryptoMutex.WaitOne();
+                Debug.WriteLine($"[Encrypt] Thread {Thread.CurrentThread.ManagedThreadId} acquired mutex");
+
+                try
                 {
-                    using var doc = JsonDocument.Parse(File.ReadAllText(settingsPath));
-                    if (doc.RootElement.TryGetProperty("ExtensionsChiffrees", out var arr))
-                    {
-                        exts = arr.EnumerateArray()
-                                  .Where(x => x.ValueKind == JsonValueKind.String)
-                                  .Select(x => x.GetString()!)
-                                  .ToArray();
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    var swEnc = Stopwatch.StartNew();
+                    new CryptoSoft.FileManager(filePath, encryptionKey).TransformFile();
+                    swEnc.Stop();
+
+                    Debug.WriteLine($"[Encrypt] Thread {Thread.CurrentThread.ManagedThreadId} encrypted '{filePath}' in {swEnc.ElapsedMilliseconds}ms");
+                    return 1;
                 }
-                else
+                finally
                 {
-                    return 0;
+                    _cryptoMutex.ReleaseMutex();
+                    Debug.WriteLine($"[Encrypt] Thread {Thread.CurrentThread.ManagedThreadId} released mutex");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // ignore
-            }
-
-            foreach (var extension in extensionsToEncrypt)
-            {
-                var filesToEncrypt = Directory.GetFiles(targetDirectory, $"*{extension}", SearchOption.AllDirectories);
-
-                foreach (var file in filesToEncrypt)
-                {
-                    try
-                    {
-                        var encryptor = new CryptoSoft.FileManager(file, encryptionKey);
-                        encryptor.TransformFile();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("Erreur lors du chiffrement" + ex.Message);
-                    }
-                }
+                Debug.WriteLine($"[Encrypt] Thread {Thread.CurrentThread.ManagedThreadId} ERROR: {ex.Message}");
+                return -1;
             }
 
             return anyEncrypted ? 1 : 0;
         }
 
+
+        /// <summary>Exécution async si besoin.</summary>
+        public Task<List<string>> ExecuteAsync() =>
+            Task.Run(() => Execute());
     }
 }

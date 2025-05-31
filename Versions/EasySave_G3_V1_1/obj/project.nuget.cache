@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "Xv7zMYBeT5k=",
+=======
+  "dgSpecHash": "4/mLhR3ju4I=",
+>>>>>>> origin/CryptoSoft_MonoInstance
   "success": true,
   "projectFilePath": "C:\\Users\\User\\OneDrive - Association Cesi Viacesi mail\\CESI\\FISE A3\\Genie logiciel\\Projet\\EasySave_G3_V1\\Versions\\EasySave_G3_V1_1\\EasySave_G3_V1_1.csproj",
   "expectedPackageFiles": [],

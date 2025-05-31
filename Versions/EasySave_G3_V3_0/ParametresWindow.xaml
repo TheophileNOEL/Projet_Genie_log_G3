@@ -11,7 +11,6 @@
     <Window.Resources>
         <SolidColorBrush x:Key="HoverAccent" Color="#7E57C2"/>
         <Style TargetType="Button">
-            <!-- ton style existant -->
         </Style>
     </Window.Resources>
 

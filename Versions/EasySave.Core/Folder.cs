@@ -11,8 +11,9 @@ namespace EasySave.Core
 		private bool isMounted;
 		private long sizeBytes;
 		private bool isFile;
+        private long encryptionTimeMs;
 
-		public Folder()
+        public Folder()
 		{
 			path = string.Empty;
 			date = DateTime.Now;
@@ -20,7 +21,8 @@ namespace EasySave.Core
 			isMounted = false;
 			sizeBytes = 0;
 			isFile = false;
-		}
+            encryptionTimeMs = 0;
+        }
 
 		public Folder(string path,
 					  DateTime date,
@@ -34,7 +36,8 @@ namespace EasySave.Core
 			this.isMounted = isMounted;
 			this.sizeBytes = sizeBytes;
 			this.isFile = DetectIsFile(path);
-		}
+            encryptionTimeMs = 0;
+        }
 
 		public string GetPath() { return path; }
 		public DateTime GetDate() { return date; }
@@ -51,9 +54,11 @@ namespace EasySave.Core
 		public void SetDate(DateTime v) { date = v; }
 		public void SetName(string v) { name = v; }
 		public void SetIsMounted(bool v) { isMounted = v; }
-		public void SetSize(long v) { sizeBytes = v; }
+        public long GetEncryptionTimeMs() { return encryptionTimeMs; }
+        public void SetSize(long v) { sizeBytes = v; }
+        public void SetEncryptionTimeMs(long v) { encryptionTimeMs = v; }
 
-		public bool IsSame(Folder other)
+        public bool IsSame(Folder other)
 		{
 			return other != null
 				&& string.Equals(path, other.GetPath(), StringComparison.InvariantCultureIgnoreCase);
