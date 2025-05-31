@@ -1,0 +1,24 @@
+[
+  {
+    "Id": 1,
+    "Name": "Test Demo",
+    "Source": "C:\\Test\\Source",
+    "Target": "C:\\Test\\Dest",
+    "Type": 0,
+    "State": 0,
+    "Description": "Bonjour",
+    "IsSelected": false,
+    "Log": {}
+  },
+  {
+    "Id": 3,
+    "Name": "Test Demo",
+    "Source": "C:\\Test\\Source",
+    "Target": "C:\\Test\\Dest",
+    "Type": 0,
+    "State": 0,
+    "Description": "Bonour",
+    "IsSelected": false,
+    "Log": {}
+  }
+]

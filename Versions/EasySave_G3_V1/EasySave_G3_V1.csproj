@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<!-- Indique que c'est une application exécutable -->
+		<TargetFramework>net8.0</TargetFramework>
+		<!-- Utilise .NET 8.0 (tu peux changer en net7.0 ou net6.0) -->
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\EasySave.Core\EasySave.Core.csproj" />
+	</ItemGroup>
+</Project>

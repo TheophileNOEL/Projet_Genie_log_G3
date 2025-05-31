@@ -1,0 +1,20 @@
+{
+  "Liste": [
+    {
+      "Titre": "script0",
+      "Script": {
+        "Source": "",
+        "Destination": "",
+        "Type": "Complet"
+      }
+    },
+    {
+      "Titre": "script1",
+      "Script": {
+        "Source": "",
+        "Destination": "",
+        "Type": "Differentiel"
+      }
+    }
+  ]
+}

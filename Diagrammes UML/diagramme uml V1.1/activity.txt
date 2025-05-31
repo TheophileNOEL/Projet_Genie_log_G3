@@ -1,0 +1,39 @@
+@startuml
+' =======================
+' ACTIVITY DIAGRAM: Scenario Validation and Execution (Updated)
+' =======================
+start
+:Afficher la liste des scénarios et un détail de ce qu'ils font;
+:Sélectionner un ou plusieurs scénarios à faire;
+repeat
+  :Récupérer le scénario dans le fichier JSON;
+  :Récupérer la source et la destination;
+  if (La source existe ?) then (non)
+    :Afficher une erreur;
+    stop
+  endif
+  if (La destination existe ?) then (non)
+    :Afficher une erreur;
+    stop
+  endif
+  :Pour chaque fichier présent à la source;
+  if (Scénario complet ?) then (non)
+    :Afficher une erreur;
+    stop
+  endif
+  if (Le fichier existe à la destination ?) then (non)
+    :Faire une copie du fichier d'origine;
+    :Enregistrer la copie dans la destination;
+    :Enregistrer les modifications dans les logs;
+    :Afficher les modifications des logs;
+  else
+    if (L'heure de modification est différente ?) then (oui)
+      :Faire une copie du fichier d'origine;
+      :Enregistrer la copie dans la destination;
+      :Enregistrer les modifications dans les logs;
+      :Afficher les modifications des logs;
+    endif
+  endif
+repeat while (autre scénario ?)
+stop
+@enduml

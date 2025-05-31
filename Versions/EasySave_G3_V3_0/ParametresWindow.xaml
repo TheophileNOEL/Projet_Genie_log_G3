@@ -1,0 +1,141 @@
+﻿<Window x:Class="EasySave_G3_V2_0.ParametresWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource ParamsWindow.Title}"
+        Height="690" Width="600"
+        Background="#f5f5f5"
+        FontWeight="Bold"
+        FontSize="14"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="HoverAccent" Color="#7E57C2"/>
+        <Style TargetType="Button">
+        </Style>
+    </Window.Resources>
+
+    <!-- UN SEUL CHILD : le ScrollViewer -->
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+
+            <!-- Titre -->
+            <TextBlock
+                Text="{DynamicResource ParamsWindow.Title}"
+                FontSize="24"
+                Foreground="#444"
+                Margin="0,0,0,15"/>
+
+            <!-- 1) Format du log -->
+            <GroupBox
+                Header="{DynamicResource ParamsWindow.LogFormatHeader}"
+                Background="#E3F2FD"
+                Margin="0,0,0,10"
+                BorderBrush="#90CAF9"
+                BorderThickness="1"
+                Padding="10">
+                <!-- UN SEUL enfant : la ComboBox -->
+                <ComboBox x:Name="CB_TypeLog" Width="150">
+                    <ComboBoxItem Content="{DynamicResource ParamsWindow.LogFormat.JSON}"/>
+                    <ComboBoxItem Content="{DynamicResource ParamsWindow.LogFormat.XML}"/>
+                </ComboBox>
+            </GroupBox>
+
+            <!-- 2) Extensions à chiffrer -->
+            <GroupBox
+                Header="{DynamicResource ParamsWindow.EncryptedExtensionsHeader}"
+                Background="#E8F5E9"
+                Margin="0,0,0,10"
+                BorderBrush="#A5D6A7"
+                BorderThickness="1"
+                Padding="10">
+                <!-- UN SEUL enfant : ce StackPanel englobe tout -->
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <TextBox Name="TxtNouvelleExtension" Width="120"/>
+                        <Button Content="{DynamicResource ParamsWindow.AddExtension}"
+                                Click="AjouterExtension_Click"/>
+                        <Button Content="{DynamicResource ParamsWindow.RemoveExtension}"
+                                Click="SupprimerExtension_Click"/>
+                    </StackPanel>
+                    <ListBox Name="LstExtensions" Height="80"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- 3) Extensions prioritaires -->
+            <GroupBox
+                Header="{DynamicResource ParamsWindow.PriorityExtensionsHeader}"
+                Background="#E8F5E9"
+                Margin="0,0,0,10"
+                BorderBrush="#FF6D2D"
+                BorderThickness="1"
+                Padding="10">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                       <TextBox Name="TxtNouvelleExtensionPrioritaire" Width="120"/>
+                       <Button Content="{DynamicResource ParamsWindow.AddPriorityExtension}"
+                               Click="AjouterExtensionPrioritaire_Click"/>
+                       <Button Content="{DynamicResource ParamsWindow.RemovePriorityExtension}"
+                                Click="SupprimerExtensionPrioritaire_Click"/>
+                    </StackPanel>
+                    <ListBox Name="LstExtensionsPrioritaires" Height="80"/>
+                </StackPanel>
+            </GroupBox>
+
+
+            <!-- 3) Logiciels métier -->
+            <GroupBox
+                Header="{DynamicResource ParamsWindow.SoftwareHeader}"
+                Background="#FFFDE7"
+                Margin="0,0,0,10"
+                BorderBrush="#FFF59D"
+                BorderThickness="1"
+                Padding="10">
+                <!-- UN SEUL enfant : ce StackPanel englobe boutons + liste -->
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <TextBox Name="TxtNouveauLogiciel"
+                                 Width="220"
+                                 IsReadOnly="True"/>
+                        <Button Content="{DynamicResource ParamsWindow.Browse}"
+                                Click="ParcourirLogiciel_Click"/>
+                        <Button Content="{DynamicResource ParamsWindow.AddSoftware}"
+                                Click="AjouterLogiciel_Click"/>
+                        <Button Content="{DynamicResource ParamsWindow.RemoveSoftware}"
+                                Click="SupprimerLogiciel_Click"/>
+                    </StackPanel>
+                    <ListBox Name="LstLogiciels" Height="80"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- 4) Langue de l’interface -->
+            <GroupBox
+                Header="{DynamicResource ParamsWindow.LanguageHeader}"
+                Background="#F3E5F5"
+                BorderBrush="#CE93D8"
+                BorderThickness="1"
+                Padding="10">
+                <!-- UN SEUL enfant : la ComboBox -->
+                <ComboBox x:Name="CB_Langue" Width="150">
+                    <ComboBoxItem Content="Anglais"/>
+                    <ComboBoxItem Content="Français"/>
+                    <ComboBoxItem Content="Allemand"/>
+                </ComboBox>
+            </GroupBox>
+
+            <!-- 5) Boutons Valider / Annuler -->
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,20,0,0">
+                <Button
+                    Content="{DynamicResource ParamsWindow.Save}"
+                    Width="120"
+                    Click="Valider_Click"/>
+                <Button
+                    Content="{DynamicResource ParamsWindow.Cancel}"
+                    Width="120"
+                    Click="Annuler_Click"/>
+            </StackPanel>
+
+        </StackPanel>
+    </ScrollViewer>
+</Window>

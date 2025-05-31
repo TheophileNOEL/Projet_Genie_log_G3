@@ -1,0 +1,34 @@
+@startuml
+actor Utilisateur
+participant MainApp
+participant BackupManager
+participant BackupJob
+participant Logger
+participant StateTracker
+
+== Lancement de l'application ==
+Utilisateur -> MainApp : start programme / entrer commande (ex: "1-3")
+MainApp -> MainApp : lire(input)
+MainApp -> BackupManager : récupérerJobs("1-3")
+
+== Exécution des sauvegardes ==
+loop pour chaque BackupJob
+    MainApp -> BackupJob : executer()
+
+    activate BackupJob
+    BackupJob -> BackupJob : listerFichiersEligibles()
+
+    loop pour chaque fichier
+        BackupJob -> BackupJob : copierFichiers()
+        BackupJob -> Logger : log(infoFichiers)
+        BackupJob -> StateTracker : update(currentState)
+    end
+
+    BackupJob -> StateTracker : update(finalState)
+    BackupJob -> MainApp : Job terminé
+    deactivate BackupJob
+end
+
+MainApp -> Utilisateur : afficher message fin
+
+@enduml

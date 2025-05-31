@@ -1,0 +1,2258 @@
+﻿[
+  {
+    "timestamp": "2025-05-28T12:04:36.4975158\u002B02:00",
+    "jobName": "zdcez",
+    "backupType": "Full",
+    "sourceUNC": "C:\\Users\\ylies\\Desktop\\ahl",
+    "targetUNC": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "fileSizeBytes": 4,
+    "durationMs": 4015,
+    "state": 1,
+    "listFolder": [
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\logo.png",
+        "size": 103513,
+        "type": "file",
+        "encryptionTimeMs": 2
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\ahl54.txt",
+        "size": 69,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\index.css",
+        "size": 2941,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\index.html",
+        "size": 947,
+        "type": "file",
+        "encryptionTimeMs": 0
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-05-28T12:23:25.8862434\u002B02:00",
+    "jobName": "zdcez",
+    "backupType": "Full",
+    "sourceUNC": "C:\\Users\\ylies\\Desktop\\ahl",
+    "targetUNC": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "fileSizeBytes": 4,
+    "durationMs": 4018,
+    "state": 1,
+    "listFolder": [
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\logo.png",
+        "size": 103513,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\ahl54.txt",
+        "size": 69,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\index.css",
+        "size": 2941,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\index.html",
+        "size": 947,
+        "type": "file",
+        "encryptionTimeMs": 0
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-05-28T12:26:54.7301923\u002B02:00",
+    "jobName": "zdcez",
+    "backupType": "Full",
+    "sourceUNC": "C:\\Users\\ylies\\Desktop\\ahl",
+    "targetUNC": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "fileSizeBytes": 4,
+    "durationMs": 4056,
+    "state": 1,
+    "listFolder": [
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\logo.png",
+        "size": 103513,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\ahl54.txt",
+        "size": 69,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\index.css",
+        "size": 2941,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\index.html",
+        "size": 947,
+        "type": "file",
+        "encryptionTimeMs": 0
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-05-28T12:29:09.6191375\u002B02:00",
+    "jobName": "zdcez",
+    "backupType": "Full",
+    "sourceUNC": "C:\\Users\\ylies\\Desktop\\ahl",
+    "targetUNC": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "fileSizeBytes": 4,
+    "durationMs": 4020,
+    "state": 1,
+    "listFolder": [
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\logo.png",
+        "size": 103513,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\ahl54.txt",
+        "size": 69,
+        "type": "file",
+        "encryptionTimeMs": 1001
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\index.css",
+        "size": 2941,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\index.html",
+        "size": 947,
+        "type": "file",
+        "encryptionTimeMs": 0
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-05-28T15:23:13.5284715\u002B02:00",
+    "jobName": "zdcez",
+    "backupType": "Full",
+    "sourceUNC": "C:\\Users\\ylies\\Desktop\\ahl",
+    "targetUNC": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "fileSizeBytes": 4,
+    "durationMs": 4034,
+    "state": 1,
+    "listFolder": [
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\logo.png",
+        "size": 103513,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\ahl54.txt",
+        "size": 69,
+        "type": "file",
+        "encryptionTimeMs": 1005
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\index.css",
+        "size": 2941,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\index.html",
+        "size": 947,
+        "type": "file",
+        "encryptionTimeMs": 0
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-05-28T15:25:59.2947952\u002B02:00",
+    "jobName": "dzsz",
+    "backupType": "Full",
+    "sourceUNC": "C:\\Users\\ylies\\Desktop\\Perso",
+    "targetUNC": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "fileSizeBytes": 162,
+    "durationMs": 164788,
+    "state": 1,
+    "listFolder": [
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CHAOUCHE - Certificat de scolarit\u00E9-1.png",
+        "size": 88056,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CHAOUCHE Ily\u00E8s - Avenant \u00E0 la Convention de stage en entreprise.docx",
+        "size": 517899,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Fiche_de_confidentialite-CHAOUCHE_YLIES.docx",
+        "size": 655899,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\IA AYA.docx",
+        "size": 23138,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Lettre_de_motivation_CHAOUCHE_Ylies.docx",
+        "size": 15112,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Rapport_de_stage_CHAOUCHE_YLIES.docx",
+        "size": 1319100,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\streamers_and_creators.xlsx",
+        "size": 14078,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\yacine.docx",
+        "size": 99482,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (1).png",
+        "size": 5815320,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (2).png",
+        "size": 4859756,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (3).png",
+        "size": 5196511,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (4).png",
+        "size": 5335573,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (5).png",
+        "size": 5092582,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (6).png",
+        "size": 6863265,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (7).png",
+        "size": 7087612,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (8).png",
+        "size": 4447586,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CHAOUCHE - Certificat de scolarit\u00E9.pdf",
+        "size": 307838,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CHAOUCHE Ily\u00E8s - Avenant \u00E0 la Convention de stage en entreprise (1).pdf",
+        "size": 545474,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Convention Ylies CHAOUCHE (2).pdf",
+        "size": 9396159,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CV ANGLAIS (2).pdf",
+        "size": 149471,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CV FRANCAIS.pdf",
+        "size": 168300,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CV YLIES 2024.pdf",
+        "size": 167022,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CV.txt",
+        "size": 539,
+        "type": "file",
+        "encryptionTimeMs": 1005
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Fiche_de_confidentialite-CHAOUCHE_YLIES.pdf",
+        "size": 349337,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\github-recovery-codes.txt",
+        "size": 206,
+        "type": "file",
+        "encryptionTimeMs": 1006
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Rapport_de_stage_LORIA2024_CHAOUCHE_YLIES.pdf",
+        "size": 1262835,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\unnamed (1).jpg",
+        "size": 858430,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\unnamed.jpg",
+        "size": 863477,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\0126daff-ab61-4957-a671-5a35a183343e.JPG",
+        "size": 308714,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\057ec3d8-56a4-4372-a0e2-7beeaffeb81d.MP4",
+        "size": 2598535,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\063d6aa2-07cb-4aa8-975a-472011899dcb.JPG",
+        "size": 230085,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\094330bc-1b4f-4982-bac7-700410833ce1(1).MP4",
+        "size": 1977148,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\094330bc-1b4f-4982-bac7-700410833ce1.MP4",
+        "size": 1977148,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\0ee1e4e4-c181-4a1a-adcd-dd0bf7efe3ea.JPG",
+        "size": 194212,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\1360b61d-8ece-47f4-9915-77f71dc339be.JPG",
+        "size": 269104,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\14c8d66b-0c1d-47ff-af92-26ea2011f292.JPG",
+        "size": 179346,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\1d628b84-db6b-4029-9cb8-9910f461f2d8.JPG",
+        "size": 217662,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\2051cb3c-86ed-4e90-851c-6764a7175070(1).JPG",
+        "size": 335800,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\2051cb3c-86ed-4e90-851c-6764a7175070.JPG",
+        "size": 335800,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\22e8b116-82b2-4484-9e19-cb058cdd2b59.JPG",
+        "size": 243813,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\23fbed13-d542-4eed-b188-d0a977baf8d6.JPG",
+        "size": 183779,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\2857817b-458b-4856-849e-061666f9a1c4.JPG",
+        "size": 223177,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\3bb65578-8863-430e-882e-797ae40d7be4.JPG",
+        "size": 180244,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\400ea3f6-6928-46dc-a8e7-1a6919c698bc.JPG",
+        "size": 257853,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\42f7d4e3-f1bd-422c-924a-c63006ba72fa.JPG",
+        "size": 243908,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\45573852-7f09-4df5-bb57-2afd875e2248(1).JPG",
+        "size": 261189,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\45573852-7f09-4df5-bb57-2afd875e2248.JPG",
+        "size": 261189,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\45d8b28d-e86c-4a3c-a2be-9379bb08398b.JPG",
+        "size": 195029,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\46f83b5a-950b-4d76-a595-7155762cb970.JPG",
+        "size": 222361,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\499e5fcb-c671-4449-b558-9393feb0c93f.MP4",
+        "size": 3077938,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\4a9b16dc-fc35-48d5-a45f-84249bffaa5a.MP4",
+        "size": 2264360,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\4b768d49-3c29-4662-b600-f9ee6f58bdf9.JPG",
+        "size": 254684,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\4bdc7000-fcbf-43d8-915b-b36470738f67.JPG",
+        "size": 223664,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\505c9482-4e8a-461e-907c-50e98c87db7b.JPG",
+        "size": 224698,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\50b81d6f-be06-4a77-947b-39234ba9c3e3(1).JPG",
+        "size": 192105,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\50b81d6f-be06-4a77-947b-39234ba9c3e3.JPG",
+        "size": 192105,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\52906663-9837-47f0-8c1c-135b2fca1b6f.MP4",
+        "size": 1784543,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\535eb90a-c96e-48dc-a5ae-42649e3c9ac5.JPG",
+        "size": 240016,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\53d45ba1-e6a0-4822-9911-fa1550b01cdb.MP4",
+        "size": 2701985,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\5d10c9af-df1d-428f-ac8b-104c55be280f.JPG",
+        "size": 303599,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\5f6d5581-0ca6-4e5a-9411-e22dc23a70fb.JPG",
+        "size": 253996,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\65b1cd3f-8489-460d-bb89-b9b8a973a5cc.JPG",
+        "size": 221744,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\7355175c-9fca-4d13-b582-42f19a4b87cd.JPG",
+        "size": 244167,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\758c1413-d95b-48c6-b716-cac634910a20(1).JPG",
+        "size": 206485,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\758c1413-d95b-48c6-b716-cac634910a20.JPG",
+        "size": 206485,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\760a2d49-8f9a-4aa5-9c57-b8d1184dd449.JPG",
+        "size": 344835,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\7d279ab3-4289-49e2-a091-08a3f0cbb9fe.JPG",
+        "size": 219151,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\7ec67ff6-9a84-4d8b-9299-9b06771f0698(1).JPG",
+        "size": 357153,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\7ec67ff6-9a84-4d8b-9299-9b06771f0698.JPG",
+        "size": 357153,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\7ff1a294-731c-4d0c-a8ba-1f4f4048ed6d.JPG",
+        "size": 212136,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\8060f78d-958b-4a6f-ad59-34e782ec65c5.JPG",
+        "size": 287948,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\821bb4a3-24e0-4fee-9ff0-dc38e026530b(1).MP4",
+        "size": 1421706,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\821bb4a3-24e0-4fee-9ff0-dc38e026530b.MP4",
+        "size": 1421706,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\838b942e-62e4-4b0a-ad6d-12d1b3d952e8.JPG",
+        "size": 249248,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\840e05eb-f697-4e8e-9397-27aaccbd80ea(1).JPG",
+        "size": 188893,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\840e05eb-f697-4e8e-9397-27aaccbd80ea.JPG",
+        "size": 188893,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\85454e0a-4451-4c18-aa91-e16889a33b62.JPG",
+        "size": 204496,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\86533245-66fc-4053-be5c-038bf7b8db37.JPG",
+        "size": 230809,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\881a1e6b-c785-4119-8474-97cb89624625.JPG",
+        "size": 220766,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\895384d6-c96d-49aa-9404-3d886dd15df8.JPG",
+        "size": 177466,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\89969a93-4d80-44da-9385-b606d43cdded.JPG",
+        "size": 209027,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\9525dad9-90b0-4f78-95c3-d154d295c6ff.MP4",
+        "size": 766338,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\962fc7b6-a94e-472a-bae5-384eb15238a6.JPG",
+        "size": 243285,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\979c2692-6f26-4d9b-9ef6-312ef114e2a3.JPG",
+        "size": 225474,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\97b0276f-15c5-417c-ac49-370b024ecb42(1).JPG",
+        "size": 231871,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\97b0276f-15c5-417c-ac49-370b024ecb42.JPG",
+        "size": 231871,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\987d0c1a-672e-4189-8f7b-34bc755549c6.JPG",
+        "size": 194806,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\99ce27e5-abbe-47be-87b7-85902774212f.JPG",
+        "size": 221269,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\9c2986ed-1652-4915-a83b-4c8452dd179d.JPG",
+        "size": 245913,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\9cb3cfd8-c171-410e-9f48-68f8051b9c9c.JPG",
+        "size": 281652,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\9efe4033-2b6c-4b91-b804-c1ec5c973f68.JPG",
+        "size": 218309,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\a699b1e8-4f40-4734-a0bb-42cbcd4c524c.JPG",
+        "size": 229101,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\a72aec92-11a2-4a9f-87d1-ab2b981855da.JPG",
+        "size": 192413,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\a9a0600c-b3e1-4e4a-8e7a-a28292b89dd5.JPG",
+        "size": 239260,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\b3b88ab1-5722-4f9a-9861-dd0339fbc5e1.JPG",
+        "size": 299770,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\b82a842b-0c00-453e-a5c3-b53398e9612a.JPG",
+        "size": 259558,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\ba1e0b48-769e-41b1-906a-29f6f6d7bf10.JPG",
+        "size": 186570,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\ba846360-8014-4e07-8ed7-58f335a62aa5.JPG",
+        "size": 215332,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\bac4909a-ba0e-4bda-bfe1-e967806cc64e.JPG",
+        "size": 182297,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\be24bca8-051b-4c11-81f8-102583e99104.JPG",
+        "size": 219370,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\c25febc5-32be-495c-8412-9ad8b1542fe7.JPG",
+        "size": 211608,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\c4c03cbe-dc57-4357-aee9-343e95b2ebaa.JPG",
+        "size": 219523,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\c9161342-ce96-48ba-bb49-2cd1e6be8d55.MP4",
+        "size": 1616906,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\ca0c7e61-bb9d-4d81-8eae-ca779520f05a.JPG",
+        "size": 262343,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\d25017fe-9f6d-4ee2-aec2-b12577fbd34c.JPG",
+        "size": 213072,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\d305400a-9648-444b-a652-b2e0ee317774.JPG",
+        "size": 212600,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\dc19144e-3387-45ce-9b44-6678f17195a2.MP4",
+        "size": 1687160,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\de079c8f-3de5-45a0-acca-4363d63ae91e.JPG",
+        "size": 193480,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\df30da47-e5c1-4d8e-bdda-7aaa72c18c07.JPG",
+        "size": 253628,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\df64218a-083c-4d09-b40d-1d528b93f2d9.JPG",
+        "size": 209930,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e23b6c77-18fc-4096-8472-d93459bd940c.JPG",
+        "size": 257662,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e28bc258-f054-4700-8cfb-a5bfbbe0eb95(1).JPG",
+        "size": 253057,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e28bc258-f054-4700-8cfb-a5bfbbe0eb95.JPG",
+        "size": 253057,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e753e067-89e4-4a7c-8fd1-a625d1a5dae6.JPG",
+        "size": 301092,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e7a48b9b-c9c6-4522-92f2-d2e271fc1f66(1).MP4",
+        "size": 2145662,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e7a48b9b-c9c6-4522-92f2-d2e271fc1f66.MP4",
+        "size": 2145662,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e860ba36-9615-42c0-9b6d-f5152658c0a5.MP4",
+        "size": 416292,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e96fc9c3-2ef8-4648-b86c-7e19d4ef983e.JPG",
+        "size": 224927,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\ea76e90a-37c4-44e5-88c3-095bfb959d4b.JPG",
+        "size": 244585,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\eee8ab0e-7ace-4aa6-90ec-cb9ad7559c55.JPG",
+        "size": 229380,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\eef39445-9290-428d-b3ef-25d9d6359340.MP4",
+        "size": 1967728,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\f51f5f75-ef2b-4acd-9469-88c88e5bdada.MP4",
+        "size": 1943982,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\f6d34084-fe14-47df-86a1-6c0d0a34342d.JPG",
+        "size": 224414,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\fe3528cf-9da9-490b-bde8-14281ebdc70b.JPG",
+        "size": 259136,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\ff32a910-c9ea-4216-a56c-a537b81b26c1.JPG",
+        "size": 235332,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2879.HEIC",
+        "size": 1956066,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2880.HEIC",
+        "size": 2073160,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2881.HEIC",
+        "size": 2361819,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2882.MOV",
+        "size": 24988132,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2883.HEIC",
+        "size": 2240592,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2884.HEIC",
+        "size": 3377133,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2885.MOV",
+        "size": 19520743,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2886.HEIC",
+        "size": 2050516,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2887.HEIC",
+        "size": 2174343,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2888.MOV",
+        "size": 19611593,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2889.HEIC",
+        "size": 2027480,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2890.HEIC",
+        "size": 1721164,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2891.MOV",
+        "size": 19213556,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2892.HEIC",
+        "size": 1788873,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2893.HEIC",
+        "size": 1979087,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2894.HEIC",
+        "size": 2139785,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1988.jpg",
+        "size": 1497406,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1990.jpg",
+        "size": 1096436,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1992.HEIC",
+        "size": 2314839,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1993 (1).jpg",
+        "size": 3294055,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1993.HEIC",
+        "size": 2586914,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1995.jpg",
+        "size": 1524776,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1996.jpg",
+        "size": 1034480,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1998.HEIC",
+        "size": 2279893,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1999.HEIC",
+        "size": 3096352,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2001.HEIC",
+        "size": 1921405,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2001.jpg",
+        "size": 2584833,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2002.HEIC",
+        "size": 2692600,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2002.jpg",
+        "size": 3382328,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2390.HEIC",
+        "size": 3048901,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2390.jpg",
+        "size": 3811689,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2391.HEIC",
+        "size": 2808634,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2391.jpg",
+        "size": 3627245,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2392 (1).jpg",
+        "size": 3649074,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2392.HEIC",
+        "size": 2843116,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2393.HEIC",
+        "size": 2870575,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2393.jpg",
+        "size": 3680512,
+        "type": "file",
+        "encryptionTimeMs": 0
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-05-28T15:59:04.1991697\u002B02:00",
+    "jobName": "zdcez",
+    "backupType": "Full",
+    "sourceUNC": "C:\\Users\\ylies\\Desktop\\ahl",
+    "targetUNC": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "fileSizeBytes": 4,
+    "durationMs": 4041,
+    "state": 1,
+    "listFolder": [
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\logo.png",
+        "size": 103513,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\ahl54.txt",
+        "size": 69,
+        "type": "file",
+        "encryptionTimeMs": 1005
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\index.css",
+        "size": 2941,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\index.html",
+        "size": 947,
+        "type": "file",
+        "encryptionTimeMs": 0
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-05-28T16:02:44.0771273\u002B02:00",
+    "jobName": "dzsz",
+    "backupType": "Full",
+    "sourceUNC": "C:\\Users\\ylies\\Desktop\\Perso",
+    "targetUNC": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "fileSizeBytes": 162,
+    "durationMs": 163519,
+    "state": 1,
+    "listFolder": [
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CHAOUCHE - Certificat de scolarit\u00E9-1.png",
+        "size": 88056,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CHAOUCHE Ily\u00E8s - Avenant \u00E0 la Convention de stage en entreprise.docx",
+        "size": 517899,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Fiche_de_confidentialite-CHAOUCHE_YLIES.docx",
+        "size": 655899,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\IA AYA.docx",
+        "size": 23138,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Lettre_de_motivation_CHAOUCHE_Ylies.docx",
+        "size": 15112,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Rapport_de_stage_CHAOUCHE_YLIES.docx",
+        "size": 1319100,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\streamers_and_creators.xlsx",
+        "size": 14078,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\yacine.docx",
+        "size": 99482,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (1).png",
+        "size": 5815320,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (2).png",
+        "size": 4859756,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (3).png",
+        "size": 5196511,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (4).png",
+        "size": 5335573,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (5).png",
+        "size": 5092582,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (6).png",
+        "size": 6863265,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (7).png",
+        "size": 7087612,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\Design sans titre (8).png",
+        "size": 4447586,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CHAOUCHE - Certificat de scolarit\u00E9.pdf",
+        "size": 307838,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CHAOUCHE Ily\u00E8s - Avenant \u00E0 la Convention de stage en entreprise (1).pdf",
+        "size": 545474,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Convention Ylies CHAOUCHE (2).pdf",
+        "size": 9396159,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CV ANGLAIS (2).pdf",
+        "size": 149471,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CV FRANCAIS.pdf",
+        "size": 168300,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CV YLIES 2024.pdf",
+        "size": 167022,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\CV.txt",
+        "size": 539,
+        "type": "file",
+        "encryptionTimeMs": 1004
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Fiche_de_confidentialite-CHAOUCHE_YLIES.pdf",
+        "size": 349337,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\github-recovery-codes.txt",
+        "size": 206,
+        "type": "file",
+        "encryptionTimeMs": 1005
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Rapport_de_stage_LORIA2024_CHAOUCHE_YLIES.pdf",
+        "size": 1262835,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\unnamed (1).jpg",
+        "size": 858430,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\unnamed.jpg",
+        "size": 863477,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\0126daff-ab61-4957-a671-5a35a183343e.JPG",
+        "size": 308714,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\057ec3d8-56a4-4372-a0e2-7beeaffeb81d.MP4",
+        "size": 2598535,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\063d6aa2-07cb-4aa8-975a-472011899dcb.JPG",
+        "size": 230085,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\094330bc-1b4f-4982-bac7-700410833ce1(1).MP4",
+        "size": 1977148,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\094330bc-1b4f-4982-bac7-700410833ce1.MP4",
+        "size": 1977148,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\0ee1e4e4-c181-4a1a-adcd-dd0bf7efe3ea.JPG",
+        "size": 194212,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\1360b61d-8ece-47f4-9915-77f71dc339be.JPG",
+        "size": 269104,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\14c8d66b-0c1d-47ff-af92-26ea2011f292.JPG",
+        "size": 179346,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\1d628b84-db6b-4029-9cb8-9910f461f2d8.JPG",
+        "size": 217662,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\2051cb3c-86ed-4e90-851c-6764a7175070(1).JPG",
+        "size": 335800,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\2051cb3c-86ed-4e90-851c-6764a7175070.JPG",
+        "size": 335800,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\22e8b116-82b2-4484-9e19-cb058cdd2b59.JPG",
+        "size": 243813,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\23fbed13-d542-4eed-b188-d0a977baf8d6.JPG",
+        "size": 183779,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\2857817b-458b-4856-849e-061666f9a1c4.JPG",
+        "size": 223177,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\3bb65578-8863-430e-882e-797ae40d7be4.JPG",
+        "size": 180244,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\400ea3f6-6928-46dc-a8e7-1a6919c698bc.JPG",
+        "size": 257853,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\42f7d4e3-f1bd-422c-924a-c63006ba72fa.JPG",
+        "size": 243908,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\45573852-7f09-4df5-bb57-2afd875e2248(1).JPG",
+        "size": 261189,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\45573852-7f09-4df5-bb57-2afd875e2248.JPG",
+        "size": 261189,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\45d8b28d-e86c-4a3c-a2be-9379bb08398b.JPG",
+        "size": 195029,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\46f83b5a-950b-4d76-a595-7155762cb970.JPG",
+        "size": 222361,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\499e5fcb-c671-4449-b558-9393feb0c93f.MP4",
+        "size": 3077938,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\4a9b16dc-fc35-48d5-a45f-84249bffaa5a.MP4",
+        "size": 2264360,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\4b768d49-3c29-4662-b600-f9ee6f58bdf9.JPG",
+        "size": 254684,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\4bdc7000-fcbf-43d8-915b-b36470738f67.JPG",
+        "size": 223664,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\505c9482-4e8a-461e-907c-50e98c87db7b.JPG",
+        "size": 224698,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\50b81d6f-be06-4a77-947b-39234ba9c3e3(1).JPG",
+        "size": 192105,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\50b81d6f-be06-4a77-947b-39234ba9c3e3.JPG",
+        "size": 192105,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\52906663-9837-47f0-8c1c-135b2fca1b6f.MP4",
+        "size": 1784543,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\535eb90a-c96e-48dc-a5ae-42649e3c9ac5.JPG",
+        "size": 240016,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\53d45ba1-e6a0-4822-9911-fa1550b01cdb.MP4",
+        "size": 2701985,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\5d10c9af-df1d-428f-ac8b-104c55be280f.JPG",
+        "size": 303599,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\5f6d5581-0ca6-4e5a-9411-e22dc23a70fb.JPG",
+        "size": 253996,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\65b1cd3f-8489-460d-bb89-b9b8a973a5cc.JPG",
+        "size": 221744,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\7355175c-9fca-4d13-b582-42f19a4b87cd.JPG",
+        "size": 244167,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\758c1413-d95b-48c6-b716-cac634910a20(1).JPG",
+        "size": 206485,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\758c1413-d95b-48c6-b716-cac634910a20.JPG",
+        "size": 206485,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\760a2d49-8f9a-4aa5-9c57-b8d1184dd449.JPG",
+        "size": 344835,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\7d279ab3-4289-49e2-a091-08a3f0cbb9fe.JPG",
+        "size": 219151,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\7ec67ff6-9a84-4d8b-9299-9b06771f0698(1).JPG",
+        "size": 357153,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\7ec67ff6-9a84-4d8b-9299-9b06771f0698.JPG",
+        "size": 357153,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\7ff1a294-731c-4d0c-a8ba-1f4f4048ed6d.JPG",
+        "size": 212136,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\8060f78d-958b-4a6f-ad59-34e782ec65c5.JPG",
+        "size": 287948,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\821bb4a3-24e0-4fee-9ff0-dc38e026530b(1).MP4",
+        "size": 1421706,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\821bb4a3-24e0-4fee-9ff0-dc38e026530b.MP4",
+        "size": 1421706,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\838b942e-62e4-4b0a-ad6d-12d1b3d952e8.JPG",
+        "size": 249248,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\840e05eb-f697-4e8e-9397-27aaccbd80ea(1).JPG",
+        "size": 188893,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\840e05eb-f697-4e8e-9397-27aaccbd80ea.JPG",
+        "size": 188893,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\85454e0a-4451-4c18-aa91-e16889a33b62.JPG",
+        "size": 204496,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\86533245-66fc-4053-be5c-038bf7b8db37.JPG",
+        "size": 230809,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\881a1e6b-c785-4119-8474-97cb89624625.JPG",
+        "size": 220766,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\895384d6-c96d-49aa-9404-3d886dd15df8.JPG",
+        "size": 177466,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\89969a93-4d80-44da-9385-b606d43cdded.JPG",
+        "size": 209027,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\9525dad9-90b0-4f78-95c3-d154d295c6ff.MP4",
+        "size": 766338,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\962fc7b6-a94e-472a-bae5-384eb15238a6.JPG",
+        "size": 243285,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\979c2692-6f26-4d9b-9ef6-312ef114e2a3.JPG",
+        "size": 225474,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\97b0276f-15c5-417c-ac49-370b024ecb42(1).JPG",
+        "size": 231871,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\97b0276f-15c5-417c-ac49-370b024ecb42.JPG",
+        "size": 231871,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\987d0c1a-672e-4189-8f7b-34bc755549c6.JPG",
+        "size": 194806,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\99ce27e5-abbe-47be-87b7-85902774212f.JPG",
+        "size": 221269,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\9c2986ed-1652-4915-a83b-4c8452dd179d.JPG",
+        "size": 245913,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\9cb3cfd8-c171-410e-9f48-68f8051b9c9c.JPG",
+        "size": 281652,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\9efe4033-2b6c-4b91-b804-c1ec5c973f68.JPG",
+        "size": 218309,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\a699b1e8-4f40-4734-a0bb-42cbcd4c524c.JPG",
+        "size": 229101,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\a72aec92-11a2-4a9f-87d1-ab2b981855da.JPG",
+        "size": 192413,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\a9a0600c-b3e1-4e4a-8e7a-a28292b89dd5.JPG",
+        "size": 239260,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\b3b88ab1-5722-4f9a-9861-dd0339fbc5e1.JPG",
+        "size": 299770,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\b82a842b-0c00-453e-a5c3-b53398e9612a.JPG",
+        "size": 259558,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\ba1e0b48-769e-41b1-906a-29f6f6d7bf10.JPG",
+        "size": 186570,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\ba846360-8014-4e07-8ed7-58f335a62aa5.JPG",
+        "size": 215332,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\bac4909a-ba0e-4bda-bfe1-e967806cc64e.JPG",
+        "size": 182297,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\be24bca8-051b-4c11-81f8-102583e99104.JPG",
+        "size": 219370,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\c25febc5-32be-495c-8412-9ad8b1542fe7.JPG",
+        "size": 211608,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\c4c03cbe-dc57-4357-aee9-343e95b2ebaa.JPG",
+        "size": 219523,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\c9161342-ce96-48ba-bb49-2cd1e6be8d55.MP4",
+        "size": 1616906,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\ca0c7e61-bb9d-4d81-8eae-ca779520f05a.JPG",
+        "size": 262343,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\d25017fe-9f6d-4ee2-aec2-b12577fbd34c.JPG",
+        "size": 213072,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\d305400a-9648-444b-a652-b2e0ee317774.JPG",
+        "size": 212600,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\dc19144e-3387-45ce-9b44-6678f17195a2.MP4",
+        "size": 1687160,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\de079c8f-3de5-45a0-acca-4363d63ae91e.JPG",
+        "size": 193480,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\df30da47-e5c1-4d8e-bdda-7aaa72c18c07.JPG",
+        "size": 253628,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\df64218a-083c-4d09-b40d-1d528b93f2d9.JPG",
+        "size": 209930,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e23b6c77-18fc-4096-8472-d93459bd940c.JPG",
+        "size": 257662,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e28bc258-f054-4700-8cfb-a5bfbbe0eb95(1).JPG",
+        "size": 253057,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e28bc258-f054-4700-8cfb-a5bfbbe0eb95.JPG",
+        "size": 253057,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e753e067-89e4-4a7c-8fd1-a625d1a5dae6.JPG",
+        "size": 301092,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e7a48b9b-c9c6-4522-92f2-d2e271fc1f66(1).MP4",
+        "size": 2145662,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e7a48b9b-c9c6-4522-92f2-d2e271fc1f66.MP4",
+        "size": 2145662,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e860ba36-9615-42c0-9b6d-f5152658c0a5.MP4",
+        "size": 416292,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\e96fc9c3-2ef8-4648-b86c-7e19d4ef983e.JPG",
+        "size": 224927,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\ea76e90a-37c4-44e5-88c3-095bfb959d4b.JPG",
+        "size": 244585,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\eee8ab0e-7ace-4aa6-90ec-cb9ad7559c55.JPG",
+        "size": 229380,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\eef39445-9290-428d-b3ef-25d9d6359340.MP4",
+        "size": 1967728,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\f51f5f75-ef2b-4acd-9469-88c88e5bdada.MP4",
+        "size": 1943982,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\f6d34084-fe14-47df-86a1-6c0d0a34342d.JPG",
+        "size": 224414,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\fe3528cf-9da9-490b-bde8-14281ebdc70b.JPG",
+        "size": 259136,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\ff32a910-c9ea-4216-a56c-a537b81b26c1.JPG",
+        "size": 235332,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2879.HEIC",
+        "size": 1956066,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2880.HEIC",
+        "size": 2073160,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2881.HEIC",
+        "size": 2361819,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2882.MOV",
+        "size": 24988132,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2883.HEIC",
+        "size": 2240592,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2884.HEIC",
+        "size": 3377133,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2885.MOV",
+        "size": 19520743,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2886.HEIC",
+        "size": 2050516,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2887.HEIC",
+        "size": 2174343,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2888.MOV",
+        "size": 19611593,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2889.HEIC",
+        "size": 2027480,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2890.HEIC",
+        "size": 1721164,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2891.MOV",
+        "size": 19213556,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2892.HEIC",
+        "size": 1788873,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2893.HEIC",
+        "size": 1979087,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Robes\\IMG_2894.HEIC",
+        "size": 2139785,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1988.jpg",
+        "size": 1497406,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1990.jpg",
+        "size": 1096436,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1992.HEIC",
+        "size": 2314839,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1993 (1).jpg",
+        "size": 3294055,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1993.HEIC",
+        "size": 2586914,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1995.jpg",
+        "size": 1524776,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1996.jpg",
+        "size": 1034480,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1998.HEIC",
+        "size": 2279893,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_1999.HEIC",
+        "size": 3096352,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2001.HEIC",
+        "size": 1921405,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2001.jpg",
+        "size": 2584833,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2002.HEIC",
+        "size": 2692600,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2002.jpg",
+        "size": 3382328,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2390.HEIC",
+        "size": 3048901,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2390.jpg",
+        "size": 3811689,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2391.HEIC",
+        "size": 2808634,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2391.jpg",
+        "size": 3627245,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2392 (1).jpg",
+        "size": 3649074,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2392.HEIC",
+        "size": 2843116,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2393.HEIC",
+        "size": 2870575,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\Perso\\Voitures 2024\\IMG_2393.jpg",
+        "size": 3680512,
+        "type": "file",
+        "encryptionTimeMs": 0
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-05-28T16:07:21.3084599\u002B02:00",
+    "jobName": "zdcez",
+    "backupType": "Full",
+    "sourceUNC": "C:\\Users\\ylies\\Desktop\\ahl",
+    "targetUNC": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "fileSizeBytes": 4,
+    "durationMs": 4017,
+    "state": 1,
+    "listFolder": [
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\logo.png",
+        "size": 103513,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\ahl54.txt",
+        "size": 69,
+        "type": "file",
+        "encryptionTimeMs": 1004
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\index.css",
+        "size": 2941,
+        "type": "file",
+        "encryptionTimeMs": 0
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\ahl\\index.html",
+        "size": 947,
+        "type": "file",
+        "encryptionTimeMs": 0
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-05-28T16:07:28.6470223\u002B02:00",
+    "jobName": "test",
+    "backupType": "Full",
+    "sourceUNC": "C:\\Users\\ylies\\Desktop\\gg",
+    "targetUNC": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "fileSizeBytes": 4,
+    "durationMs": 4028,
+    "state": 1,
+    "listFolder": [
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\gg\\aa.txt",
+        "size": 993,
+        "type": "file",
+        "encryptionTimeMs": 1004
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\gg\\dd.txt",
+        "size": 980,
+        "type": "file",
+        "encryptionTimeMs": 1005
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\gg\\ee.txt",
+        "size": 980,
+        "type": "file",
+        "encryptionTimeMs": 1004
+      },
+      {
+        "path": "C:\\Users\\ylies\\Desktop\\gg\\ff.txt",
+        "size": 980,
+        "type": "file",
+        "encryptionTimeMs": 1005
+      }
+    ]
+  }
+]

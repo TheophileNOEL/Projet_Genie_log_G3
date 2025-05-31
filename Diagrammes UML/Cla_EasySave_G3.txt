@@ -1,0 +1,129 @@
+@startuml
+left to right direction
+skinparam packageBorderColor #1D70B8
+skinparam classBorderColor   #1D70B8
+
+package Model {
+
+  enum BackupType {
+    Full
+    Differential
+  }
+
+  enum BackupState {
+    Pending
+    Running
+    Completed
+    Failed
+    Canceled
+  }
+
+  class Folder {
+    -path        : string
+    -date        : date
+    -name        : string
+    -isMounted   : bool
+    -sizeBytes   : long
+    -isFile      : bool
+    --
+    +isSame(f : Folder) : bool
+    +move(dest : Folder): bool
+  }
+
+  class LogEntry {
+    -timestamp     : DateTime
+    -jobName       : string
+    -sourceUNC     : string
+    -targetUNC     : string
+    -fileSizeBytes : long
+    -durationMs    : long
+    -state         : bool
+    -description   : string
+    --
+    +totalSize() : long
+    +display()   : void
+  }
+
+  class Scenario {
+    -id          : int
+    -name        : string
+    -source      : string
+    -target      : string
+    -type        : BackupType
+    -state       : BackupState
+    -description : string
+    -status      : string
+    --
+    +execute() : bool
+  }
+
+  class ScenarioList {
+    -items       : Scenario[5]
+    -scriptStart : int
+    -scriptEnd   : int
+    --
+    +load()                : List<Scenario>
+    +runRange(start,end)   : void
+    +runList(ids)          : void
+    +modify(oldIdx,newIdx) : void
+    +get()                 : ScenarioList
+    +search()              : ScenarioList
+  }
+
+  class Language {
+    -title : string
+    -code  : string
+    --
+    +load() : void
+  }
+
+  class LanguageSet {
+    -items           : Language
+    -currentLanguage : Language
+    --
+    +find()          : List<Language>
+    +load()          : LanguageSet
+    +change(l : Language) : void
+    +send(l : Language)   : void
+  }
+
+  ScenarioList "1" *-- "*"  Scenario
+  LanguageSet  "1" *-- "*"  Language
+  Scenario     "1" o-- "1"  Folder  : source
+  Scenario     "1" o-- "1"  Folder  : target
+  Scenario     "1" *-- "*"  LogEntry
+}
+
+package ViewModel {
+
+  class ConsoleViewModel {
+    -scenarios : Model.ScenarioList
+    -languages : Model.LanguageSet
+    --
+    +sendLanguage(l : Model.Language) : void
+    +runScript(arg : string)          : void
+    +loadLanguages()                  : Model.LanguageSet
+    +loadScenarios()                  : Model.ScenarioList
+  }
+
+  ConsoleViewModel ..> Model.ScenarioList
+  ConsoleViewModel ..> Model.LanguageSet
+  ConsoleViewModel ..> Model.Language
+}
+
+package View {
+
+  class ConsoleUI {
+    -vm : ViewModel.ConsoleViewModel
+    --
+    +changeLanguage() : void
+    +executeScript()  : void
+    +modifyScript()   : void
+    +showLog()        : void
+    +getLanguages()   : Model.LanguageSet
+    +getScripts()     : Model.ScenarioList
+  }
+
+  ConsoleUI ..> ViewModel.ConsoleViewModel
+}
+@enduml

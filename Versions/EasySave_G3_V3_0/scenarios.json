@@ -1,0 +1,38 @@
+[
+  {
+    "Id": 2,
+    "Name": "zdcez",
+    "Source": "C:\\Users\\ylies\\Desktop\\ahl",
+    "Target": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "Type": 0,
+    "State": 2,
+    "Description": "oli",
+    "IsSelected": true,
+    "Log": {},
+    "Progress": 100
+  },
+  {
+    "Id": 4,
+    "Name": "dzsz",
+    "Source": "C:\\Users\\ylies\\Desktop\\Perso",
+    "Target": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "Type": 0,
+    "State": 2,
+    "Description": "",
+    "IsSelected": true,
+    "Log": {},
+    "Progress": 100
+  },
+  {
+    "Id": 1,
+    "Name": "test",
+    "Source": "C:\\Users\\ylies\\Desktop\\gg",
+    "Target": "C:\\Users\\ylies\\Desktop\\Nouveau dossier",
+    "Type": 0,
+    "State": 0,
+    "Description": "",
+    "IsSelected": false,
+    "Log": {},
+    "Progress": 0
+  }
+]
