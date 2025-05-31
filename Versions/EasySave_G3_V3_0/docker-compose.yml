@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  easysave-server:
+    build:
+      context: ./EasySave_G3_V3_0
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    container_name: easysave_server
+    restart: unless-stopped
